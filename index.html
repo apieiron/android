@@ -74,7 +74,66 @@
         footer a {
             color:#aaa;
         }
+
+        .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Lightbox */
+#lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+#lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+}
+
+#lightbox .nav {
+    position: absolute;
+    top: 50%;
+    font-size: 50px;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+    transform: translateY(-50%);
+}
+
+#lightbox .left { left: 20px; }
+#lightbox .right { right: 20px; }
+
     </style>
+    
 </head>
 <body>
 
@@ -114,6 +173,24 @@
             <li>Visual and video-based explanations</li>
         </ul>
     </section>
+<section>
+    <h2>App Screenshots</h2>
+
+    <div class="gallery">
+        <img src="en/01.jpg" onclick="openLightbox(0)">
+        <img src="en/02.jpg" onclick="openLightbox(1)">
+        <img src="en/03.jpg" onclick="openLightbox(2)">
+        <img src="en/04.jpg" onclick="openLightbox(3)">
+    </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox">
+    <span class="close" onclick="closeLightbox()">×</span>
+    <span class="nav left" onclick="changeSlide(-1)">❮</span>
+    <img id="lightbox-img">
+    <span class="nav right" onclick="changeSlide(1)">❯</span>
+</div>
 
     <section>
         <h2>Who Is This App For?</h2>
@@ -148,6 +225,40 @@
 
 
 </div>
+<script>
+    const images = [
+        "en/01.jpg",
+        "en/02.jpg",
+        "en/03.jpg",
+        "en/04.jpg"
+    ];
+
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+        currentIndex = index;
+        document.getElementById("lightbox").style.display = "flex";
+        document.getElementById("lightbox-img").src = images[currentIndex];
+    }
+
+    function closeLightbox() {
+        document.getElementById("lightbox").style.display = "none";
+    }
+
+    function changeSlide(direction) {
+        currentIndex += direction;
+
+        if (currentIndex < 0) currentIndex = images.length - 1;
+        if (currentIndex >= images.length) currentIndex = 0;
+
+        document.getElementById("lightbox-img").src = images[currentIndex];
+    }
+
+    // ESC ile kapatma
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape") closeLightbox();
+    });
+</script>
 
 </body>
 </html>
