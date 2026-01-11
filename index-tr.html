@@ -71,6 +71,63 @@
         footer a {
             color:#aaa;
         }
+                .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Lightbox */
+#lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    touch-action: pan-y;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+#lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+}
+
+#lightbox .nav {
+    position: absolute;
+    top: 50%;
+    font-size: 50px;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+    transform: translateY(-50%);
+}
+
+#lightbox .left { left: 20px; }
+#lightbox .right { right: 20px; }
     </style>
 </head>
 <body>
@@ -112,7 +169,20 @@
         <li>Görsel anlatımlar ve video destekli içerikler</li>
     </ul>
 </section>
+<section>
+    <h2>Uygulamadan ekran görüntüleri</h2>
 
+    <div class="gallery">
+        <img src="images/en/01.jpeg" onclick="openLightbox(0)">
+        <img src="images/en/02.jpeg" onclick="openLightbox(1)">
+        <img src="images/en/03.jpeg" onclick="openLightbox(2)">
+        <img src="images/en/04.jpeg" onclick="openLightbox(3)">
+        <img src="images/en/05.jpeg" onclick="openLightbox(4)">
+        <img src="images/en/06.jpeg" onclick="openLightbox(5)">
+        <img src="images/en/07.jpeg" onclick="openLightbox(6)">
+        <img src="images/en/08.jpeg" onclick="openLightbox(7)">
+    </div>
+</section>
 <section>
     <h2>Kimler İçin?</h2>
     <p>
@@ -145,6 +215,87 @@
 </footer>
 
 </div>
+<script>
+    const images = [
+        "images/en/01.jpeg",
+        "images/en/02.jpeg",
+        "images/en/03.jpeg",
+        "images/en/04.jpeg",
+        "images/en/05.jpeg",
+        "images/en/06.jpeg",
+        "images/en/07.jpeg",
+        "images/en/08.jpeg"
+    ];
 
+    let currentIndex = 0;
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    function openLightbox(index) {
+        currentIndex = index;
+        lightbox.style.display = "flex";
+        lightboxImg.src = images[currentIndex];
+    }
+
+    function closeLightbox() {
+        lightbox.style.display = "none";
+    }
+
+    function changeSlide(direction) {
+        currentIndex += direction;
+        if (currentIndex < 0) currentIndex = images.length - 1;
+        if (currentIndex >= images.length) currentIndex = 0;
+        lightboxImg.src = images[currentIndex];
+    }
+
+    // ESC kapatma
+    document.addEventListener("keydown", e => {
+        if (e.key === "Escape") closeLightbox();
+    });
+
+    /* =====================
+       NET SWIPE ALGORİTMASI
+    ====================== */
+
+    let startX = 0;
+    let startY = 0;
+    let isSwiping = false;
+
+    lightbox.addEventListener("touchstart", e => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        isSwiping = true;
+    }, { passive: true });
+
+    lightbox.addEventListener("touchmove", e => {
+        if (!isSwiping) return;
+
+        const deltaX = e.touches[0].clientX - startX;
+        const deltaY = e.touches[0].clientY - startY;
+
+        // Yatay swipe baskınsa scroll'u engelle
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+
+    lightbox.addEventListener("touchend", e => {
+        if (!isSwiping) return;
+        isSwiping = false;
+
+        const endX = e.changedTouches[0].clientX;
+        const deltaX = endX - startX;
+
+        const swipeThreshold = 60;
+
+        if (deltaX > swipeThreshold) {
+            changeSlide(-1); // sağa → önceki
+        } 
+        else if (deltaX < -swipeThreshold) {
+            changeSlide(1);  // sola → sonraki
+        }
+    });
+</script>
 </body>
 </html>
