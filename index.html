@@ -102,6 +102,7 @@
     z-index: 999;
     justify-content: center;
     align-items: center;
+    touch-action: pan-y;
 }
 
 #lightbox img {
@@ -235,30 +236,75 @@
 
     let currentIndex = 0;
 
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+
     function openLightbox(index) {
         currentIndex = index;
-        document.getElementById("lightbox").style.display = "flex";
-        document.getElementById("lightbox-img").src = images[currentIndex];
+        lightbox.style.display = "flex";
+        lightboxImg.src = images[currentIndex];
     }
 
     function closeLightbox() {
-        document.getElementById("lightbox").style.display = "none";
+        lightbox.style.display = "none";
     }
 
     function changeSlide(direction) {
         currentIndex += direction;
-
         if (currentIndex < 0) currentIndex = images.length - 1;
         if (currentIndex >= images.length) currentIndex = 0;
-
-        document.getElementById("lightbox-img").src = images[currentIndex];
+        lightboxImg.src = images[currentIndex];
     }
 
-    // ESC ile kapatma
-    document.addEventListener("keydown", function(e) {
+    // ESC kapatma
+    document.addEventListener("keydown", e => {
         if (e.key === "Escape") closeLightbox();
     });
+
+    /* =====================
+       NET SWIPE ALGORİTMASI
+    ====================== */
+
+    let startX = 0;
+    let startY = 0;
+    let isSwiping = false;
+
+    lightbox.addEventListener("touchstart", e => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        isSwiping = true;
+    }, { passive: true });
+
+    lightbox.addEventListener("touchmove", e => {
+        if (!isSwiping) return;
+
+        const deltaX = e.touches[0].clientX - startX;
+        const deltaY = e.touches[0].clientY - startY;
+
+        // Yatay swipe baskınsa scroll'u engelle
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+
+    lightbox.addEventListener("touchend", e => {
+        if (!isSwiping) return;
+        isSwiping = false;
+
+        const endX = e.changedTouches[0].clientX;
+        const deltaX = endX - startX;
+
+        const swipeThreshold = 60;
+
+        if (deltaX > swipeThreshold) {
+            changeSlide(-1); // sağa → önceki
+        } 
+        else if (deltaX < -swipeThreshold) {
+            changeSlide(1);  // sola → sonraki
+        }
+    });
 </script>
+
 
 </body>
 </html>
