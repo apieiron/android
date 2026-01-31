@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BugOut Planner – Scenario-Based Survival Planning App</title>
+    <link rel="icon" type="image/x-icon" href="/images/bugout.ico">
+
+    <!-- SEO Meta -->
+    <meta name="description" content="BugOut Planner is a scenario-based survival planning app. Create bug out bags, manage inventory, track expiration dates and stay prepared for emergencies.">
+    <meta name="keywords" content="bug out planner, survival planner, bug out bag, prepper inventory, emergency preparedness, survival kit, disaster planning">
+    <meta name="author" content="BugOut Planner">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="BugOut Planner – Scenario-Based Survival Planning">
+    <meta property="og:description" content="Create survival scenarios, build bug out bags, manage inventory and track expiration dates.">
+    <meta property="og:type" content="website">
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #0e0e0e;
+            color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        header img {
+            width: 160px;
+            height: 160px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #e67e22;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #1f9d6a;
+            margin-top: 40px;
+        }
+        p {
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+        ul {
+            line-height: 1.8;
+        }
+        .cta {
+            margin-top: 40px;
+            text-align: center;
+        }
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+        footer a {
+            color:#aaa;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.9);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+            touch-action: pan-y;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        #lightbox .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #lightbox .nav {
+            position: absolute;
+            top: 50%;
+            font-size: 50px;
+            color: #fff;
+            cursor: pointer;
+            user-select: none;
+            transform: translateY(-50%);
+        }
+
+        #lightbox .left { left: 20px; }
+        #lightbox .right { right: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+<header>
+    <a href="https://play.google.com/store/apps/details?id=com.bugout.planner">
+        <img src="images/bugout-planner.jpg" alt="BugOut Planner App Logo">
+    </a>
+    <h1>BugOut Planner</h1>
+    <p><strong>Scenario-Based Survival Planning App</strong></p>
+</header>
+
+<div class="cta">
+    <a href="https://play.google.com/store/apps/details?id=com.bugout.planner" target="_blank">
+        <img src="images/google.png" width="400">
+    </a>
+</div>
+
+<section>
+    <p>
+        <strong>BugOut Planner</strong> is a survival and emergency preparedness app designed for realistic planning — not static checklists.
+    </p>
+    <p>
+        Create custom scenarios and build accurate bug out bags based on real conditions, then track your supplies with full control.
+    </p>
+</section>
+
+<section>
+    <h2>Key Features</h2>
+    <ul>
+        <li>Scenario-based bug out bag creation</li>
+        <li>Custom parameters: people, days, weather, disaster or war scenarios</li>
+        <li>Pet support (cats & dogs)</li>
+        <li>Manual inventory & home storage tracking</li>
+        <li>Expiration date tracking with notifications</li>
+        <li>Dashboard for expired and critical items</li>
+        <li>PDF export for scenarios</li>
+        <li>Offline-first, privacy friendly</li>
+        <li>Backup & restore support</li>
+        <li>Dark mode & language selection</li>
+    </ul>
+</section>
+
+<section>
+    <h2>App Screenshots</h2>
+    <div class="gallery">
+        <img src="images/bugout-en/New screen01.jpeg" onclick="openLightbox(0)">
+        <img src="images/bugout-en/New screen02.jpeg" onclick="openLightbox(1)">
+        <img src="images/bugout-en/New screen03.jpeg" onclick="openLightbox(2)">
+        <img src="images/bugout-en/New screen04.jpeg" onclick="openLightbox(3)">
+        <img src="images/bugout-en/New screen05.jpeg" onclick="openLightbox(4)">
+      <img src="images/bugout-en/New screen b01.jpeg" onclick="openLightbox(5)">
+      <img src="images/bugout-en/New screen b02.jpeg" onclick="openLightbox(6)">
+      <img src="images/bugout-en/New screen b03.jpeg" onclick="openLightbox(7)">
+      <img src="images/bugout-en/New screen b04.jpeg" onclick="openLightbox(8)">
+      <img src="images/bugout-en/New screen b05.jpeg" onclick="openLightbox(9)">
+    </div>
+</section>
+
+<div id="lightbox">
+    <span class="close" onclick="closeLightbox()">×</span>
+    <span class="nav left" onclick="changeSlide(-1)">❮</span>
+    <img id="lightbox-img">
+    <span class="nav right" onclick="changeSlide(1)">❯</span>
+</div>
+
+<section>
+    <h2>Who Is This App For?</h2>
+    <p>
+        BugOut Planner is built for preppers, survivalists, families preparing for emergencies, and anyone who wants structured readiness.
+    </p>
+</section>
+
+<section>
+    <h2>Why Scenario-Based Planning?</h2>
+    <p>
+        Every emergency is different. BugOut Planner adapts your gear and supplies to real situations instead of one-size-fits-all lists.
+    </p>
+</section>
+
+<div class="cta">
+    <a href="https://play.google.com/store/apps/details?id=com.bugout.planner" target="_blank">
+        <img src="images/google.png" width="400">
+    </a>
+</div>
+
+<footer>
+    <p>
+        © 2026 BugOut Planner<br>
+        <a href="https://survivalprotocolx.apieiron.workers.dev/bugout-planner-privacy.html">Privacy Policy</a>
+    </p>
+</footer>
+
+</div>
+
+<script>
+    const images = [
+      "images/bugout-en/New screen01.jpeg",
+      "images/bugout-en/New screen02.jpeg",
+      "images/bugout-en/New screen03.jpeg",
+      "images/bugout-en/New screen04.jpeg",
+      "images/bugout-en/New screen05.jpeg",
+      "images/bugout-en/New screen b01.jpeg",
+      "images/bugout-en/New screen b02.jpeg",
+      "images/bugout-en/New screen b03.jpeg",
+      "images/bugout-en/New screen b04.jpeg",
+      "images/bugout-en/New screen b05.jpeg",
+
+    ];
+
+    let currentIndex = 0;
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    function openLightbox(index) {
+        currentIndex = index;
+        lightbox.style.display = "flex";
+        lightboxImg.src = images[currentIndex];
+    }
+
+    function closeLightbox() {
+        lightbox.style.display = "none";
+    }
+
+    function changeSlide(direction) {
+        currentIndex += direction;
+        if (currentIndex < 0) currentIndex = images.length - 1;
+        if (currentIndex >= images.length) currentIndex = 0;
+        lightboxImg.src = images[currentIndex];
+    }
+
+    document.addEventListener("keydown", e => {
+        if (e.key === "Escape") closeLightbox();
+    });
+</script>
+
+</body>
+</html>
