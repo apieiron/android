@@ -1,233 +1,361 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <title>Survival Protocol X – İnternet olmadan çalışabilen "Hayatta Kalma Rehberi"</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <meta name="description" content="Survival Protocol X çevrimdışı hayatta kalma rehberi uygulamasıdır. Doğa, afet ve olağanüstü durumlar için internet olmadan kullanılabilir hayatta kalma kılavuzu.">
-    <meta name="keywords" content="survival protocol x, hayatta kalma, survival app, offline survival, afet hazırlığı, doğada kalma, acil durum rehberi, survival guide">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Survival Protocol X & BugOut Planner</title>
 
-    <meta property="og:title" content="Survival Protocol X – Offline Survival Guide">
-    <meta property="og:description" content="Doğa, afet ve olağanüstü durumlar için çevrimdışı hayatta kalma rehberi.">
-    <meta property="og:type" content="website">
-
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #0e0e0e;
-            color: #f2f2f2;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 40px 20px;
-        }
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        header img {
-            width: 160px;
-            height: 160px;
-            border-radius: 20px;
-            margin-bottom: 20px;
-        }
-        h1 {
-            color: #e67e22;
-            font-size: 2.5em;
-        }
-        h2 {
-            color: #1f9d6a;
-            margin-top: 40px;
-        }
-        p {
-            line-height: 1.7;
-            font-size: 1.05em;
-        }
-        ul {
-            line-height: 1.8;
-        }
-        .cta {
-            margin-top: 40px;
-            text-align: center;
-        }
-        .cta a {
-            color: #000;
-            padding: 15px 30px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 8px;
-        }
-        footer {
-            margin-top: 60px;
-            text-align: center;
-            font-size: 0.9em;
-            color: #aaa;
-        }
-        footer a {
-            color:#aaa;
-        }
-                .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 12px;
-    margin-top: 20px;
+<style>
+:root{
+--bg:#05080d;
+--primary:#00ffa6;
+--accent:#00b4ff;
+--danger:#ff3b3b;
+--text:#e9f1ff;
+--glass:rgba(255,255,255,.06);
 }
 
-.gallery img {
-    width: 100%;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s;
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Segoe UI,Arial}
+body{
+background:
+radial-gradient(1200px 600px at 10% 10%,rgba(0,180,255,.12),transparent),
+radial-gradient(900px 500px at 90% 90%,rgba(0,255,166,.12),transparent),
+var(--bg);
+color:var(--text);
+overflow-x:hidden;
 }
 
-.gallery img:hover {
-    transform: scale(1.05);
+/* GRID */
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background-image:
+linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+background-size:90px 90px;
+z-index:-2;
 }
 
-/* Lightbox */
-#lightbox {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.9);
-    z-index: 999;
-    justify-content: center;
-    align-items: center;
-    touch-action: pan-y;
+/* HUD + RADAR */
+.hud{
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:-1;
 }
 
-#lightbox img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 10px;
+.hud-line{
+position:absolute;
+height:1px;
+width:40%;
+background:linear-gradient(90deg,transparent,var(--primary),transparent);
+opacity:.6;
+animation:hudMove 10s linear infinite;
+}
+.hud-line:nth-child(1){top:20%;animation-duration:12s}
+.hud-line:nth-child(2){top:50%;animation-duration:16s}
+.hud-line:nth-child(3){top:80%;animation-duration:14s}
+
+@keyframes hudMove{
+0%{left:-40%}
+100%{left:140%}
 }
 
-#lightbox .close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 40px;
-    color: #fff;
-    cursor: pointer;
+.radar{
+position:absolute;
+right:40px;
+bottom:40px;
+width:180px;
+height:180px;
+border-radius:50%;
+border:1px solid rgba(0,255,166,.3);
+background:radial-gradient(circle,rgba(0,255,166,.12) 0%,transparent 60%);
+overflow:hidden;
+}
+.radar::before{
+content:"";
+position:absolute;
+inset:0;
+border-radius:50%;
+background:conic-gradient(from 0deg,rgba(0,255,166,.4),transparent 40%);
+animation:spin 4s linear infinite;
+}
+@keyframes spin{
+100%{transform:rotate(360deg)}
 }
 
-#lightbox .nav {
-    position: absolute;
-    top: 50%;
-    font-size: 50px;
-    color: #fff;
-    cursor: pointer;
-    user-select: none;
-    transform: translateY(-50%);
+/* LAYOUT */
+.container{
+max-width:1250px;
+margin:auto;
+padding:70px 20px;
 }
 
-#lightbox .left { left: 20px; }
-#lightbox .right { right: 20px; }
-    </style>
+/* HEADER APPS */
+.apps{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:28px;
+margin-bottom:60px;
+}
+@media(max-width:900px){
+.apps{grid-template-columns:1fr}
+}
+
+.app-card{
+display:flex;
+gap:20px;
+align-items:center;
+padding:22px;
+border-radius:22px;
+background:var(--glass);
+border:1px solid rgba(255,255,255,.12);
+backdrop-filter:blur(10px);
+transition:.25s;
+}
+.app-card:hover{
+transform:translateY(-6px);
+border-color:rgba(0,255,166,.4);
+}
+
+.app-card img{
+width:88px;
+height:88px;
+border-radius:18px;
+}
+
+.app-card h2{
+font-size:22px;
+color:var(--primary);
+margin-bottom:6px;
+}
+
+.app-card p{
+font-size:14px;
+opacity:.8;
+line-height:1.5;
+}
+
+.app-card a{
+display:inline-block;
+margin-top:10px;
+padding:10px 18px;
+border-radius:10px;
+background:linear-gradient(135deg,var(--primary),var(--accent));
+color:#000;
+font-weight:700;
+text-decoration:none;
+font-size:14px;
+}
+
+/* HERO TEXT */
+.hero-text{
+margin-bottom:40px;
+max-width:700px;
+}
+.hero-text h1{
+font-size:46px;
+line-height:1.05;
+letter-spacing:-1px;
+}
+.hero-text p{
+margin-top:14px;
+font-size:17px;
+opacity:.85;
+}
+@media(max-width:600px){
+.hero-text h1{font-size:34px}
+}
+
+/* PREMIUM SLIDER */
+.slider{
+position:relative;
+border-radius:24px;
+overflow:hidden;
+background:var(--glass);
+border:1px solid rgba(255,255,255,.12);
+box-shadow:0 30px 80px rgba(0,0,0,.6);
+}
+
+.slides{
+display:flex;
+transition:transform .7s cubic-bezier(.4,0,.2,1);
+will-change:transform;
+}
+
+.slide{
+min-width:100%;
+padding:22px;
+}
+
+.slide img{
+width:100%;
+border-radius:18px;
+display:block;
+box-shadow:0 20px 50px rgba(0,0,0,.7);
+}
+
+/* PROGRESS BAR */
+.progress{
+position:absolute;
+bottom:0;
+left:0;
+height:3px;
+background:linear-gradient(90deg,var(--primary),var(--accent));
+width:0%;
+}
+
+/* DOTS */
+.dots{
+position:absolute;
+bottom:14px;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+gap:8px;
+}
+.dot{
+width:10px;
+height:10px;
+border-radius:50%;
+background:rgba(255,255,255,.3);
+cursor:pointer;
+transition:.2s;
+}
+.dot.active{
+background:var(--primary);
+transform:scale(1.3);
+}
+
+/* FEATURES */
+.features{
+margin-top:80px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:22px;
+}
+@media(max-width:900px){
+.features{grid-template-columns:1fr}
+}
+
+.feature{
+padding:22px;
+border-radius:20px;
+background:var(--glass);
+border:1px solid rgba(255,255,255,.1);
+transition:.2s;
+}
+.feature:hover{
+border-color:rgba(0,255,166,.4);
+transform:translateY(-4px);
+}
+
+.feature h3{
+color:var(--primary);
+margin-bottom:10px;
+}
+.feature p{
+font-size:14px;
+opacity:.8;
+}
+
+/* MOBILE OPTIMIZATION */
+@media(max-width:768px){
+.app-card{backdrop-filter:none}
+body::before{background-size:130px 130px;opacity:.4}
+.radar{display:none}
+}
+
+/* FOOTER */
+footer{
+margin-top:100px;
+text-align:center;
+opacity:.6;
+font-size:14px;
+}
+footer a{color:var(--primary);text-decoration:none}
+</style>
 </head>
 <body>
 
+<div class="hud">
+<div class="hud-line"></div>
+<div class="hud-line"></div>
+<div class="hud-line"></div>
+<div class="radar"></div>
+</div>
+
 <div class="container">
 
-<header>
-    <a href="https://play.google.com/store/apps/details?id=survival.protocolx.survive"><img src="images/logo.png" alt="Survival Protocol X Logo"></a>
-    <h1>Survival Protocol X</h1>
-    <p><strong>Çevrimdışı Hayatta Kalma Rehberi Uygulaması</strong></p>
-</header>
- <div class="cta">
-        <a href="https://play.google.com/store/apps/details?id=survival.protocolx.survive" target="_blank">
-            <img src="images/Google-indir.png" width="400">
-        </a>
-    </div>
-<section>
-    <p>
-        <strong>Survival Protocol X</strong>, Doğada Hayatta Kalma, Kamp bilgileri, Savaş Şartlarında Hayatta Kalma, Doğal Afet durumları ve Olağanüstü senaryolarda hayatta kalmanıza yardımcı olmak için tasarlanmış kapsamlı bir  <strong>çevrimdışı hayatta kalma rehberi</strong> uygulamasıdır.
-    </p>
-
-    <p>
-        Kamp yaparken, doğada keşif yaparken, acil durumlara hazırlanırken veya ekstrem senaryoları öğrenmek isterken Survival Protocol X ihtiyacınız olan bilgileri  <strong>internet bağlantısı olmadan</strong> sunar.
-    </p>
-</section>
-
-<section>
-    <h2>Öne Çıkan Özellikler</h2>
-    <ul>
-        <li>Çevrimdışı kullanım – internet gerektirmez</li>
-        <li>Doğada hayatta kalma teknikleri</li>
-        <li>Savaş şartlarında hayatta kalma teknikleri</li>
-        <li>Afet ve acil durum hazırlıkları</li>
-        <li>Acil müdahale ve ilk yardım rehberi</li>
-        <li>Salgın ve olağanüstü senaryolar</li>
-        <li>Görsel anlatımlar ve video destekli içerikler</li>
-    </ul>
-</section>
-<section>
-    <h2>Uygulamadan ekran görüntüleri</h2>
-
-    <div class="gallery">
-        <img src="images/tr/01.jpeg" onclick="openLightbox(0)">
-        <img src="images/tr/02.jpeg" onclick="openLightbox(1)">
-        <img src="images/tr/03.jpeg" onclick="openLightbox(2)">
-        <img src="images/tr/04.jpeg" onclick="openLightbox(3)">
-        <img src="images/tr/05.jpeg" onclick="openLightbox(4)">
-        <img src="images/tr/06.jpeg" onclick="openLightbox(5)">
-        <img src="images/tr/07.jpeg" onclick="openLightbox(6)">
-        <img src="images/tr/08.jpeg" onclick="openLightbox(7)">
-        <img src="images/tr/09.jpeg" onclick="openLightbox(8)">
-        <img src="images/tr/10.jpeg" onclick="openLightbox(9)">
-        <img src="images/tr/11.jpeg" onclick="openLightbox(10)">
-        <img src="images/tr/12.jpeg" onclick="openLightbox(11)">
-        <img src="images/tr/13.jpeg" onclick="openLightbox(12)">
-        <img src="images/tr/14.jpeg" onclick="openLightbox(13)">
-        <img src="images/tr/15.jpeg" onclick="openLightbox(14)">
-        <img src="images/tr/16.jpeg" onclick="openLightbox(15)">
-    </div>
-</section>
-    <!-- Lightbox -->
-<div id="lightbox">
-    <span class="close" onclick="closeLightbox()">×</span>
-    <span class="nav left" onclick="changeSlide(-1)">❮</span>
-    <img id="lightbox-img">
-    <span class="nav right" onclick="changeSlide(1)">❯</span>
+<div class="hero-text">
+<h1>Hayatta Kalma Sistemleri<br>Tek Platformda</h1>
+<p>
+Survival Protocol X ve BugOut Planner, kriz anlarında bilgi ve hazırlığı birleştiren profesyonel hayatta kalma uygulamalarıdır.
+</p>
 </div>
-<section>
-    <h2>Kimler İçin?</h2>
-    <p>
-        Outdoor meraklıları, kampçılar, bushcraft öğrenenler, afet hazırlığı yapanlar
-        ve beklenmedik durumlara hazırlıklı olmak isteyen herkes için idealdir.
-    </p>
+
+<section class="apps">
+
+<div class="app-card">
+<img src="images/logo.png">
+<div>
+<h2>Survival Protocol X</h2>
+<p>
+İnternetsiz çalışan hayatta kalma rehberi.  
+Doğa, afet, savaş ve kriz senaryoları için kapsamlı bilgiler.
+</p>
+<a href="https://play.google.com/store/apps/details?id=survival.protocolx.survive" target="_blank">Play Store</a>
+</div>
+</div>
+
+<div class="app-card">
+<img src="images/bugout-planner.jpg">
+<div>
+<h2>BugOut Planner</h2>
+<p>
+Senaryo bazlı hazırlık sistemi.  
+Bug out çantası, envanter ve kişi/gün planlaması.
+</p>
+<a href="https://survivalprotocolx.apieiron.workers.dev/bugout-planner-en" target="_blank">Detaylar</a>
+</div>
+</div>
+
 </section>
 
-<section>
-    <h2>Neden Çevrimdışı?</h2>
-    <p>
-        Gerçek acil durumlarda internet olmayabilir. Survival Protocol X, 
-        en kritik anda ihtiyaç duyacağınız bilgilere erişebilmenizi sağlar.
-    </p>
+<section class="slider" id="slider">
+<div class="slides" id="slides"></div>
+<div class="dots" id="dots"></div>
+<div class="progress" id="progress"></div>
 </section>
 
- <div class="cta">
-        <a href="https://play.google.com/store/apps/details?id=survival.protocolx.survive" target="_blank">
-            <img src="images/Google-indir.png" width="400">
-        </a>
-    </div>
+<section class="features">
+<div class="feature">
+<h3>Offline Bilgi</h3>
+<p>İnternet olmadan hayatta kalma rehberine erişim.</p>
+</div>
+<div class="feature">
+<h3>Gerçekçi Senaryolar</h3>
+<p>Doğa, savaş, afet ve kriz durumları için özel içerik.</p>
+</div>
+<div class="feature">
+<h3>Profesyonel Hazırlık</h3>
+<p>Bug out çantası ve envanter planlama sistemi.</p>
+</div>
+</section>
 
 <footer>
-    <p>
-        © 2025 Survival Protocol X<br>
-        <a href="privacy.html">Gizlilik Politikası</a> |
-        <a href="index.html">English</a> |
-        <a href="https://www.instagram.com/survival.protocol.x/" target="_blank">Instagram</a>
-    </p>
+<p>
+© 2025 Survival Protocol X<br>
+<a href="privacy.html">Gizlilik Politikası</a> |
+<a href="index.html">English</a>
+</p>
 </footer>
 
 </div>
+
 <script>
-    const images = [
+const images = [
         "images/tr/01.jpeg",
         "images/tr/02.jpeg",
         "images/tr/03.jpeg",
@@ -246,75 +374,72 @@
         "images/tr/16.jpeg"
     ];
 
-    let currentIndex = 0;
+const slides=document.getElementById("slides");
+const dots=document.getElementById("dots");
+const progress=document.getElementById("progress");
 
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
+let index=0;
+let timer;
+const duration=5000;
 
-    function openLightbox(index) {
-        currentIndex = index;
-        lightbox.style.display = "flex";
-        lightboxImg.src = images[currentIndex];
-    }
+images.forEach((src,i)=>{
+const slide=document.createElement("div");
+slide.className="slide";
+slide.innerHTML=`<img src="${src}" loading="lazy">`;
+slides.appendChild(slide);
 
-    function closeLightbox() {
-        lightbox.style.display = "none";
-    }
+const dot=document.createElement("div");
+dot.className="dot"+(i===0?" active":"");
+dot.onclick=()=>goSlide(i);
+dots.appendChild(dot);
+});
 
-    function changeSlide(direction) {
-        currentIndex += direction;
-        if (currentIndex < 0) currentIndex = images.length - 1;
-        if (currentIndex >= images.length) currentIndex = 0;
-        lightboxImg.src = images[currentIndex];
-    }
+function goSlide(i){
+index=i;
+slides.style.transform=`translateX(-${i*100}%)`;
+document.querySelectorAll(".dot").forEach((d,di)=>{
+d.classList.toggle("active",di===i);
+});
+resetProgress();
+}
 
-    // ESC kapatma
-    document.addEventListener("keydown", e => {
-        if (e.key === "Escape") closeLightbox();
-    });
+function resetProgress(){
+progress.style.transition="none";
+progress.style.width="0%";
+setTimeout(()=>{
+progress.style.transition=`width ${duration}ms linear`;
+progress.style.width="100%";
+},50);
+}
 
-    /* =====================
-       NET SWIPE ALGORİTMASI
-    ====================== */
+function autoSlide(){
+timer=setInterval(()=>{
+index=(index+1)%images.length;
+goSlide(index);
+},duration);
+}
 
-    let startX = 0;
-    let startY = 0;
-    let isSwiping = false;
+resetProgress();
+autoSlide();
 
-    lightbox.addEventListener("touchstart", e => {
-        startX = e.touches[0].clientX;
-        startY = e.touches[0].clientY;
-        isSwiping = true;
-    }, { passive: true });
+/* TOUCH SWIPE */
+let startX=0;
+const slider=document.getElementById("slider");
 
-    lightbox.addEventListener("touchmove", e => {
-        if (!isSwiping) return;
+slider.addEventListener("touchstart",e=>{
+startX=e.touches[0].clientX;
+clearInterval(timer);
+});
 
-        const deltaX = e.touches[0].clientX - startX;
-        const deltaY = e.touches[0].clientY - startY;
-
-        // Yatay swipe baskınsa scroll'u engelle
-        if (Math.abs(deltaX) > Math.abs(deltaY)) {
-            e.preventDefault();
-        }
-    }, { passive: false });
-
-    lightbox.addEventListener("touchend", e => {
-        if (!isSwiping) return;
-        isSwiping = false;
-
-        const endX = e.changedTouches[0].clientX;
-        const deltaX = endX - startX;
-
-        const swipeThreshold = 60;
-
-        if (deltaX > swipeThreshold) {
-            changeSlide(-1); // sağa → önceki
-        } 
-        else if (deltaX < -swipeThreshold) {
-            changeSlide(1);  // sola → sonraki
-        }
-    });
+slider.addEventListener("touchend",e=>{
+let endX=e.changedTouches[0].clientX;
+let diff=endX-startX;
+if(diff>60) index=(index-1+images.length)%images.length;
+if(diff<-60) index=(index+1)%images.length;
+goSlide(index);
+autoSlide();
+});
 </script>
+
 </body>
 </html>
