@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>Survival Protocol | Tactical Ecosystem</title>
 <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-
 <meta name="description" content="Survival Protocol Tactical Ecosystem – advanced offline survival knowledge and scenario-based planning tools.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -17,24 +16,25 @@ body {
     margin: 0;
     font-family: Inter, sans-serif;
     background:
-        radial-gradient(circle at 20% 20%, rgba(31,157,106,0.15), transparent 40%),
-        radial-gradient(circle at 80% 10%, rgba(230,126,34,0.12), transparent 40%),
+        radial-gradient(circle at 20% 20%, rgba(31,157,106,0.12), transparent 40%),
+        radial-gradient(circle at 80% 10%, rgba(230,126,34,0.10), transparent 40%),
         linear-gradient(180deg, #050505, #0a0a0a);
     color: #eaeaea;
     overflow-x: hidden;
 }
 
-/* GRID BACKGROUND */
+/* GRID BACKGROUND (optimized) */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
     background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 80px 80px;
     pointer-events: none;
     z-index: 0;
+    opacity: 0.7;
 }
 
 .container {
@@ -48,66 +48,70 @@ body::before {
 /* HERO */
 .hero {
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 70px;
 }
 
 .hero h1 {
     font-family: Orbitron, sans-serif;
-    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
     letter-spacing: 2px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
-.hero span {
-    color: #1f9d6a;
-}
+.hero span { color: #1f9d6a; }
 
 .hero p {
     max-width: 720px;
     margin: auto;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     color: #b8b8b8;
 }
 
 /* ECOSYSTEM */
 .ecosystem {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 26px;
 }
 
 .app-card {
     position: relative;
-    background: linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+    background: linear-gradient(160deg, rgba(255,255,255,0.045), rgba(255,255,255,0.01));
     border: 1px solid rgba(255,255,255,0.12);
     border-radius: 22px;
-    padding: 30px;
-    backdrop-filter: blur(8px);
-    transition: 0.35s ease;
+    padding: 28px;
+    transition: 0.3s ease;
+}
+
+/* blur sadece desktop */
+@media (min-width: 769px) {
+    .app-card {
+        backdrop-filter: blur(7px);
+    }
 }
 
 .app-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 30px 70px rgba(0,0,0,0.7);
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.65);
 }
 
 .app-header {
     display: flex;
     align-items: center;
-    gap: 18px;
-    margin-bottom: 18px;
+    gap: 16px;
+    margin-bottom: 16px;
 }
 
 .app-header img {
-    width: 78px;
-    height: 78px;
+    width: 72px;
+    height: 72px;
     border-radius: 16px;
     border: 1px solid rgba(255,255,255,0.2);
 }
 
 .app-header h2 {
     margin: 0;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-family: Orbitron, sans-serif;
 }
 
@@ -118,25 +122,25 @@ body::before {
 }
 
 .app-card p {
-    font-size: 1rem;
-    line-height: 1.7;
+    font-size: 0.98rem;
+    line-height: 1.65;
     color: #d0d0d0;
 }
 
 .actions {
-    margin-top: 22px;
+    margin-top: 20px;
     display: flex;
-    gap: 12px;
+    gap: 10px;
     flex-wrap: wrap;
 }
 
 .btn {
-    padding: 11px 22px;
+    padding: 10px 20px;
     border-radius: 10px;
     font-weight: 600;
     text-decoration: none;
-    font-size: 0.95rem;
-    transition: 0.25s;
+    font-size: 0.93rem;
+    transition: 0.2s;
 }
 
 .btn-main {
@@ -147,47 +151,47 @@ body::before {
 .btn-main:hover { opacity: 0.85; }
 
 .btn-outline {
-    border: 1px solid rgba(255,255,255,0.25);
+    border: 1px solid rgba(255,255,255,0.22);
     color: #fff;
 }
 
 .btn-outline:hover {
-    background: rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.07);
 }
 
 .divider {
-    margin: 90px 0 60px;
+    margin: 80px 0 50px;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(31,157,106,0.4), transparent);
+    background: linear-gradient(90deg, transparent, rgba(31,157,106,0.35), transparent);
 }
 
 .section-title {
     font-family: Orbitron, sans-serif;
-    font-size: 1.9rem;
-    margin-bottom: 15px;
+    font-size: 1.8rem;
+    margin-bottom: 12px;
     color: #e67e22;
 }
 
 /* =========================
-   PREMIUM SLIDER
+   PREMIUM SLIDER (OPTIMIZED)
 ========================= */
 
 .slider-wrapper {
-    margin-top: 40px;
+    margin-top: 35px;
     position: relative;
 }
 
 .slider-main {
     position: relative;
     overflow: hidden;
-    border-radius: 18px;
-    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.14);
     background: #000;
 }
 
 .slider-track {
     display: flex;
-    transition: transform 0.4s ease;
+    transition: transform 0.35s ease;
 }
 
 .slide {
@@ -209,32 +213,32 @@ body::before {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 40px;
+    font-size: 36px;
     color: #fff;
     cursor: pointer;
-    padding: 10px 16px;
-    background: rgba(0,0,0,0.5);
+    padding: 8px 14px;
+    background: rgba(0,0,0,0.45);
     border-radius: 50%;
     user-select: none;
 }
 
-.slider-arrow.left { left: 12px; }
-.slider-arrow.right { right: 12px; }
+.slider-arrow.left { left: 10px; }
+.slider-arrow.right { right: 10px; }
 
 /* thumbnails */
 .thumbnails {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-    gap: 10px;
-    margin-top: 14px;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 8px;
+    margin-top: 12px;
 }
 
 .thumb {
-    border-radius: 10px;
+    border-radius: 8px;
     overflow: hidden;
     border: 2px solid transparent;
     cursor: pointer;
-    transition: 0.2s;
+    transition: 0.15s;
 }
 
 .thumb img {
@@ -244,7 +248,7 @@ body::before {
 
 .thumb.active {
     border-color: #1f9d6a;
-    transform: scale(1.05);
+    transform: scale(1.04);
 }
 
 /* fullscreen */
@@ -261,21 +265,21 @@ body::before {
 #fullscreen img {
     max-width: 92%;
     max-height: 92%;
-    border-radius: 12px;
+    border-radius: 10px;
 }
 
 #fullscreen span {
     position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 40px;
+    top: 18px;
+    right: 26px;
+    font-size: 38px;
     color: #fff;
     cursor: pointer;
 }
 
 /* FOOTER */
 footer {
-    margin-top: 90px;
+    margin-top: 80px;
     text-align: center;
     color: #888;
     font-size: 0.9rem;
@@ -287,13 +291,28 @@ footer a {
 }
 
 footer a:hover { color: #fff; }
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+    body::before {
+        background-size: 140px 140px;
+        opacity: 0.45;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .slide img {
+        max-height: 360px;
+    }
+}
 </style>
 </head>
 <body>
 
 <div class="container">
 
-<!-- HERO -->
 <section class="hero">
     <h1>SURVIVAL <span>PROTOCOL</span></h1>
     <p>
@@ -302,7 +321,6 @@ footer a:hover { color: #fff; }
     </p>
 </section>
 
-<!-- ECOSYSTEM -->
 <section class="ecosystem">
 
     <div class="app-card">
@@ -329,7 +347,7 @@ footer a:hover { color: #fff; }
 
     <div class="app-card">
         <div class="app-header">
-            <img src="images/bugout-planner.jpg" alt="BugOut Planner">
+            <img src="images/bugout-logo.png" alt="BugOut Planner">
             <div>
                 <h2>BugOut Planner</h2>
                 <small>Scenario-Based Survival Planner</small>
@@ -350,18 +368,15 @@ footer a:hover { color: #fff; }
 
 <div class="divider"></div>
 
-<!-- PREMIUM SLIDER -->
 <section id="screenshots">
     <h2 class="section-title">APP INTERFACE</h2>
 
     <div class="slider-wrapper">
         <div class="slider-main">
             <div class="slider-track" id="sliderTrack"></div>
-
             <div class="slider-arrow left" onclick="prevSlide()">❮</div>
             <div class="slider-arrow right" onclick="nextSlide()">❯</div>
         </div>
-
         <div class="thumbnails" id="thumbnails"></div>
     </div>
 </section>
@@ -388,7 +403,6 @@ footer a:hover { color: #fff; }
 
 </div>
 
-<!-- FULLSCREEN -->
 <div id="fullscreen">
     <span onclick="closeFullscreen()">×</span>
     <img id="fullscreenImg">
@@ -419,16 +433,16 @@ const thumbs = document.getElementById("thumbnails");
 
 let index = 0;
 
-/* create slides + thumbs */
+/* slides + thumbs (lazy load) */
 images.forEach((src, i) => {
     const slide = document.createElement("div");
     slide.className = "slide";
-    slide.innerHTML = `<img src="${src}" onclick="openFullscreen('${src}')">`;
+    slide.innerHTML = `<img src="${src}" loading="lazy" onclick="openFullscreen('${src}')">`;
     track.appendChild(slide);
 
     const thumb = document.createElement("div");
     thumb.className = "thumb";
-    thumb.innerHTML = `<img src="${src}">`;
+    thumb.innerHTML = `<img src="${src}" loading="lazy">`;
     thumb.onclick = () => goSlide(i);
     thumbs.appendChild(thumb);
 });
@@ -478,7 +492,6 @@ function closeFullscreen() {
     document.getElementById("fullscreen").style.display = "none";
 }
 
-/* init */
 updateSlider();
 </script>
 
