@@ -2,309 +2,497 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Survival Protocol | Tactical Ecosystem</title>
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+<meta name="description" content="Survival Protocol Tactical Ecosystem – advanced offline survival knowledge and scenario-based planning tools.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BugOut Planner</title>
 
 <style>
-:root {
-  --bg:#070b12;
-  --primary:#00ffa6;
-  --accent:#00b4ff;
-  --danger:#ff3b3b;
-  --text:#eaf0ff;
-  --glass:rgba(255,255,255,0.06);
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Inter, sans-serif;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(31,157,106,0.12), transparent 40%),
+        radial-gradient(circle at 80% 10%, rgba(230,126,34,0.10), transparent 40%),
+        linear-gradient(180deg, #050505, #0a0a0a);
+    color: #eaeaea;
+    overflow-x: hidden;
 }
 
-/* RESET */
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Segoe UI,Arial}
-body{
-  background:radial-gradient(1200px 600px at 10% 10%,rgba(0,180,255,.15),transparent),
-             radial-gradient(800px 500px at 90% 90%,rgba(0,255,166,.12),transparent),
-             var(--bg);
-  color:var(--text);
-  overflow-x:hidden;
+/* GRID BACKGROUND (optimized) */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 80px 80px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.7;
 }
 
-/* GRID BACKGROUND (LIGHTWEIGHT) */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
-  background-size:80px 80px;
-  z-index:-1;
-}
-
-/* HUD ANIMATION */
-.hud{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  opacity:.5;
-}
-.hud-line{
-  position:absolute;
-  background:linear-gradient(90deg,transparent,var(--primary),transparent);
-  height:1px;
-  animation:hudMove 6s linear infinite;
-}
-.hud-line:nth-child(1){top:20%;animation-duration:8s}
-.hud-line:nth-child(2){top:55%;animation-duration:12s}
-.hud-line:nth-child(3){top:80%;animation-duration:10s}
-
-@keyframes hudMove{
-  0%{left:-40%}
-  100%{left:140%}
-}
-
-/* CONTAINER */
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:80px 20px;
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: auto;
+    padding: 50px 22px;
 }
 
 /* HERO */
-.hero{
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:50px;
-  align-items:center;
-}
-@media(max-width:900px){
-  .hero{grid-template-columns:1fr}
+.hero {
+    text-align: center;
+    margin-bottom: 70px;
 }
 
-.badge{
-  display:inline-block;
-  padding:6px 14px;
-  border:1px solid rgba(0,255,166,.4);
-  border-radius:999px;
-  color:var(--primary);
-  font-size:13px;
-  margin-bottom:18px;
+.hero h1 {
+    font-family: Orbitron, sans-serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    letter-spacing: 2px;
+    margin-bottom: 12px;
 }
 
-h1{
-  font-size:48px;
-  line-height:1.1;
-  letter-spacing:-1px;
-}
-@media(max-width:600px){
-  h1{font-size:34px}
+.hero span { color: #1f9d6a; }
+
+.hero p {
+    max-width: 720px;
+    margin: auto;
+    font-size: 1.1rem;
+    color: #b8b8b8;
 }
 
-p{
-  opacity:.85;
-  margin-top:16px;
-  font-size:17px;
+/* ECOSYSTEM */
+.ecosystem {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 26px;
 }
 
-/* BUTTONS */
-.buttons{
-  display:flex;
-  gap:14px;
-  margin-top:28px;
-  flex-wrap:wrap;
-}
-.btn{
-  padding:14px 22px;
-  border-radius:12px;
-  border:none;
-  cursor:pointer;
-  font-weight:600;
-  transition:.2s;
-}
-.btn-primary{
-  background:linear-gradient(135deg,var(--primary),var(--accent));
-  color:#000;
-}
-.btn-outline{
-  background:transparent;
-  border:1px solid rgba(255,255,255,.25);
-  color:var(--text);
-}
-.btn:hover{transform:translateY(-2px)}
-
-/* GLASS CARD */
-.card{
-  background:var(--glass);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:22px;
-  padding:22px;
-  backdrop-filter:blur(10px);
+.app-card {
+    position: relative;
+    background: linear-gradient(160deg, rgba(255,255,255,0.045), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 22px;
+    padding: 28px;
+    transition: 0.3s ease;
 }
 
-/* MOBILE OPTIMIZATION */
-@media(max-width:768px){
-  .card{backdrop-filter:none}
-  body::before{background-size:120px 120px;opacity:.4}
+/* blur sadece desktop */
+@media (min-width: 769px) {
+    .app-card {
+        backdrop-filter: blur(7px);
+    }
 }
 
-/* SLIDER */
-.slider{
-  position:relative;
-  overflow:hidden;
-  border-radius:20px;
-}
-.slides{
-  display:flex;
-  transition:transform .6s cubic-bezier(.4,0,.2,1);
-}
-.slide{
-  min-width:100%;
-}
-.slide img{
-  width:100%;
-  border-radius:18px;
-  display:block;
-  box-shadow:0 20px 50px rgba(0,0,0,.5);
+.app-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.65);
 }
 
-/* SLIDER NAV */
-.nav{
-  position:absolute;
-  bottom:14px;
-  left:50%;
-  transform:translateX(-50%);
-  display:flex;
-  gap:8px;
+.app-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
 }
-.dot{
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  background:rgba(255,255,255,.3);
-  cursor:pointer;
-}
-.dot.active{background:var(--primary)}
 
-/* FEATURES */
-.features{
-  margin-top:90px;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:22px;
+.app-header img {
+    width: 72px;
+    height: 72px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.2);
 }
-@media(max-width:900px){
-  .features{grid-template-columns:1fr}
+
+.app-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-family: Orbitron, sans-serif;
 }
-.feature{
-  padding:22px;
-  border-radius:18px;
-  background:var(--glass);
-  border:1px solid rgba(255,255,255,.1);
+
+.app-header small {
+    display: block;
+    font-size: 0.85rem;
+    color: #999;
 }
-.feature h3{
-  color:var(--primary);
-  margin-bottom:10px;
+
+.app-card p {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: #d0d0d0;
 }
-.feature p{
-  font-size:15px;
-  opacity:.8;
+
+.actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.93rem;
+    transition: 0.2s;
+}
+
+.btn-main {
+    background: linear-gradient(135deg, #1f9d6a, #2ecc71);
+    color: #000;
+}
+
+.btn-main:hover { opacity: 0.85; }
+
+.btn-outline {
+    border: 1px solid rgba(255,255,255,0.22);
+    color: #fff;
+}
+
+.btn-outline:hover {
+    background: rgba(255,255,255,0.07);
+}
+
+.divider {
+    margin: 80px 0 50px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(31,157,106,0.35), transparent);
+}
+
+.section-title {
+    font-family: Orbitron, sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    color: #e67e22;
+}
+
+/* =========================
+   PREMIUM SLIDER (OPTIMIZED)
+========================= */
+
+.slider-wrapper {
+    margin-top: 35px;
+    position: relative;
+}
+
+.slider-main {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: #000;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.35s ease;
+}
+
+.slide {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide img {
+    width: 100%;
+    max-height: 520px;
+    object-fit: contain;
+    background: #000;
+}
+
+/* arrows */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 36px;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 14px;
+    background: rgba(0,0,0,0.45);
+    border-radius: 50%;
+    user-select: none;
+}
+
+.slider-arrow.left { left: 10px; }
+.slider-arrow.right { right: 10px; }
+
+/* thumbnails */
+.thumbnails {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.thumb {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+.thumb img {
+    width: 100%;
+    display: block;
+}
+
+.thumb.active {
+    border-color: #1f9d6a;
+    transform: scale(1.04);
+}
+
+/* fullscreen */
+#fullscreen {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+}
+
+#fullscreen img {
+    max-width: 92%;
+    max-height: 92%;
+    border-radius: 10px;
+}
+
+#fullscreen span {
+    position: absolute;
+    top: 18px;
+    right: 26px;
+    font-size: 38px;
+    color: #fff;
+    cursor: pointer;
 }
 
 /* FOOTER */
-footer{
-  margin-top:120px;
-  text-align:center;
-  opacity:.5;
-  font-size:14px;
+footer {
+    margin-top: 80px;
+    text-align: center;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #aaa;
+    text-decoration: none;
+}
+
+footer a:hover { color: #fff; }
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+    body::before {
+        background-size: 140px 140px;
+        opacity: 0.45;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .slide img {
+        max-height: 360px;
+    }
 }
 </style>
 </head>
 <body>
 
-<!-- HUD EFFECT -->
-<div class="hud">
-  <div class="hud-line"></div>
-  <div class="hud-line"></div>
-  <div class="hud-line"></div>
-</div>
-
 <div class="container">
 
 <section class="hero">
-  <div>
-    <div class="badge">SURVIVAL • PREPAREDNESS • SCENARIO BASED</div>
-    <h1>BugOut Planner<br>Be Ready Before It Happens</h1>
+    <h1>SURVIVAL <span>PROTOCOL</span></h1>
     <p>
-      BugOut Planner is a realistic survival planning app.  
-      Create scenarios, build bug out bags, manage inventory and prepare for emergencies, disasters or conflict situations.
+        Tactical survival ecosystem combining offline knowledge and scenario-based planning tools
+        for real-world emergencies, wilderness survival, and extreme situations.
     </p>
-
-    <div class="buttons">
-      <button class="btn btn-primary">Download on Play Store</button>
-      <button class="btn btn-outline">View Features</button>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="slider" id="slider">
-      <div class="slides" id="slides"></div>
-      <div class="nav" id="dots"></div>
-    </div>
-  </div>
 </section>
 
-<section class="features">
-  <div class="feature">
-    <h3>Scenario Builder</h3>
-    <p>Create realistic survival scenarios including people, days, weather, pets and threats.</p>
-  </div>
-  <div class="feature">
-    <h3>Automatic Bug Out Bag</h3>
-    <p>The app calculates the correct gear and quantities for your scenario.</p>
-  </div>
-  <div class="feature">
-    <h3>Inventory Management</h3>
-    <p>Track your survival equipment, supplies and long-term storage items.</p>
-  </div>
+<section class="ecosystem">
+
+    <div class="app-card">
+        <div class="app-header">
+            <img src="images/logo.png" alt="Survival Protocol X">
+            <div>
+                <h2>Survival Protocol X</h2>
+                <small>Offline Tactical Survival Manual</small>
+            </div>
+        </div>
+        <p>
+            Advanced offline survival knowledge covering wilderness survival, disasters,
+            war conditions, emergency protocols, and extreme survival techniques.
+        </p>
+        <div class="actions">
+            <a class="btn btn-main" href="https://play.google.com/store/apps/details?id=survival.protocolx.survive" target="_blank">
+                Google Play
+            </a>
+            <a class="btn btn-outline" href="#screenshots">
+                Screenshots
+            </a>
+        </div>
+    </div>
+
+    <div class="app-card">
+        <div class="app-header">
+            <img src="images/bugout-logo.png" alt="BugOut Planner">
+            <div>
+                <h2>BugOut Planner</h2>
+                <small>Scenario-Based Survival Planner</small>
+            </div>
+        </div>
+        <p>
+            Build realistic bug out scenarios, calculate supplies automatically,
+            manage survival inventory, and optimize bug out bags based on conditions.
+        </p>
+        <div class="actions">
+            <a class="btn btn-main" href="https://survivalprotocolx.apieiron.workers.dev/bugout-planner-en" target="_blank">
+                Explore App
+            </a>
+        </div>
+    </div>
+
+</section>
+
+<div class="divider"></div>
+
+<section id="screenshots">
+    <h2 class="section-title">APP INTERFACE</h2>
+
+    <div class="slider-wrapper">
+        <div class="slider-main">
+            <div class="slider-track" id="sliderTrack"></div>
+            <div class="slider-arrow left" onclick="prevSlide()">❮</div>
+            <div class="slider-arrow right" onclick="nextSlide()">❯</div>
+        </div>
+        <div class="thumbnails" id="thumbnails"></div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+    <h2 class="section-title">MISSION</h2>
+    <p>
+        Survival Protocol is not just an app — it is a tactical survival system.
+        Knowledge without planning is incomplete. Planning without knowledge is dangerous.
+        This ecosystem merges both.
+    </p>
 </section>
 
 <footer>
-  © 2026 BugOut Planner • Tactical Survival Planning
+    <p>
+        © 2025 Survival Protocol Tactical Ecosystem <br>
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="https://www.instagram.com/survival.protocol.x/" target="_blank">Instagram</a> |
+        <a href="index-tr.html">Türkçe</a>
+    </p>
 </footer>
 
 </div>
 
+<div id="fullscreen">
+    <span onclick="closeFullscreen()">×</span>
+    <img id="fullscreenImg">
+</div>
+
 <script>
-/* SLIDER PREMIUM (LAZY + GPU FRIENDLY) */
 const images = [
-  "images/1.jpg",
-  "images/2.jpg",
-  "images/3.jpg",
-  "images/4.jpg",
-  "images/5.jpg"
+ "images/en/01.jpeg",
+ "images/en/02.jpeg",
+ "images/en/03.jpeg",
+ "images/en/04.jpeg",
+ "images/en/05.jpeg",
+ "images/en/06.jpeg",
+ "images/en/07.jpeg",
+ "images/en/08.jpeg",
+ "images/en/09.jpeg",
+ "images/en/10.jpeg",
+ "images/en/11.jpeg",
+ "images/en/12.jpeg",
+ "images/en/13.jpeg",
+ "images/en/14.jpeg",
+ "images/en/15.jpeg",
+ "images/en/16.jpeg"
 ];
 
-const slides = document.getElementById("slides");
-const dots = document.getElementById("dots");
+const track = document.getElementById("sliderTrack");
+const thumbs = document.getElementById("thumbnails");
+
 let index = 0;
 
-images.forEach((src,i)=>{
-  const s = document.createElement("div");
-  s.className="slide";
-  s.innerHTML=`<img src="${src}" loading="lazy">`;
-  slides.appendChild(s);
+/* slides + thumbs (lazy load) */
+images.forEach((src, i) => {
+    const slide = document.createElement("div");
+    slide.className = "slide";
+    slide.innerHTML = `<img src="${src}" loading="lazy" onclick="openFullscreen('${src}')">`;
+    track.appendChild(slide);
 
-  const d=document.createElement("div");
-  d.className="dot"+(i===0?" active":"");
-  d.onclick=()=>go(i);
-  dots.appendChild(d);
+    const thumb = document.createElement("div");
+    thumb.className = "thumb";
+    thumb.innerHTML = `<img src="${src}" loading="lazy">`;
+    thumb.onclick = () => goSlide(i);
+    thumbs.appendChild(thumb);
 });
 
-function go(i){
-  index=i;
-  slides.style.transform=`translateX(-${i*100}%)`;
-  [...dots.children].forEach((d,j)=>d.classList.toggle("active",j===i));
+function updateSlider() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+    document.querySelectorAll(".thumb").forEach((t, i) => {
+        t.classList.toggle("active", i === index);
+    });
 }
 
-setInterval(()=>{
-  go((index+1)%images.length);
-},4000);
+function nextSlide() {
+    index = (index + 1) % images.length;
+    updateSlider();
+}
+
+function prevSlide() {
+    index = (index - 1 + images.length) % images.length;
+    updateSlider();
+}
+
+function goSlide(i) {
+    index = i;
+    updateSlider();
+}
+
+/* swipe support */
+let startX = 0;
+track.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+});
+
+track.addEventListener("touchend", e => {
+    const endX = e.changedTouches[0].clientX;
+    const diff = endX - startX;
+    if (diff > 60) prevSlide();
+    if (diff < -60) nextSlide();
+});
+
+/* fullscreen */
+function openFullscreen(src) {
+    document.getElementById("fullscreen").style.display = "flex";
+    document.getElementById("fullscreenImg").src = src;
+}
+
+function closeFullscreen() {
+    document.getElementById("fullscreen").style.display = "none";
+}
+
+updateSlider();
 </script>
 
 </body>
