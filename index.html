@@ -1,498 +1,497 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Survival Protocol | Tactical Ecosystem</title>
-<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-<meta name="description" content="Survival Protocol Tactical Ecosystem – advanced offline survival knowledge and scenario-based planning tools.">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Survival Protocol X – Offline Survival Guide</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <meta name="description" content="Survival Protocol X is an offline survival guide app designed for nature, disasters, and emergency situations. Access critical survival knowledge without internet.">
+    <meta name="keywords" content="survival protocol x, survival, survival app, offline survival, disaster preparedness, outdoor survival, emergency guide, survival guide">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:title" content="Survival Protocol X – Offline Survival Guide">
+    <meta property="og:description" content="An offline survival guide for nature, disasters, and emergency situations.">
+    <meta property="og:type" content="website">
+
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap');
-
-* { box-sizing: border-box; }
-
-body {
-    margin: 0;
-    font-family: Inter, sans-serif;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(31,157,106,0.12), transparent 40%),
-        radial-gradient(circle at 80% 10%, rgba(230,126,34,0.10), transparent 40%),
-        linear-gradient(180deg, #050505, #0a0a0a);
-    color: #eaeaea;
-    overflow-x: hidden;
+:root{
+--bg:#05080d;
+--primary:#00ffa6;
+--accent:#00b4ff;
+--danger:#ff3b3b;
+--text:#e9f1ff;
+--glass:rgba(255,255,255,.06);
 }
 
-/* GRID BACKGROUND (optimized) */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-    background-size: 80px 80px;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.7;
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Segoe UI,Arial}
+body{
+background:
+radial-gradient(1200px 600px at 10% 10%,rgba(0,180,255,.12),transparent),
+radial-gradient(900px 500px at 90% 90%,rgba(0,255,166,.12),transparent),
+var(--bg);
+color:var(--text);
+overflow-x:hidden;
 }
 
-.container {
-    position: relative;
-    z-index: 1;
-    max-width: 1200px;
-    margin: auto;
-    padding: 50px 22px;
+/* GRID BACKGROUND */
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background-image:
+linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+background-size:90px 90px;
+z-index:-2;
+}
+
+/* HUD + RADAR */
+.hud{
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:-1;
+}
+.hud-line{
+position:absolute;
+height:1px;
+width:40%;
+background:linear-gradient(90deg,transparent,var(--primary),transparent);
+opacity:.6;
+animation:hudMove 12s linear infinite;
+}
+.hud-line:nth-child(1){top:20%;animation-duration:14s}
+.hud-line:nth-child(2){top:50%;animation-duration:18s}
+.hud-line:nth-child(3){top:80%;animation-duration:16s}
+
+@keyframes hudMove{
+0%{left:-40%}
+100%{left:140%}
+}
+
+.radar{
+position:absolute;
+right:40px;
+bottom:40px;
+width:170px;
+height:170px;
+border-radius:50%;
+border:1px solid rgba(0,255,166,.3);
+background:radial-gradient(circle,rgba(0,255,166,.12) 0%,transparent 60%);
+overflow:hidden;
+}
+.radar::before{
+content:"";
+position:absolute;
+inset:0;
+border-radius:50%;
+background:conic-gradient(from 0deg,rgba(0,255,166,.4),transparent 40%);
+animation:spin 4s linear infinite;
+}
+@keyframes spin{
+100%{transform:rotate(360deg)}
+}
+
+/* LAYOUT */
+.container{
+max-width:1250px;
+margin:auto;
+padding:70px 20px;
 }
 
 /* HERO */
-.hero {
-    text-align: center;
-    margin-bottom: 70px;
+.hero{
+max-width:760px;
+margin-bottom:40px;
+}
+.hero h1{
+font-size:48px;
+line-height:1.05;
+letter-spacing:-1px;
+}
+.hero span{
+color:var(--primary);
+}
+.hero p{
+margin-top:14px;
+font-size:17px;
+opacity:.85;
+}
+@media(max-width:600px){
+.hero h1{font-size:34px}
 }
 
-.hero h1 {
-    font-family: Orbitron, sans-serif;
-    font-size: clamp(2.2rem, 4vw, 3.2rem);
-    letter-spacing: 2px;
-    margin-bottom: 12px;
+/* APPS */
+.apps{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:28px;
+margin-bottom:50px;
+}
+@media(max-width:900px){
+.apps{grid-template-columns:1fr}
 }
 
-.hero span { color: #1f9d6a; }
-
-.hero p {
-    max-width: 720px;
-    margin: auto;
-    font-size: 1.1rem;
-    color: #b8b8b8;
+.app-card{
+display:flex;
+gap:20px;
+align-items:center;
+padding:22px;
+border-radius:22px;
+background:var(--glass);
+border:1px solid rgba(255,255,255,.12);
+backdrop-filter:blur(10px);
+transition:.25s;
+}
+.app-card:hover{
+transform:translateY(-6px);
+border-color:rgba(0,255,166,.4);
 }
 
-/* ECOSYSTEM */
-.ecosystem {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 26px;
+.app-card img{
+width:88px;
+height:88px;
+border-radius:18px;
 }
 
-.app-card {
-    position: relative;
-    background: linear-gradient(160deg, rgba(255,255,255,0.045), rgba(255,255,255,0.01));
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 22px;
-    padding: 28px;
-    transition: 0.3s ease;
+.app-card h2{
+font-size:22px;
+color:var(--primary);
+margin-bottom:6px;
 }
 
-/* blur sadece desktop */
-@media (min-width: 769px) {
-    .app-card {
-        backdrop-filter: blur(7px);
-    }
+.app-card p{
+font-size:14px;
+opacity:.8;
+line-height:1.5;
 }
 
-.app-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.65);
+.app-card a{
+display:inline-block;
+margin-top:10px;
+padding:10px 18px;
+border-radius:10px;
+background:linear-gradient(135deg,var(--primary),var(--accent));
+color:#000;
+font-weight:700;
+text-decoration:none;
+font-size:14px;
 }
 
-.app-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 16px;
+/* SLIDER WRAPPER */
+.slider-wrapper{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+margin-top:20px;
+}
+@media(max-width:900px){
+.slider-wrapper{grid-template-columns:1fr}
 }
 
-.app-header img {
-    width: 72px;
-    height: 72px;
-    border-radius: 16px;
-    border: 1px solid rgba(255,255,255,0.2);
+/* PREMIUM SLIDER */
+.slider{
+position:relative;
+border-radius:24px;
+overflow:hidden;
+background:var(--glass);
+border:1px solid rgba(255,255,255,.12);
+box-shadow:0 30px 80px rgba(0,0,0,.6);
+max-height:520px; /* DESKTOP FIX */
 }
 
-.app-header h2 {
-    margin: 0;
-    font-size: 1.5rem;
-    font-family: Orbitron, sans-serif;
+.slides{
+display:flex;
+transition:transform .7s cubic-bezier(.4,0,.2,1);
+will-change:transform;
 }
 
-.app-header small {
-    display: block;
-    font-size: 0.85rem;
-    color: #999;
+.slide{
+min-width:100%;
+padding:12px;
+display:flex;
+justify-content:center;
+align-items:center;
 }
 
-.app-card p {
-    font-size: 0.98rem;
-    line-height: 1.65;
-    color: #d0d0d0;
+.slide img{
+width:100%;
+height:auto;
+max-height:480px;
+object-fit:contain; /* DESKTOP FULL IMAGE */
+border-radius:18px;
+display:block;
+box-shadow:0 20px 50px rgba(0,0,0,.7);
 }
 
-.actions {
-    margin-top: 20px;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+/* TITLE BAR */
+.slider-title{
+padding:12px 16px;
+font-weight:700;
+letter-spacing:.5px;
+color:var(--primary);
+border-bottom:1px solid rgba(255,255,255,.08);
+background:linear-gradient(90deg,rgba(0,255,166,.12),transparent);
 }
 
-.btn {
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 0.93rem;
-    transition: 0.2s;
+/* PROGRESS */
+.progress{
+position:absolute;
+bottom:0;
+left:0;
+height:3px;
+background:linear-gradient(90deg,var(--primary),var(--accent));
+width:0%;
 }
 
-.btn-main {
-    background: linear-gradient(135deg, #1f9d6a, #2ecc71);
-    color: #000;
+/* DOTS */
+.dots{
+position:absolute;
+bottom:14px;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+gap:8px;
+}
+.dot{
+width:10px;
+height:10px;
+border-radius:50%;
+background:rgba(255,255,255,.3);
+cursor:pointer;
+transition:.2s;
+}
+.dot.active{
+background:var(--primary);
+transform:scale(1.3);
 }
 
-.btn-main:hover { opacity: 0.85; }
-
-.btn-outline {
-    border: 1px solid rgba(255,255,255,0.22);
-    color: #fff;
+/* FEATURES */
+.features{
+margin-top:80px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:22px;
+}
+@media(max-width:900px){
+.features{grid-template-columns:1fr}
 }
 
-.btn-outline:hover {
-    background: rgba(255,255,255,0.07);
+.feature{
+padding:22px;
+border-radius:20px;
+background:var(--glass);
+border:1px solid rgba(255,255,255,.1);
+transition:.2s;
+}
+.feature:hover{
+border-color:rgba(0,255,166,.4);
+transform:translateY(-4px);
+}
+.feature h3{
+color:var(--primary);
+margin-bottom:10px;
+}
+.feature p{
+font-size:14px;
+opacity:.8;
 }
 
-.divider {
-    margin: 80px 0 50px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(31,157,106,0.35), transparent);
+/* MOBILE OPTIMIZATION */
+@media(max-width:768px){
+.app-card{backdrop-filter:none}
+body::before{background-size:130px 130px;opacity:.4}
+.radar{display:none}
+.slider{max-height:none}
+.slide img{
+max-height:none;
+object-fit:cover; /* MOBILE DOLU */
 }
-
-.section-title {
-    font-family: Orbitron, sans-serif;
-    font-size: 1.8rem;
-    margin-bottom: 12px;
-    color: #e67e22;
-}
-
-/* =========================
-   PREMIUM SLIDER (OPTIMIZED)
-========================= */
-
-.slider-wrapper {
-    margin-top: 35px;
-    position: relative;
-}
-
-.slider-main {
-    position: relative;
-    overflow: hidden;
-    border-radius: 16px;
-    border: 1px solid rgba(255,255,255,0.14);
-    background: #000;
-}
-
-.slider-track {
-    display: flex;
-    transition: transform 0.35s ease;
-}
-
-.slide {
-    min-width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.slide img {
-    width: 100%;
-    max-height: 520px;
-    object-fit: contain;
-    background: #000;
-}
-
-/* arrows */
-.slider-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 36px;
-    color: #fff;
-    cursor: pointer;
-    padding: 8px 14px;
-    background: rgba(0,0,0,0.45);
-    border-radius: 50%;
-    user-select: none;
-}
-
-.slider-arrow.left { left: 10px; }
-.slider-arrow.right { right: 10px; }
-
-/* thumbnails */
-.thumbnails {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-    gap: 8px;
-    margin-top: 12px;
-}
-
-.thumb {
-    border-radius: 8px;
-    overflow: hidden;
-    border: 2px solid transparent;
-    cursor: pointer;
-    transition: 0.15s;
-}
-
-.thumb img {
-    width: 100%;
-    display: block;
-}
-
-.thumb.active {
-    border-color: #1f9d6a;
-    transform: scale(1.04);
-}
-
-/* fullscreen */
-#fullscreen {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.95);
-    z-index: 999;
-    justify-content: center;
-    align-items: center;
-}
-
-#fullscreen img {
-    max-width: 92%;
-    max-height: 92%;
-    border-radius: 10px;
-}
-
-#fullscreen span {
-    position: absolute;
-    top: 18px;
-    right: 26px;
-    font-size: 38px;
-    color: #fff;
-    cursor: pointer;
 }
 
 /* FOOTER */
-footer {
-    margin-top: 80px;
-    text-align: center;
-    color: #888;
-    font-size: 0.9rem;
+footer{
+margin-top:100px;
+text-align:center;
+opacity:.6;
+font-size:14px;
 }
-
-footer a {
-    color: #aaa;
-    text-decoration: none;
-}
-
-footer a:hover { color: #fff; }
-
-/* MOBILE OPTIMIZATION */
-@media (max-width: 768px) {
-    body::before {
-        background-size: 140px 140px;
-        opacity: 0.45;
-    }
-
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-
-    .slide img {
-        max-height: 360px;
-    }
-}
+footer a{color:var(--primary);text-decoration:none}
 </style>
 </head>
 <body>
 
+<div class="hud">
+<div class="hud-line"></div>
+<div class="hud-line"></div>
+<div class="hud-line"></div>
+<div class="radar"></div>
+</div>
+
 <div class="container">
 
-<section class="hero">
-    <h1>SURVIVAL <span>PROTOCOL</span></h1>
-    <p>
-        Tactical survival ecosystem combining offline knowledge and scenario-based planning tools
-        for real-world emergencies, wilderness survival, and extreme situations.
-    </p>
+<div class="hero">
+<h1><span>Survival Ecosystem</span><br>Two Apps • One Survival System</h1>
+<p>
+Survival Protocol X and BugOut Planner combine knowledge and preparedness into a professional survival platform designed for real-world crises.
+</p>
+</div>
+
+<section class="apps">
+<div class="app-card">
+
+<img src="images/logo.png">
+<div>
+<h2>Survival Protocol X</h2>
+<p>
+An offline survival guide designed for real emergencies.  
+Comprehensive knowledge for wilderness, disasters, war, and crisis scenarios.
+</p>
+<a href="https://play.google.com/store/apps/details?id=survival.protocolx.survive" target="_blank">Play Store</a>
+</div>
+</div>
+
+<div class="app-card">
+<img src="images/bugout-planner.jpg">
+<div>
+<h2>BugOut Planner</h2>
+<p>
+BugOut Planner is a survival and emergency planning app built for realistic, scenario-based preparedness.
+Instead of fixed checklists, it allows you to create dynamic scenarios tailored to real conditions.
+Scenario-Based Smart Bug Out Bag Creation  
+Build your own scenario step by step.
+</p>
+<a href="https://play.google.com/store/apps/details?id=com.bugout.planner" target="_blank">Play Store</a>
+</div>
+</div>
 </section>
 
-<section class="ecosystem">
+<!-- DOUBLE SLIDER -->
+<section class="slider-wrapper">
 
-    <div class="app-card">
-        <div class="app-header">
-            <img src="images/logo.png" alt="Survival Protocol X">
-            <div>
-                <h2>Survival Protocol X</h2>
-                <small>Offline Tactical Survival Manual</small>
-            </div>
-        </div>
-        <p>
-            Advanced offline survival knowledge covering wilderness survival, disasters,
-            war conditions, emergency protocols, and extreme survival techniques.
-        </p>
-        <div class="actions">
-            <a class="btn btn-main" href="https://play.google.com/store/apps/details?id=survival.protocolx.survive" target="_blank">
-                Google Play
-            </a>
-            <a class="btn btn-outline" href="#screenshots">
-                Screenshots
-            </a>
-        </div>
-    </div>
+<div class="slider" id="slider1">
+<div class="slider-title">SURVIVAL PROTOCOL X</div>
+<div class="slides" id="slides1"></div>
+<div class="dots" id="dots1"></div>
+<div class="progress" id="progress1"></div>
+</div>
 
-    <div class="app-card">
-        <div class="app-header">
-            <img src="images/bugout-planner.jpg" alt="BugOut Planner">
-            <div>
-                <h2>BugOut Planner</h2>
-                <small>Scenario-Based Survival Planner</small>
-            </div>
-        </div>
-        <p>
-            Build realistic bug out scenarios, calculate supplies automatically,
-            manage survival inventory, and optimize bug out bags based on conditions.
-        </p>
-        <div class="actions">
-            <a class="btn btn-main" href="https://survivalprotocolx.apieiron.workers.dev/bugout-planner-en" target="_blank">
-                Explore App
-            </a>
-        </div>
-    </div>
+<div class="slider" id="slider2">
+<div class="slider-title">BUGOUT PLANNER</div>
+<div class="slides" id="slides2"></div>
+<div class="dots" id="dots2"></div>
+<div class="progress" id="progress2"></div>
+</div>
 
 </section>
 
-<div class="divider"></div>
-
-<section id="screenshots">
-    <h2 class="section-title">APP INTERFACE</h2>
-
-    <div class="slider-wrapper">
-        <div class="slider-main">
-            <div class="slider-track" id="sliderTrack"></div>
-            <div class="slider-arrow left" onclick="prevSlide()">❮</div>
-            <div class="slider-arrow right" onclick="nextSlide()">❯</div>
-        </div>
-        <div class="thumbnails" id="thumbnails"></div>
-    </div>
-</section>
-
-<div class="divider"></div>
-
-<section>
-    <h2 class="section-title">MISSION</h2>
-    <p>
-        Survival Protocol is not just an app — it is a tactical survival system.
-        Knowledge without planning is incomplete. Planning without knowledge is dangerous.
-        This ecosystem merges both.
-    </p>
+<section class="features">
+<div class="feature">
+<h3>Offline Knowledge</h3>
+<p>Access essential survival information without an internet connection.</p>
+</div>
+<div class="feature">
+<h3>Realistic Scenarios</h3>
+<p>Specialized guidance for wilderness, war, disasters, and crisis situations.</p>
+</div>
+<div class="feature">
+<h3>Professional Preparedness</h3>
+<p>Advanced bug out bag and inventory planning system.</p>
+</div>
 </section>
 
 <footer>
-    <p>
-        © 2025 Survival Protocol Tactical Ecosystem <br>
-        <a href="privacy.html">Privacy Policy</a> |
-        <a href="https://www.instagram.com/survival.protocol.x/" target="_blank">Instagram</a> |
-        <a href="index-tr.html">Türkçe</a>
-    </p>
+<p>
+© 2025 Survival Ecosystem<br>
+<a href="privacy.html">Privacy Policy</a> |
+<a href="index-tr.html">Türkçe</a>
+</p>
 </footer>
 
-</div>
 
-<div id="fullscreen">
-    <span onclick="closeFullscreen()">×</span>
-    <img id="fullscreenImg">
 </div>
 
 <script>
-const images = [
- "images/en/01.jpeg",
- "images/en/02.jpeg",
- "images/en/03.jpeg",
- "images/en/04.jpeg",
- "images/en/05.jpeg",
- "images/en/06.jpeg",
- "images/en/07.jpeg",
- "images/en/08.jpeg",
- "images/en/09.jpeg",
- "images/en/10.jpeg",
- "images/en/11.jpeg",
- "images/en/12.jpeg",
- "images/en/13.jpeg",
- "images/en/14.jpeg",
- "images/en/15.jpeg",
- "images/en/16.jpeg"
+/* IMAGES */
+const survivalImages=[
+"images/en/01.jpeg","images/en/02.jpeg","images/en/03.jpeg","images/en/04.jpeg",
+"images/en/05.jpeg","images/en/06.jpeg","images/en/07.jpeg","images/en/08.jpeg",
+"images/en/09.jpeg","images/en/10.jpeg","images/en/11.jpeg","images/en/12.jpeg",
+"images/en/13.jpeg","images/en/14.jpeg","images/en/15.jpeg","images/en/16.jpeg"
 ];
 
-const track = document.getElementById("sliderTrack");
-const thumbs = document.getElementById("thumbnails");
+const bugoutImages=[
+"images/bugout-en/b01.jpeg","images/bugout-en/b02.jpeg","images/bugout-en/b03.jpeg","images/bugout-en/b04.jpeg",
+"images/bugout-en/01.jpeg","images/bugout-en/02.jpeg","images/bugout-en/03.jpeg","images/bugout-en/04.jpeg"
+];
 
-let index = 0;
+function initSlider(images,slidesId,dotsId,progressId){
+const slides=document.getElementById(slidesId);
+const dots=document.getElementById(dotsId);
+const progress=document.getElementById(progressId);
 
-/* slides + thumbs (lazy load) */
-images.forEach((src, i) => {
-    const slide = document.createElement("div");
-    slide.className = "slide";
-    slide.innerHTML = `<img src="${src}" loading="lazy" onclick="openFullscreen('${src}')">`;
-    track.appendChild(slide);
+let index=0;
+const duration=5000;
+let timer;
 
-    const thumb = document.createElement("div");
-    thumb.className = "thumb";
-    thumb.innerHTML = `<img src="${src}" loading="lazy">`;
-    thumb.onclick = () => goSlide(i);
-    thumbs.appendChild(thumb);
+images.forEach((src,i)=>{
+const slide=document.createElement("div");
+slide.className="slide";
+slide.innerHTML=`<img src="${src}" loading="lazy">`;
+slides.appendChild(slide);
+
+const dot=document.createElement("div");
+dot.className="dot"+(i===0?" active":"");
+dot.onclick=()=>goSlide(i);
+dots.appendChild(dot);
 });
 
-function updateSlider() {
-    track.style.transform = `translateX(-${index * 100}%)`;
-    document.querySelectorAll(".thumb").forEach((t, i) => {
-        t.classList.toggle("active", i === index);
-    });
-}
-
-function nextSlide() {
-    index = (index + 1) % images.length;
-    updateSlider();
-}
-
-function prevSlide() {
-    index = (index - 1 + images.length) % images.length;
-    updateSlider();
-}
-
-function goSlide(i) {
-    index = i;
-    updateSlider();
-}
-
-/* swipe support */
-let startX = 0;
-track.addEventListener("touchstart", e => {
-    startX = e.touches[0].clientX;
+function goSlide(i){
+index=i;
+slides.style.transform=`translateX(-${i*100}%)`;
+dots.querySelectorAll(".dot").forEach((d,di)=>{
+d.classList.toggle("active",di===i);
 });
+resetProgress();
+}
 
-track.addEventListener("touchend", e => {
-    const endX = e.changedTouches[0].clientX;
-    const diff = endX - startX;
-    if (diff > 60) prevSlide();
-    if (diff < -60) nextSlide();
+function resetProgress(){
+progress.style.transition="none";
+progress.style.width="0%";
+setTimeout(()=>{
+progress.style.transition=`width ${duration}ms linear`;
+progress.style.width="100%";
+},50);
+}
+
+function auto(){
+timer=setInterval(()=>{
+index=(index+1)%images.length;
+goSlide(index);
+},duration);
+}
+
+resetProgress();
+auto();
+
+/* TOUCH */
+let startX=0;
+slides.parentElement.addEventListener("touchstart",e=>{
+startX=e.touches[0].clientX;
+clearInterval(timer);
 });
-
-/* fullscreen */
-function openFullscreen(src) {
-    document.getElementById("fullscreen").style.display = "flex";
-    document.getElementById("fullscreenImg").src = src;
+slides.parentElement.addEventListener("touchend",e=>{
+let endX=e.changedTouches[0].clientX;
+let diff=endX-startX;
+if(diff>60) index=(index-1+images.length)%images.length;
+if(diff<-60) index=(index+1)%images.length;
+goSlide(index);
+auto();
+});
 }
 
-function closeFullscreen() {
-    document.getElementById("fullscreen").style.display = "none";
-}
-
-updateSlider();
+initSlider(survivalImages,"slides1","dots1","progress1");
+initSlider(bugoutImages,"slides2","dots2","progress2");
 </script>
 
 </body>
