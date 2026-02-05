@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Survival Protocol X & BugOut Planner</title>
+<title>Survival Ecosystem</title>
 
 <style>
 :root{
@@ -25,7 +25,7 @@ color:var(--text);
 overflow-x:hidden;
 }
 
-/* GRID */
+/* GRID BACKGROUND */
 body::before{
 content:"";
 position:fixed;
@@ -44,18 +44,17 @@ inset:0;
 pointer-events:none;
 z-index:-1;
 }
-
 .hud-line{
 position:absolute;
 height:1px;
 width:40%;
 background:linear-gradient(90deg,transparent,var(--primary),transparent);
 opacity:.6;
-animation:hudMove 10s linear infinite;
+animation:hudMove 12s linear infinite;
 }
-.hud-line:nth-child(1){top:20%;animation-duration:12s}
-.hud-line:nth-child(2){top:50%;animation-duration:16s}
-.hud-line:nth-child(3){top:80%;animation-duration:14s}
+.hud-line:nth-child(1){top:20%;animation-duration:14s}
+.hud-line:nth-child(2){top:50%;animation-duration:18s}
+.hud-line:nth-child(3){top:80%;animation-duration:16s}
 
 @keyframes hudMove{
 0%{left:-40%}
@@ -66,8 +65,8 @@ animation:hudMove 10s linear infinite;
 position:absolute;
 right:40px;
 bottom:40px;
-width:180px;
-height:180px;
+width:170px;
+height:170px;
 border-radius:50%;
 border:1px solid rgba(0,255,166,.3);
 background:radial-gradient(circle,rgba(0,255,166,.12) 0%,transparent 60%);
@@ -92,12 +91,34 @@ margin:auto;
 padding:70px 20px;
 }
 
-/* HEADER APPS */
+/* HERO */
+.hero{
+max-width:760px;
+margin-bottom:40px;
+}
+.hero h1{
+font-size:48px;
+line-height:1.05;
+letter-spacing:-1px;
+}
+.hero span{
+color:var(--primary);
+}
+.hero p{
+margin-top:14px;
+font-size:17px;
+opacity:.85;
+}
+@media(max-width:600px){
+.hero h1{font-size:34px}
+}
+
+/* APPS */
 .apps{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:28px;
-margin-bottom:60px;
+margin-bottom:50px;
 }
 @media(max-width:900px){
 .apps{grid-template-columns:1fr}
@@ -149,23 +170,15 @@ text-decoration:none;
 font-size:14px;
 }
 
-/* HERO TEXT */
-.hero-text{
-margin-bottom:40px;
-max-width:700px;
+/* SLIDER WRAPPER */
+.slider-wrapper{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+margin-top:20px;
 }
-.hero-text h1{
-font-size:46px;
-line-height:1.05;
-letter-spacing:-1px;
-}
-.hero-text p{
-margin-top:14px;
-font-size:17px;
-opacity:.85;
-}
-@media(max-width:600px){
-.hero-text h1{font-size:34px}
+@media(max-width:900px){
+.slider-wrapper{grid-template-columns:1fr}
 }
 
 /* PREMIUM SLIDER */
@@ -176,6 +189,7 @@ overflow:hidden;
 background:var(--glass);
 border:1px solid rgba(255,255,255,.12);
 box-shadow:0 30px 80px rgba(0,0,0,.6);
+max-height:520px; /* DESKTOP FIX */
 }
 
 .slides{
@@ -186,17 +200,33 @@ will-change:transform;
 
 .slide{
 min-width:100%;
-padding:22px;
+padding:12px;
+display:flex;
+justify-content:center;
+align-items:center;
 }
 
 .slide img{
 width:100%;
+height:auto;
+max-height:480px;
+object-fit:contain; /* DESKTOP FULL IMAGE */
 border-radius:18px;
 display:block;
 box-shadow:0 20px 50px rgba(0,0,0,.7);
 }
 
-/* PROGRESS BAR */
+/* TITLE BAR */
+.slider-title{
+padding:12px 16px;
+font-weight:700;
+letter-spacing:.5px;
+color:var(--primary);
+border-bottom:1px solid rgba(255,255,255,.08);
+background:linear-gradient(90deg,rgba(0,255,166,.12),transparent);
+}
+
+/* PROGRESS */
 .progress{
 position:absolute;
 bottom:0;
@@ -250,7 +280,6 @@ transition:.2s;
 border-color:rgba(0,255,166,.4);
 transform:translateY(-4px);
 }
-
 .feature h3{
 color:var(--primary);
 margin-bottom:10px;
@@ -265,6 +294,11 @@ opacity:.8;
 .app-card{backdrop-filter:none}
 body::before{background-size:130px 130px;opacity:.4}
 .radar{display:none}
+.slider{max-height:none}
+.slide img{
+max-height:none;
+object-fit:cover; /* MOBILE DOLU */
+}
 }
 
 /* FOOTER */
@@ -288,29 +322,28 @@ footer a{color:var(--primary);text-decoration:none}
 
 <div class="container">
 
-<div class="hero-text">
-<h1>Hayatta Kalma Sistemleri<br>Tek Platformda</h1>
+<div class="hero">
+<h1><span>Survival Ecosystem</span><br>İki Uygulama • Tek Hayatta Kalma Sistemi</h1>
 <p>
-Survival Protocol X ve BugOut Planner, kriz anlarında bilgi ve hazırlığı birleştiren profesyonel hayatta kalma uygulamalarıdır.
+Survival Protocol X ve BugOut Planner, kriz anlarında bilgi ve hazırlığı birleştiren profesyonel hayatta kalma platformudur.
 </p>
 </div>
 
 <section class="apps">
-
 <div class="app-card">
 <img src="images/logo.png">
 <div>
 <h2>Survival Protocol X</h2>
 <p>
 İnternetsiz çalışan hayatta kalma rehberi.  
-Doğa, afet, savaş ve kriz senaryoları için kapsamlı bilgiler.
+Doğa, afet, savaş ve kriz senaryoları için kapsamlı bilgi.
 </p>
 <a href="https://play.google.com/store/apps/details?id=survival.protocolx.survive" target="_blank">Play Store</a>
 </div>
 </div>
 
 <div class="app-card">
-<img src="images/bugout-planner.jpg">
+<img src="images/bugout.png">
 <div>
 <h2>BugOut Planner</h2>
 <p>
@@ -320,13 +353,25 @@ Bug out çantası, envanter ve kişi/gün planlaması.
 <a href="https://survivalprotocolx.apieiron.workers.dev/bugout-planner-en" target="_blank">Detaylar</a>
 </div>
 </div>
-
 </section>
 
-<section class="slider" id="slider">
-<div class="slides" id="slides"></div>
-<div class="dots" id="dots"></div>
-<div class="progress" id="progress"></div>
+<!-- DOUBLE SLIDER -->
+<section class="slider-wrapper">
+
+<div class="slider" id="slider1">
+<div class="slider-title">SURVIVAL PROTOCOL X</div>
+<div class="slides" id="slides1"></div>
+<div class="dots" id="dots1"></div>
+<div class="progress" id="progress1"></div>
+</div>
+
+<div class="slider" id="slider2">
+<div class="slider-title">BUGOUT PLANNER</div>
+<div class="slides" id="slides2"></div>
+<div class="dots" id="dots2"></div>
+<div class="progress" id="progress2"></div>
+</div>
+
 </section>
 
 <section class="features">
@@ -346,7 +391,7 @@ Bug out çantası, envanter ve kişi/gün planlaması.
 
 <footer>
 <p>
-© 2025 Survival Protocol X<br>
+© 2025 Survival Ecosystem<br>
 <a href="privacy.html">Gizlilik Politikası</a> |
 <a href="index.html">English</a>
 </p>
@@ -355,32 +400,25 @@ Bug out çantası, envanter ve kişi/gün planlaması.
 </div>
 
 <script>
-const images = [
-        "images/tr/01.jpeg",
-        "images/tr/02.jpeg",
-        "images/tr/03.jpeg",
-        "images/tr/04.jpeg",
-        "images/tr/05.jpeg",
-        "images/tr/06.jpeg",
-        "images/tr/07.jpeg",
-        "images/tr/08.jpeg",
-        "images/tr/09.jpeg",
-        "images/tr/10.jpeg",
-        "images/tr/11.jpeg",
-        "images/tr/12.jpeg",
-        "images/tr/13.jpeg",
-        "images/tr/14.jpeg",
-        "images/tr/15.jpeg",
-        "images/tr/16.jpeg"
-    ];
+/* IMAGES */
+const survivalImages=[
+"images/en/01.jpeg","images/en/02.jpeg","images/en/03.jpeg","images/en/04.jpeg",
+"images/en/05.jpeg","images/en/06.jpeg","images/en/07.jpeg","images/en/08.jpeg"
+];
 
-const slides=document.getElementById("slides");
-const dots=document.getElementById("dots");
-const progress=document.getElementById("progress");
+const bugoutImages=[
+"images/en/09.jpeg","images/en/10.jpeg","images/en/11.jpeg","images/en/12.jpeg",
+"images/en/13.jpeg","images/en/14.jpeg","images/en/15.jpeg","images/en/16.jpeg"
+];
+
+function initSlider(images,slidesId,dotsId,progressId){
+const slides=document.getElementById(slidesId);
+const dots=document.getElementById(dotsId);
+const progress=document.getElementById(progressId);
 
 let index=0;
-let timer;
 const duration=5000;
+let timer;
 
 images.forEach((src,i)=>{
 const slide=document.createElement("div");
@@ -397,7 +435,7 @@ dots.appendChild(dot);
 function goSlide(i){
 index=i;
 slides.style.transform=`translateX(-${i*100}%)`;
-document.querySelectorAll(".dot").forEach((d,di)=>{
+dots.querySelectorAll(".dot").forEach((d,di)=>{
 d.classList.toggle("active",di===i);
 });
 resetProgress();
@@ -412,7 +450,7 @@ progress.style.width="100%";
 },50);
 }
 
-function autoSlide(){
+function auto(){
 timer=setInterval(()=>{
 index=(index+1)%images.length;
 goSlide(index);
@@ -420,25 +458,26 @@ goSlide(index);
 }
 
 resetProgress();
-autoSlide();
+auto();
 
-/* TOUCH SWIPE */
+/* TOUCH */
 let startX=0;
-const slider=document.getElementById("slider");
-
-slider.addEventListener("touchstart",e=>{
+slides.parentElement.addEventListener("touchstart",e=>{
 startX=e.touches[0].clientX;
 clearInterval(timer);
 });
-
-slider.addEventListener("touchend",e=>{
+slides.parentElement.addEventListener("touchend",e=>{
 let endX=e.changedTouches[0].clientX;
 let diff=endX-startX;
 if(diff>60) index=(index-1+images.length)%images.length;
 if(diff<-60) index=(index+1)%images.length;
 goSlide(index);
-autoSlide();
+auto();
 });
+}
+
+initSlider(survivalImages,"slides1","dots1","progress1");
+initSlider(bugoutImages,"slides2","dots2","progress2");
 </script>
 
 </body>
