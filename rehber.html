@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Köye Göç ve Emlak Rehberi | Arazi ve Köy Yaşamı</title>
+<meta name="description" content="Köye göç etmek isteyenler için arazi analizi, tapu riskleri ve köy yaşam rehberi.">
+<meta name="keywords" content="köye göç, tarla almak, arsa rehberi, hisseli tapu, köy evi yapmak">
+<meta name="author" content="Köye Göç Rehberi">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Köye Göç ve Emlak Rehberi">
+<meta property="og:description" content="Arazi analizi ve köy yaşam rehberi tek uygulamada.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="og-cover.jpg">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#0e1a12;color:#f0fdf4;overflow-x:hidden}
+
+/* Background Gradient */
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:linear-gradient(to bottom,#0e1a12,#1a2f20,#27452f);
+z-index:-3;
+}
+
+/* Village Silhouette */
+.village{
+position:fixed;
+bottom:0;
+width:100%;
+opacity:.08;
+z-index:-2;
+}
+
+/* Hero */
+header{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+header h1{
+font-size:3rem;
+font-weight:700;
+background:linear-gradient(90deg,#4ade80,#bbf7d0);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+header p{margin-top:20px;max-width:650px}
+.play-btn{
+margin-top:35px;
+padding:16px 35px;
+border:none;
+border-radius:50px;
+background:#22c55e;
+color:white;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+.play-btn:hover{transform:scale(1.08);box-shadow:0 0 25px #4ade80}
+
+/* Features */
+section{padding:100px 20px;text-align:center}
+h2{margin-bottom:50px;font-size:2rem}
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+max-width:1100px;
+margin:auto;
+}
+.feature{
+background:rgba(255,255,255,.05);
+padding:30px;
+border-radius:20px;
+transition:.4s;
+}
+.feature:hover{
+background:rgba(255,255,255,.1);
+transform:translateY(-10px);
+}
+
+/* Screens */
+.slider{max-width:1000px;margin:auto;overflow:hidden;border-radius:20px}
+.slides{display:flex;transition:transform .6s ease}
+.slide{min-width:100%;position:relative}
+.slide img{width:100%;border-radius:20px}
+.slide-number{
+position:absolute;
+top:20px;
+left:20px;
+font-size:3rem;
+opacity:.4;
+}
+
+/* Grass Parallax */
+.grass{
+position:relative;
+height:200px;
+background:linear-gradient(to top,#14532d,#166534);
+overflow:hidden;
+}
+.blade{
+position:absolute;
+bottom:0;
+width:4px;
+height:60px;
+background:#22c55e;
+border-radius:2px;
+animation:sway 3s ease-in-out infinite alternate;
+}
+@keyframes sway{
+0%{transform:rotate(-5deg)}
+100%{transform:rotate(5deg)}
+}
+
+/* SVG Leaves */
+.leaf{
+position:fixed;
+top:-50px;
+width:40px;
+opacity:.6;
+animation:fall linear infinite;
+z-index:-1;
+}
+@keyframes fall{
+0%{transform:translateY(-50px) rotate(0deg)}
+100%{transform:translateY(110vh) rotate(360deg)}
+}
+
+footer{padding:40px;text-align:center;opacity:.6}
+
+@media(max-width:768px){
+header h1{font-size:2.2rem}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Village SVG -->
+<svg class="village" viewBox="0 0 1440 200">
+<path fill="#bbf7d0" d="M0,150 L200,120 L300,140 L450,110 L600,150 L750,100 L900,140 L1050,120 L1200,150 L1440,130 L1440,200 L0,200 Z"></path>
+</svg>
+
+<!-- Animated SVG Leaves -->
+<script>
+for(let i=0;i<12;i++){
+let leaf=document.createElementNS("http://www.w3.org/2000/svg","svg");
+leaf.setAttribute("viewBox","0 0 24 24");
+leaf.classList.add("leaf");
+leaf.style.left=Math.random()*100+"vw";
+leaf.style.animationDuration=(6+Math.random()*8)+"s";
+leaf.innerHTML='<path fill="#4ade80" d="M12 2C8 8 2 10 2 16a10 10 0 0020 0c0-6-6-8-10-14z"/>';
+document.body.appendChild(leaf);
+}
+</script>
+
+<header>
+<h1>Köye Göç ve Emlak Rehberi</h1>
+<p>Arazi alırken hata yapmamak, köy yaşamına bilinçli geçmek isteyenler için gerçek deneyim rehberi.</p>
+
+<a href="https://play.google.com/store/apps/details?id=com.koyegoc.rehber" target="_blank">
+<button class="play-btn">Google Play'de İndir</button>
+</a>
+</header>
+
+<section>
+<h2>Öne Çıkan Özellikler</h2>
+<div class="features">
+<div class="feature"><h3>Arazi Analizi</h3><p>Eğim, yol ve toprak yapısına göre değerlendirme.</p></div>
+<div class="feature"><h3>Tapu Riskleri</h3><p>Hisseli tapu ve şerh uyarıları.</p></div>
+<div class="feature"><h3>İmar Bilgileri</h3><p>Plansız alan kuralları özeti.</p></div>
+<div class="feature"><h3>Köy Yaşamı</h3><p>Komşuluk, altyapı ve bilinmeyen riskler.</p></div>
+</div>
+</section>
+
+<section>
+<h2>Uygulama Ekranları</h2>
+<div class="slider">
+<div class="slides" id="slides">
+<div class="slide"><span class="slide-number">01</span><img src="screen1.jpg"></div>
+<div class="slide"><span class="slide-number">02</span><img src="screen2.jpg"></div>
+<div class="slide"><span class="slide-number">03</span><img src="screen3.jpg"></div>
+<div class="slide"><span class="slide-number">04</span><img src="screen4.jpg"></div>
+<div class="slide"><span class="slide-number">05</span><img src="screen5.jpg"></div>
+<div class="slide"><span class="slide-number">06</span><img src="screen6.jpg"></div>
+</div>
+</div>
+</section>
+
+<div class="grass" id="grass"></div>
+
+<footer>
+© 2026 Köye Göç Rehberi
+</footer>
+
+<script>
+const slides=document.getElementById("slides");
+let index=0;
+setInterval(()=>{
+index=(index+1)%6;
+slides.style.transform=`translateX(-${index*100}%)`;
+},5000);
+
+/* Grass generation */
+const grass=document.getElementById("grass");
+for(let i=0;i<150;i++){
+let blade=document.createElement("div");
+blade.classList.add("blade");
+blade.style.left=Math.random()*100+"%";
+blade.style.height=(40+Math.random()*60)+"px";
+blade.style.animationDuration=(2+Math.random()*3)+"s";
+grass.appendChild(blade);
+}
+</script>
+
+</body>
+</html>
