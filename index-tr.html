@@ -308,6 +308,56 @@ object-fit:cover; /* MOBILE DOLU */
 }
 }
 
+/* ATERSUT */
+.atersut-section{
+margin-top:90px;
+}
+
+.atersut-box{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+align-items:center;
+}
+
+@media(max-width:900px){
+.atersut-box{grid-template-columns:1fr}
+}
+
+.atersut-info{
+padding:22px;
+border-radius:20px;
+background:var(--glass);
+border:1px solid rgba(255,255,255,.1);
+}
+
+.atersut-info h2{
+color:var(--primary);
+margin-bottom:14px;
+}
+
+.atersut-info ul{
+list-style:none;
+font-size:14px;
+opacity:.85;
+line-height:1.6;
+margin-bottom:18px;
+}
+
+.atersut-info li{
+margin-bottom:6px;
+}
+
+.atersut-btn{
+display:inline-block;
+padding:12px 20px;
+border-radius:12px;
+background:linear-gradient(135deg,var(--primary),var(--accent));
+color:#000;
+font-weight:700;
+text-decoration:none;
+}
+    
 /* FOOTER */
 footer{
 margin-top:100px;
@@ -397,7 +447,45 @@ Adım adım kendi senaryonu oluştur.
 <p>Bug out çantası ve envanter planlama sistemi.</p>
 </div>
 </section>
+<!-- ATERSUT SECTION -->
+<section class="atersut-section">
 
+<div class="hero">
+<h1><span>ATERSUT</span><br>Gerçek Hayatta Kalma Bilgini Test Et</h1>
+<p>
+Doğa seni zorlamadan önce kendini test et.  
+ATERSUT, vahşi doğa ve savaş senaryolarında 120'den fazla gerçek dünya sorusu ile hayatta kalma bilginizi ölçer.  
+Su arıtmadan ilk yardıma, NBC savunmasından taktiksel geri çekilmeye kadar her karar önemlidir.
+</p>
+</div>
+
+<div class="atersut-box">
+
+<!-- SOL TARAF -->
+<div class="atersut-info">
+<h2>Düşün. Karar Ver. Hayatta Kal.</h2>
+
+<ul>
+<li>İki Senaryo: Vahşi Doğa & Savaş Şartları</li>
+<li>Zorluk Seviyeleri: 15 Soru (Kolay) / 30 Soru (Zor)</li>
+<li>Gerçekçi Hayatta Kalma Soruları</li>
+<li>Dünya Sıralaması – En hızlı ve en doğru olan kazanır</li>
+</ul>
+
+<a href="https://play.google.com/store/apps/details?id=com.apieiron.demolition" class="atersut-btn">Play Store</a>
+</div>
+
+<!-- SAĞ TARAF SLIDER -->
+<div class="slider" id="slider3">
+<div class="slider-title">ATERSUT</div>
+<div class="slides" id="slides3"></div>
+<div class="dots" id="dots3"></div>
+<div class="progress" id="progress3"></div>
+</div>
+
+</div>
+
+</section>
 <footer>
 <p>
 © 2025 Survival Ekosistem<br>
@@ -489,6 +577,20 @@ auto();
 
 initSlider(survivalImages,"slides1","dots1","progress1");
 initSlider(bugoutImages,"slides2","dots2","progress2");
+
+
+const atersutImages=[
+"images/atersut/01.jpeg",
+"images/atersut/02.jpeg",
+"images/atersut/03.jpeg",
+"images/atersut/04.jpeg",
+"images/atersut/05.jpeg",
+"images/atersut/06.jpeg"
+];
+
+initSlider(atersutImages,"slides3","dots3","progress3");    
+    
+    
 </script>
 
 </body>
