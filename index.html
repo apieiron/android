@@ -313,7 +313,37 @@ object-fit:cover; /* MOBILE DOLU */
 .atersut-section{
 margin-top:90px;
 }
+.atersut-title{
+display:flex;
+align-items:center;
+gap:18px;
+margin-bottom:10px;
+}
 
+.atersut-title img{
+width:70px;
+height:auto;
+filter:drop-shadow(0 10px 25px rgba(0,0,0,.6));
+}
+.atersut-title img:hover{
+transform:scale(1.08);
+transition:.3s;
+}
+.atersut-title h1{
+margin:0;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+.atersut-title{
+flex-direction:column;
+text-align:center;
+}
+
+.atersut-title img{
+width:60px;
+}
+}
 .atersut-box{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -453,7 +483,10 @@ Build your own scenario step by step.
 <section class="atersut-section">
 
 <div class="hero" style="max-width:900px;">
-<h1><span>ATERSUT</span><br>All Terrain Real Survival Test</h1>
+<div class="atersut-title">
+    <img src="images/atersut/logo.png" alt="ATERSUT Logo">
+    <h1><span>ATERSUT</span><br>Gerçek Hayatta Kalma Bilgini Test Et</h1>
+</div>
 <p>
 Test your survival knowledge before reality tests you.  
 ATERSUT challenges you with 120+ real-world critical questions across wilderness and combat scenarios.  
