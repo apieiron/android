@@ -309,6 +309,56 @@ object-fit:cover; /* MOBILE DOLU */
 }
 }
 
+/* ATERSUT */
+.atersut-section{
+margin-top:90px;
+}
+
+.atersut-box{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+align-items:center;
+}
+
+@media(max-width:900px){
+.atersut-box{grid-template-columns:1fr}
+}
+
+.atersut-info{
+padding:22px;
+border-radius:20px;
+background:var(--glass);
+border:1px solid rgba(255,255,255,.1);
+}
+
+.atersut-info h2{
+color:var(--primary);
+margin-bottom:14px;
+}
+
+.atersut-info ul{
+list-style:none;
+font-size:14px;
+opacity:.85;
+line-height:1.6;
+margin-bottom:18px;
+}
+
+.atersut-info li{
+margin-bottom:6px;
+}
+
+.atersut-btn{
+display:inline-block;
+padding:12px 20px;
+border-radius:12px;
+background:linear-gradient(135deg,var(--primary),var(--accent));
+color:#000;
+font-weight:700;
+text-decoration:none;
+}
+    
 /* FOOTER */
 footer{
 margin-top:100px;
@@ -399,7 +449,43 @@ Build your own scenario step by step.
 <p>Advanced bug out bag and inventory planning system.</p>
 </div>
 </section>
+<!-- ATERSUT SECTION -->
+<section class="atersut-section">
 
+<div class="hero" style="max-width:900px;">
+<h1><span>ATERSUT</span><br>All Terrain Real Survival Test</h1>
+<p>
+Test your survival knowledge before reality tests you.  
+ATERSUT challenges you with 120+ real-world critical questions across wilderness and combat scenarios.  
+From water purification to first aid, from NBC defense to tactical retreat decisions — every answer matters.
+</p>
+</div>
+
+<div class="atersut-box">
+
+<div class="atersut-info">
+<h2>Think. Decide. Survive.</h2>
+
+<ul>
+<li>Two Scenarios: Wilderness & War Conditions</li>
+<li>Difficulty Modes: 15 Questions (Easy) / 30 Questions (Hard)</li>
+<li>Real Survival Knowledge Based Questions</li>
+<li>Global Leaderboard – Compete Worldwide</li>
+</ul>
+
+<a href="#" class="atersut-btn">Coming Soon</a>
+</div>
+
+<div class="slider" id="slider3">
+<div class="slider-title">ATERSUT GAMEPLAY</div>
+<div class="slides" id="slides3"></div>
+<div class="dots" id="dots3"></div>
+<div class="progress" id="progress3"></div>
+</div>
+
+</div>
+
+</section>
 <footer>
 <p>
 © 2025 Survival Ecosystem<br>
@@ -413,6 +499,7 @@ Build your own scenario step by step.
 </div>
 
 <script>
+    
 /* IMAGES */
 const survivalImages=[
 "images/en/01.jpeg","images/en/02.jpeg","images/en/03.jpeg","images/en/04.jpeg",
@@ -492,6 +579,17 @@ auto();
 
 initSlider(survivalImages,"slides1","dots1","progress1");
 initSlider(bugoutImages,"slides2","dots2","progress2");
+
+const atersutImages=[
+"images/atersut/01.jpg",
+"images/atersut/02.jpg",
+"images/atersut/03.jpg",
+"images/atersut/04.jpg",
+"images/atersut/05.jpg",
+"images/atersut/06.jpg"
+];
+
+initSlider(atersutImages,"slides3","dots3","progress3");
 
 </script>
 
