@@ -312,7 +312,38 @@ object-fit:cover; /* MOBILE DOLU */
 .atersut-section{
 margin-top:90px;
 }
+.atersut-title{
+display:flex;
+align-items:center;
+gap:18px;
+margin-bottom:10px;
+}
 
+.atersut-title img{
+width:110px;
+height:auto;
+filter:drop-shadow(0 10px 25px rgba(0,0,0,.6));
+}
+.atersut-title img:hover{
+transform:scale(1.08);
+transition:.3s;
+}
+
+.atersut-title h1{
+margin:0;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+.atersut-title{
+flex-direction:column;
+text-align:center;
+}
+
+.atersut-title img{
+width:60px;
+}
+}
 .atersut-box{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -451,7 +482,10 @@ Adım adım kendi senaryonu oluştur.
 <section class="atersut-section">
 
 <div class="hero">
-<h1><span>ATERSUT</span><br>Gerçek Hayatta Kalma Bilgini Test Et</h1>
+<div class="atersut-title">
+    <img src="images/atersut/logo.png" alt="ATERSUT Logo">
+    <h1><span>ATERSUT</span><br>Gerçek Hayatta Kalma Bilgini Test Et</h1>
+</div>
 <p>
 Doğa seni zorlamadan önce kendini test et.  
 ATERSUT, vahşi doğa ve savaş senaryolarında 120'den fazla gerçek dünya sorusu ile hayatta kalma bilginizi ölçer.  
