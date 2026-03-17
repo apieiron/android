@@ -43,7 +43,21 @@ max-width:1200px;
 margin:auto;
 padding:70px 20px;
 }
+.hero-logo{
+margin-bottom:25px;
+text-align:center;
+}
 
+.hero-logo img{
+width:140px;
+max-width:40%;
+filter:drop-shadow(0 10px 30px rgba(0,0,0,.6));
+transition:.3s;
+}
+
+.hero-logo img:hover{
+transform:scale(1.05);
+}
 /* HERO */
 .hero{
 text-align:center;
@@ -166,10 +180,10 @@ opacity:.8;
 <body>
 
 <div class="container">
-
-<div style="margin-bottom:20px;">
-    <img src="images/atersut/logo-black.png" style="width:90px;">
+<div class="hero-logo">
+    <img src="images/atersut/logo-blackpng" alt="ATERSUT Logo">
 </div>
+
 <!-- HERO -->
 <div class="hero">
 <h1><span>ATERSUT</span><br>All Terrain Real Survival Test</h1>
