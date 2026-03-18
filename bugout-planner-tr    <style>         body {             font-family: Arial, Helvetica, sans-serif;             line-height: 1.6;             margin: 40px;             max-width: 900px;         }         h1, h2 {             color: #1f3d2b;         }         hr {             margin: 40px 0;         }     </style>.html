@@ -58,15 +58,7 @@
             margin-top: 40px;
             text-align: center;
         }
-        footer {
-            margin-top: 60px;
-            text-align: center;
-            font-size: 0.9em;
-            color: #aaa;
-        }
-        footer a {
-            color:#aaa;
-        }
+
 
         .gallery {
             display: grid;
@@ -124,6 +116,50 @@
 
         #lightbox .left { left: 20px; }
         #lightbox .right { right: 20px; }
+
+        footer{
+margin-top:100px;
+text-align:center;
+opacity:.7;
+font-size:14px;
+}
+
+/* dil linkleri */
+.footer-links{
+margin-top:10px;
+}
+
+.footer-links a{
+color:var(--text);
+text-decoration:none;
+margin:0 8px;
+opacity:.7;
+transition:.3s;
+}
+
+.footer-links a:hover{
+opacity:1;
+color:var(--accent);
+}
+
+/* privacy link fix */
+footer .privacy{
+display:inline-block;
+margin-top:12px;
+padding:6px 14px;
+border-radius:8px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.12);
+color:var(--text);
+text-decoration:none;
+font-size:13px;
+transition:.3s;
+}
+
+footer .privacy:hover{
+background:linear-gradient(135deg,var(--primary),var(--accent));
+color:#000;
+}
     </style>
 </head>
 <body>
@@ -211,10 +247,15 @@
 </div>
 
 <footer>
-    <p>
-        © 2026 BugOut Planner<br>
-        <a href="https://survivalprotocolx.apieiron.workers.dev/bugout-planner-privacy.html">Gizlilik Politikası</a>
-    </p>
+<p>© 2026 Bugout Planner</p>
+
+<div class="footer-links">
+    <a href="bugout-planner.html">🇬🇧 English</a>
+    <span>•</span>
+    <a href="bugout-planner-tr.html">🇹🇷 Türkçe</a>
+</div>
+
+<a href="bugout-planner-privacy.html" class="privacy">Gizlilik Politikası</a>
 </footer>
 
 </div>
