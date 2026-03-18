@@ -4,20 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | Survival Protocol X</title>
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.6;
-            margin: 40px;
-            max-width: 900px;
-        }
-        h1, h2 {
-            color: #1f3d2b;
-        }
-        hr {
-            margin: 40px 0;
-        }
-    </style>
+<style>
+:root{
+--bg:#05080d;
+--primary:#ff5a1f;
+--accent:#00ffa6;
+--text:#e9f1ff;
+--glass:rgba(255,255,255,.06);
+}
+
+*{
+box-sizing:border-box;
+}
+
+body{
+font-family:Inter,Segoe UI,Arial;
+line-height:1.7;
+background:
+radial-gradient(1200px 600px at 20% 10%,rgba(255,90,31,.15),transparent),
+radial-gradient(900px 500px at 80% 90%,rgba(0,255,166,.12),transparent),
+var(--bg);
+color:var(--text);
+margin:0;
+padding:40px 20px;
+}
+
+/* içerik kutusu */
+.container{
+max-width:900px;
+margin:auto;
+background:var(--glass);
+padding:40px;
+border-radius:20px;
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(10px);
+}
+
+/* başlıklar */
+h1{
+font-size:32px;
+margin-bottom:10px;
+}
+
+h2{
+margin-top:30px;
+color:var(--primary);
+}
+
+/* çizgi */
+hr{
+margin:30px 0;
+border:none;
+height:1px;
+background:linear-gradient(to right,transparent,rgba(255,255,255,.2),transparent);
+}
+
+/* linkler */
+a{
+color:var(--accent);
+text-decoration:none;
+}
+
+a:hover{
+text-decoration:underline;
+}
+
+/* küçük metin */
+small{
+opacity:.6;
+}
+
+/* mobil */
+@media(max-width:600px){
+.container{
+padding:25px;
+}
+}
+</style>
 </head>
 <body>
 
