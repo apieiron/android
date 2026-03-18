@@ -165,15 +165,48 @@ width:100%;
 display:block;
 }
 
-/* FOOTER */
 footer{
 margin-top:100px;
 text-align:center;
-opacity:.6;
+opacity:.7;
 font-size:14px;
 }
-footer a:hover{
-opacity:.8;
+
+/* dil linkleri */
+.footer-links{
+margin-top:10px;
+}
+
+.footer-links a{
+color:var(--text);
+text-decoration:none;
+margin:0 8px;
+opacity:.7;
+transition:.3s;
+}
+
+.footer-links a:hover{
+opacity:1;
+color:var(--accent);
+}
+
+/* privacy link fix */
+footer .privacy{
+display:inline-block;
+margin-top:12px;
+padding:6px 14px;
+border-radius:8px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.12);
+color:var(--text);
+text-decoration:none;
+font-size:13px;
+transition:.3s;
+}
+
+footer .privacy:hover{
+background:linear-gradient(135deg,var(--primary),var(--accent));
+color:#000;
 }
 </style>
 </head>
@@ -249,10 +282,15 @@ Doğadan savaş ortamına kadar her durumda verdiğin karar önemlidir.
 </div>
 
 <footer>
-<p>
-© 2026 ATERSUT<br>
-<a href="atersut-privacy.html">Gizlilik Politikası</a>
-</p>
+<p>© 2026 ATERSUT</p>
+
+<div class="footer-links">
+    <a href="atersut.html">🇬🇧 English</a>
+    <span>•</span>
+    <a href="atersut-tr.html">🇹🇷 Türkçe</a>
+</div>
+
+<a href="atersut-privacy.html" class="privacy">Gizlilik Politikası</a>
 </footer>
 
 </div>
