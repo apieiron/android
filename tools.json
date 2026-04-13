@@ -1,0 +1,98 @@
+{
+  "version": 1.4,
+  "default_language": "en",
+  "tools": [
+    {
+      "id": "survpath_x",
+      "package_name": "com.survpro.pathx",
+      "icon_url": "https://survivalpro.tr/assets/icons/pathx_logo.png",
+      "play_store_url": "https://play.google.com/store/apps/details?id=com.survpro.pathx",
+      "localization": {
+        "en": { "name": "SurvPath X", "description": "Dynamic decision engine for instant survival guidance." },
+        "tr": { "name": "SurvPath X", "description": "Anlık hayatta kalma rehberliği için dinamik karar motoru." },
+        "de": { "name": "SurvPath X", "description": "Dynamische Entscheidungs-Engine für sofortige Überlebenshilfe." },
+        "es": { "name": "SurvPath X", "description": "Motor de decisiones dinámicas para guía de supervivencia." },
+        "fr": { "name": "SurvPath X", "description": "Moteur de décision dynamique pour l'aide à la survie." },
+        "it": { "name": "SurvPath X", "description": "Motore decisionale dinamico per la guida alla sopravvivenza." },
+        "pt": { "name": "SurvPath X", "description": "Motor de decisão dinâmico para orientação de sobrevivência." },
+        "ru": { "name": "SurvPath X", "description": "Динамический механизм принятия решений для выживания." },
+        "ar": { "name": "SurvPath X", "description": "محرك اتخاذ قرار ديناميكي للإرشاد الفوري." },
+        "hi": { "name": "SurvPath X", "description": "त्वरित उत्तरजीविता मार्गदर्शन के लिए गतिशील निर्णय इंजन।" },
+        "bn": { "name": "SurvPath X", "description": "তাত্ক্ষণিক বেঁচে থাকার নির্দেশনার জন্য গতিশীল সিদ্ধান্ত ইঞ্জিন।" },
+        "id": { "name": "SurvPath X", "description": "Mesin keputusan dinamis untuk panduan bertahan hidup." },
+        "ms": { "name": "SurvPath X", "description": "Enjin keputusan dinamik untuk bimbingan kemandirian." },
+        "ja": { "name": "SurvPath X", "description": "即時のサバイバルガイダンスのための意思決定エンジン。" },
+        "zh": { "name": "SurvPath X", "description": "用于即时生存指导的动态决策引擎。" }
+      }
+    },
+    {
+      "id": "bugout_planner",
+      "package_name": "com.survpro.bugout",
+      "icon_url": "https://survivalpro.tr/assets/icons/bugout_logo.png",
+      "play_store_url": "https://play.google.com/store/apps/details?id=com.survpro.bugout",
+      "localization": {
+        "en": { "name": "Bugout Planner", "description": "Dynamic scenario-based gear planning and emergency bag management system." },
+        "tr": { "name": "Bugout Planner", "description": "Senaryo tabanlı dinamik ekipman planlama ve acil durum çanta yönetim sistemi." },
+        "de": { "name": "Bugout Planner", "description": "Dynamische szenariobasierte Ausrüstungsplanung und Notfalltaschen-Management." },
+        "es": { "name": "Bugout Planner", "description": "Sistema dinámico de planificación de equipo y gestión de mochilas de emergencia." },
+        "fr": { "name": "Bugout Planner", "description": "Système dynamique de planification du matériel et de gestion des sacs d'urgence." },
+        "it": { "name": "Bugout Planner", "description": "Sistema dinamico di pianificazione dell'attrezzatura e gestione borse di emergenza." },
+        "pt": { "name": "Bugout Planner", "description": "Sistema dinâmico de planeamento de equipamento e gestão de mochilas de emergência." },
+        "ru": { "name": "Bugout Planner", "description": "Динамическая система планирования снаряжения и управления тревожными сумками." },
+        "ar": { "name": "Bugout Planner", "description": "نظام ديناميكي لتخطيط المعدات وإدارة حقائب الطوارئ على أساس السيناريو." },
+        "hi": { "name": "Bugout Planner", "description": "परिदृश्य-आधारित गतिशील गियर योजना और आपातकालीन बैग प्रबंधन प्रणाली।" },
+        "bn": { "name": "Bugout Planner", "description": "দৃশ্যপট-ভিত্তিক গতিশীল গিয়ার পরিকল্পনা এবং জরুরি ব্যাগ ব্যবস্থাপনা সিস্টেম।" },
+        "id": { "name": "Bugout Planner", "description": "Sistem manajemen tas darurat dan perencanaan peralatan berbasis skenario dinamis." },
+        "ms": { "name": "Bugout Planner", "description": "Sistem pengurusan beg kecemasan dan perancangan peralatan berasaskan senario." },
+        "ja": { "name": "Bugout Planner", "description": "シナリオベースの動的な装備計画および緊急用バッグ管理システム。" },
+        "zh": { "name": "Bugout Planner", "description": "基于场景 fol 动态装备规划和应急包管理系统。" }
+      }
+    },
+    {
+      "id": "survival_protocol_x",
+      "package_name": "com.survival.protocolx",
+      "icon_url": "https://survivalpro.tr/assets/icons/spx_logo.png",
+      "play_store_url": "https://play.google.com/store/apps/details?id=com.survival.protocolx",
+      "localization": {
+        "en": { "name": "Survival Protocol X", "description": "Step-by-step survival procedures and essential checklists." },
+        "tr": { "name": "Survival Protocol X", "description": "Adım adım hayatta kalma prosedürleri ve temel kontrol listeleri." },
+        "de": { "name": "Survival Protocol X", "description": "Schritt-für-Schritt-Verfahren und wesentliche Checklisten." },
+        "es": { "name": "Survival Protocol X", "description": "Procedimientos paso a paso y listas de verificación esenciales." },
+        "fr": { "name": "Survival Protocol X", "description": "Procédures étape par étape et listes de contrôle essentielles." },
+        "it": { "name": "Survival Protocol X", "description": "Procedure passo dopo passo e liste di controllo essenziali." },
+        "pt": { "name": "Survival Protocol X", "description": "Procedimentos passo a passo e listas de verificação essenciais." },
+        "ru": { "name": "Survival Protocol X", "description": "Пошаговые процедуры и основные контрольные списки для выживания." },
+        "ar": { "name": "Survival Protocol X", "description": "إجراءات البقاء خطوة بخطوة وقوائم المراجعة الأساسية." },
+        "hi": { "name": "Survival Protocol X", "description": "चरण-दर-चरण उत्तरजीविता प्रक्रियाएं और आवश्यक चेकलिस्ट।" },
+        "bn": { "name": "Survival Protocol X", "description": "ধাপে ধাপে বেঁচে থাকার পদ্ধতি এবং প্রয়োজনীয় চেকলিস্ট।" },
+        "id": { "name": "Survival Protocol X", "description": "Prosedur kelangsungan hidup langkah demi langkah dan daftar periksa penting." },
+        "ms": { "name": "Survival Protocol X", "description": "Prosedur kelangsungan hidup langkah demi langkah dan senarai semak penting." },
+        "ja": { "name": "Survival Protocol X", "description": "ステップバイステップのサバイバル手順と必須のチェックリスト。" },
+        "zh": { "name": "Survival Protocol X", "description": "分步生存程序和基本清单。" }
+      }
+    },
+    {
+      "id": "atersut",
+      "package_name": "com.survpro.atersut",
+      "icon_url": "https://survivalpro.tr/assets/icons/atersut_logo.png",
+      "play_store_url": "https://play.google.com/store/apps/details?id=com.survpro.atersut",
+      "localization": {
+        "en": { "name": "ATERSUT", "description": "Next-gen engine for testing and improving survival knowledge." },
+        "tr": { "name": "ATERSUT", "description": "Hayatta kalma bilgisini test eden ve geliştiren yeni nesil motor." },
+        "de": { "name": "ATERSUT", "description": "Engine der nächsten Generation zum Testen des Überlebenswissens." },
+        "es": { "name": "ATERSUT", "description": "Motor de próxima generación para probar conocimientos de supervivencia." },
+        "fr": { "name": "ATERSUT", "description": "Moteur de nouvelle génération pour tester les connaissances de survie." },
+        "it": { "name": "ATERSUT", "description": "Motore di nuova generazione per testare le conoscenze di sopravvivenza." },
+        "pt": { "name": "ATERSUT", "description": "Motor de próxima geração para testar conhecimentos de sobrevivência." },
+        "ru": { "name": "ATERSUT", "description": "Механизм нового поколения для проверки знаний о выживании." },
+        "ar": { "name": "ATERSUT", "description": "محرك الجيل القادم لاختبار وتحسين معرفة البقاء على قيد الحياة." },
+        "hi": { "name": "ATERSUT", "description": "उत्तरजीविता ज्ञान के परीक्षण और सुधार के लिए अगली पीढ़ी का इंजन।" },
+        "bn": { "name": "ATERSUT", "description": "বেঁচে থাকার জ্ঞান পরীক্ষা এবং উন্নত করার জন্য পরবর্তী প্রজন্মের ইঞ্জিন।" },
+        "id": { "name": "ATERSUT", "description": "Mesin generasi berikutnya untuk menguji pengetahuan bertahan hidup." },
+        "ms": { "name": "ATERSUT", "description": "Enjin generasi akan datang untuk menguji pengetahuan kelangsungan hidup." },
+        "ja": { "name": "ATERSUT", "description": "サバイバル知識をテストし向上させるための次世代エンジン。" },
+        "zh": { "name": "ATERSUT", "description": "用于测试和提高生存知识 floor 次世代引擎。" }
+      }
+    }
+  ]
+}
