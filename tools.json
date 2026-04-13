@@ -5,7 +5,7 @@
     {
       "id": "survpath_x",
       "package_name": "com.survpro.pathx",
-      "icon_url": "https://survivalpro.tr/assets/icons/pathx_logo.png",
+      "icon_url": "https://survivalpro.tr/images/logos/survpathx.png",
       "play_store_url": "https://play.google.com/store/apps/details?id=com.survpro.pathx",
       "localization": {
         "en": { "name": "SurvPath X", "description": "Dynamic decision engine for instant survival guidance." },
@@ -28,7 +28,7 @@
     {
       "id": "bugout_planner",
       "package_name": "com.bugout.planner",
-      "icon_url": "https://survivalpro.tr/assets/icons/bugout_logo.png",
+      "icon_url": "https://survivalpro.tr/images/logos/bugout.png",
       "play_store_url": "https://play.google.com/store/apps/details?id=com.bugout.planner",
       "localization": {
         "en": { "name": "Bugout Planner", "description": "Dynamic scenario-based gear planning and emergency bag management system." },
@@ -51,7 +51,7 @@
     {
       "id": "survival_protocol_x",
       "package_name": "survival.protocolx.survive",
-      "icon_url": "https://survivalpro.tr/assets/icons/spx_logo.png",
+      "icon_url": "https://survivalpro.tr/images/logos/protocolx.png",
       "play_store_url": "https://play.google.com/store/apps/details?id=survival.protocolx.survive",
       "localization": {
         "en": { "name": "Survival Protocol X", "description": "Step-by-step survival procedures and essential checklists." },
@@ -74,7 +74,7 @@
     {
       "id": "atersut",
       "package_name": "com.apieiron.demolition",
-      "icon_url": "https://survivalpro.tr/assets/icons/atersut_logo.png",
+      "icon_url": "https://survivalpro.tr/images/logos/atersut.png",
       "play_store_url": "https://play.google.com/store/apps/details?id=com.apieiron.demolition",
       "localization": {
         "en": { "name": "ATERSUT", "description": "Next-gen engine for testing and improving survival knowledge." },
