@@ -1,5 +1,5 @@
 {
-  "version": 1.4,
+  "version": 1.1,
   "default_language": "en",
   "tools": [
     {
@@ -27,9 +27,9 @@
     },
     {
       "id": "bugout_planner",
-      "package_name": "com.survpro.bugout",
+      "package_name": "com.bugout.planner",
       "icon_url": "https://survivalpro.tr/assets/icons/bugout_logo.png",
-      "play_store_url": "https://play.google.com/store/apps/details?id=com.survpro.bugout",
+      "play_store_url": "https://play.google.com/store/apps/details?id=com.bugout.planner",
       "localization": {
         "en": { "name": "Bugout Planner", "description": "Dynamic scenario-based gear planning and emergency bag management system." },
         "tr": { "name": "Bugout Planner", "description": "Senaryo tabanlı dinamik ekipman planlama ve acil durum çanta yönetim sistemi." },
@@ -50,9 +50,9 @@
     },
     {
       "id": "survival_protocol_x",
-      "package_name": "com.survival.protocolx",
+      "package_name": "survival.protocolx.survive",
       "icon_url": "https://survivalpro.tr/assets/icons/spx_logo.png",
-      "play_store_url": "https://play.google.com/store/apps/details?id=com.survival.protocolx",
+      "play_store_url": "https://play.google.com/store/apps/details?id=survival.protocolx.survive",
       "localization": {
         "en": { "name": "Survival Protocol X", "description": "Step-by-step survival procedures and essential checklists." },
         "tr": { "name": "Survival Protocol X", "description": "Adım adım hayatta kalma prosedürleri ve temel kontrol listeleri." },
@@ -73,9 +73,9 @@
     },
     {
       "id": "atersut",
-      "package_name": "com.survpro.atersut",
+      "package_name": "com.apieiron.demolition",
       "icon_url": "https://survivalpro.tr/assets/icons/atersut_logo.png",
-      "play_store_url": "https://play.google.com/store/apps/details?id=com.survpro.atersut",
+      "play_store_url": "https://play.google.com/store/apps/details?id=com.apieiron.demolition",
       "localization": {
         "en": { "name": "ATERSUT", "description": "Next-gen engine for testing and improving survival knowledge." },
         "tr": { "name": "ATERSUT", "description": "Hayatta kalma bilgisini test eden ve geliştiren yeni nesil motor." },
