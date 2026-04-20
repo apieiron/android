@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Survival Protocol X – Offline Survival Guide</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <meta name="description" content="Survival Protocol X is an offline survival guide app designed for nature, disasters, and emergency situations. Access critical survival knowledge without internet.">
-    <meta name="keywords" content="survival protocol x, survival, survival app, offline survival, disaster preparedness, outdoor survival, emergency guide, survival guide">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta property="og:title" content="Survival Protocol X – Offline Survival Guide">
-    <meta property="og:description" content="An offline survival guide for nature, disasters, and emergency situations.">
-    <meta property="og:type" content="website">
-
+<meta charset="UTF-8">
+<title>Survival Protocol X – Survival Ecosystem</title>
+<link rel="icon" href="/images/favicon.ico">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <style>
 :root{
 --bg:#05080d;
 --primary:#00ffa6;
 --accent:#00b4ff;
---danger:#ff3b3b;
 --text:#e9f1ff;
 --glass:rgba(255,255,255,.06);
 }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Segoe UI,Arial}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,Segoe UI,Arial;
+}
+
 body{
 background:
 radial-gradient(1200px 600px at 10% 10%,rgba(0,180,255,.12),transparent),
@@ -33,8 +31,7 @@ color:var(--text);
 overflow-x:hidden;
 }
 
-/* GRID BACKGROUND */
-body::before{
+body:before{
 content:"";
 position:fixed;
 inset:0;
@@ -45,13 +42,13 @@ background-size:90px 90px;
 z-index:-2;
 }
 
-/* HUD + RADAR */
 .hud{
 position:fixed;
 inset:0;
 pointer-events:none;
 z-index:-1;
 }
+
 .hud-line{
 position:absolute;
 height:1px;
@@ -60,9 +57,10 @@ background:linear-gradient(90deg,transparent,var(--primary),transparent);
 opacity:.6;
 animation:hudMove 12s linear infinite;
 }
-.hud-line:nth-child(1){top:20%;animation-duration:14s}
-.hud-line:nth-child(2){top:50%;animation-duration:18s}
-.hud-line:nth-child(3){top:80%;animation-duration:16s}
+
+.hud-line:nth-child(1){top:20%}
+.hud-line:nth-child(2){top:50%}
+.hud-line:nth-child(3){top:80%}
 
 @keyframes hudMove{
 0%{left:-40%}
@@ -77,59 +75,46 @@ width:170px;
 height:170px;
 border-radius:50%;
 border:1px solid rgba(0,255,166,.3);
-background:radial-gradient(circle,rgba(0,255,166,.12) 0%,transparent 60%);
-overflow:hidden;
-}
-.radar::before{
-content:"";
-position:absolute;
-inset:0;
-border-radius:50%;
-background:conic-gradient(from 0deg,rgba(0,255,166,.4),transparent 40%);
-animation:spin 4s linear infinite;
-}
-@keyframes spin{
-100%{transform:rotate(360deg)}
+background:radial-gradient(circle,rgba(0,255,166,.12),transparent);
 }
 
-/* LAYOUT */
 .container{
 max-width:1250px;
 margin:auto;
 padding:70px 20px;
 }
 
-/* HERO */
 .hero{
-max-width:760px;
-margin-bottom:40px;
+max-width:800px;
+margin-bottom:45px;
 }
+
 .hero h1{
 font-size:48px;
 line-height:1.05;
-letter-spacing:-1px;
 }
+
 .hero span{
 color:var(--primary);
 }
+
 .hero p{
-margin-top:14px;
-font-size:17px;
+margin-top:15px;
 opacity:.85;
-}
-@media(max-width:600px){
-.hero h1{font-size:34px}
+line-height:1.6;
 }
 
-/* APPS */
 .apps{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:28px;
-margin-bottom:50px;
+margin-bottom:60px;
 }
+
 @media(max-width:900px){
-.apps{grid-template-columns:1fr}
+.apps{
+grid-template-columns:1fr;
+}
 }
 
 .app-card{
@@ -141,8 +126,9 @@ border-radius:22px;
 background:var(--glass);
 border:1px solid rgba(255,255,255,.12);
 backdrop-filter:blur(10px);
-transition:.25s;
+transition:.3s;
 }
+
 .app-card:hover{
 transform:translateY(-6px);
 border-color:rgba(0,255,166,.4);
@@ -155,96 +141,82 @@ border-radius:18px;
 }
 
 .app-card h2{
-font-size:22px;
 color:var(--primary);
-margin-bottom:6px;
+margin-bottom:8px;
 }
 
 .app-card p{
 font-size:14px;
-opacity:.8;
 line-height:1.5;
+opacity:.8;
 }
 
-.app-card a{
+.app-card a,.main-btn{
 display:inline-block;
-margin-top:10px;
-padding:10px 18px;
-border-radius:10px;
+margin-top:12px;
+padding:11px 20px;
+border-radius:12px;
 background:linear-gradient(135deg,var(--primary),var(--accent));
 color:#000;
 font-weight:700;
 text-decoration:none;
-font-size:14px;
 }
 
-/* SLIDER WRAPPER */
 .slider-wrapper{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:30px;
 margin-top:20px;
 }
+
 @media(max-width:900px){
-.slider-wrapper{grid-template-columns:1fr}
+.slider-wrapper{
+grid-template-columns:1fr;
+}
 }
 
-/* PREMIUM SLIDER */
 .slider{
 position:relative;
 border-radius:24px;
 overflow:hidden;
 background:var(--glass);
 border:1px solid rgba(255,255,255,.12);
-box-shadow:0 30px 80px rgba(0,0,0,.6);
-max-height:520px; /* DESKTOP FIX */
+max-height:520px;
+}
+
+.slider-title{
+padding:14px 18px;
+font-weight:700;
+color:var(--primary);
+background:linear-gradient(90deg,rgba(0,255,166,.12),transparent);
 }
 
 .slides{
 display:flex;
-transition:transform .7s cubic-bezier(.4,0,.2,1);
-will-change:transform;
+transition:transform .7s ease;
 }
 
 .slide{
 min-width:100%;
 padding:12px;
-display:flex;
-justify-content:center;
-align-items:center;
 }
 
 .slide img{
 width:100%;
-height:auto;
 max-height:480px;
-object-fit:contain; /* DESKTOP FULL IMAGE */
+object-fit:contain;
 border-radius:18px;
-display:block;
-box-shadow:0 20px 50px rgba(0,0,0,.7);
 }
 
-/* TITLE BAR */
-.slider-title{
-padding:12px 16px;
-font-weight:700;
-letter-spacing:.5px;
-color:var(--primary);
-border-bottom:1px solid rgba(255,255,255,.08);
-background:linear-gradient(90deg,rgba(0,255,166,.12),transparent);
-}
-
-/* PROGRESS */
 .progress{
 position:absolute;
 bottom:0;
 left:0;
 height:3px;
-background:linear-gradient(90deg,var(--primary),var(--accent));
 width:0%;
+background:linear-gradient(90deg,var(--primary),var(--accent));
 }
 
-/* DOTS */
 .dots{
 position:absolute;
 bottom:14px;
@@ -253,98 +225,24 @@ transform:translateX(-50%);
 display:flex;
 gap:8px;
 }
+
 .dot{
 width:10px;
 height:10px;
 border-radius:50%;
-background:rgba(255,255,255,.3);
-cursor:pointer;
-transition:.2s;
+background:rgba(255,255,255,.35);
 }
+
 .dot.active{
 background:var(--primary);
 transform:scale(1.3);
 }
 
-/* FEATURES */
-.features{
-margin-top:80px;
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:22px;
-}
-@media(max-width:900px){
-.features{grid-template-columns:1fr}
+.section{
+margin-top:95px;
 }
 
-.feature{
-padding:22px;
-border-radius:20px;
-background:var(--glass);
-border:1px solid rgba(255,255,255,.1);
-transition:.2s;
-}
-.feature:hover{
-border-color:rgba(0,255,166,.4);
-transform:translateY(-4px);
-}
-.feature h3{
-color:var(--primary);
-margin-bottom:10px;
-}
-.feature p{
-font-size:14px;
-opacity:.8;
-}
-
-/* MOBILE OPTIMIZATION */
-@media(max-width:768px){
-.app-card{backdrop-filter:none}
-body::before{background-size:130px 130px;opacity:.4}
-.radar{display:none}
-.slider{max-height:none}
-.slide img{
-max-height:none;
-object-fit:cover; /* MOBILE DOLU */
-}
-}
-
-/* ATERSUT */
-.atersut-section{
-margin-top:90px;
-}
-.atersut-title{
-display:flex;
-align-items:center;
-gap:18px;
-margin-bottom:10px;
-}
-
-.atersut-title img{
-width:110px;
-height:auto;
-filter:drop-shadow(0 10px 25px rgba(0,0,0,.6));
-}
-.atersut-title img:hover{
-transform:scale(1.08);
-transition:.3s;
-}
-.atersut-title h1{
-margin:0;
-}
-
-/* MOBILE */
-@media(max-width:600px){
-.atersut-title{
-flex-direction:column;
-text-align:center;
-}
-
-.atersut-title img{
-width:60px;
-}
-}
-.atersut-box{
+.section-box{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:30px;
@@ -352,88 +250,66 @@ align-items:center;
 }
 
 @media(max-width:900px){
-.atersut-box{grid-template-columns:1fr}
+.section-box{
+grid-template-columns:1fr;
+}
 }
 
-.atersut-info{
-padding:22px;
+.info-box{
+padding:24px;
 border-radius:20px;
 background:var(--glass);
 border:1px solid rgba(255,255,255,.1);
 }
 
-.atersut-info h2{
+.info-box h2{
 color:var(--primary);
-margin-bottom:14px;
+margin-bottom:15px;
 }
 
-.atersut-info ul{
+.info-box ul{
 list-style:none;
-font-size:14px;
+line-height:1.7;
 opacity:.85;
-line-height:1.6;
-margin-bottom:18px;
+font-size:14px;
+margin-bottom:20px;
 }
 
-.atersut-info li{
-margin-bottom:6px;
+.app-title{
+display:flex;
+align-items:center;
+gap:18px;
+margin-bottom:12px;
 }
 
-.atersut-btn{
-display:inline-block;
-padding:12px 20px;
-border-radius:12px;
-background:linear-gradient(135deg,var(--primary),var(--accent));
-color:#000;
-font-weight:700;
-text-decoration:none;
+.app-title img{
+width:100px;
 }
-    
+
+@media(max-width:600px){
+.hero h1{
+font-size:34px;
+}
+.app-title{
+flex-direction:column;
+text-align:center;
+}
+.app-title img{
+width:65px;
+}
+.radar{
+display:none;
+}
+}
+
 footer{
-margin-top:100px;
+margin-top:90px;
 text-align:center;
 opacity:.7;
-font-size:14px;
-}
-
-/* dil linkleri */
-.footer-links{
-margin-top:10px;
-}
-
-.footer-links a{
-color:var(--text);
-text-decoration:none;
-margin:0 8px;
-opacity:.7;
-transition:.3s;
-}
-
-.footer-links a:hover{
-opacity:1;
-color:var(--accent);
-}
-
-/* privacy link fix */
-footer .privacy{
-display:inline-block;
-margin-top:12px;
-padding:6px 14px;
-border-radius:8px;
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.12);
-color:var(--text);
-text-decoration:none;
-font-size:13px;
-transition:.3s;
-}
-
-footer .privacy:hover{
-background:linear-gradient(135deg,var(--primary),var(--accent));
-color:#000;
 }
 </style>
 </head>
+
 <body>
 
 <div class="hud">
@@ -446,42 +322,54 @@ color:#000;
 <div class="container">
 
 <div class="hero">
-<h1><span>Survival Ecosystem</span><br>Two Apps • One Survival System</h1>
+<h1><span>Survival Ecosystem</span><br>Four Apps • One Survival System</h1>
+
 <p>
-Survival Protocol X and BugOut Planner combine knowledge and preparedness into a professional survival platform designed for real-world crises.
+Survival Protocol X, SurvPath X, BugOut Planner and ATERSUT create a unified ecosystem for knowledge, planning, decision-making and survival training.
 </p>
 </div>
+
 
 <section class="apps">
-<div class="app-card">
 
+<div class="app-card">
 <img src="images/logo.png">
+
 <div>
 <h2>Survival Protocol X</h2>
+
 <p>
-An offline survival guide designed for real emergencies.  
-Comprehensive knowledge for wilderness, disasters, war, and crisis scenarios.
+An offline survival guide designed for real emergencies, disasters and crisis scenarios.
 </p>
-<a href="https://play.google.com/store/apps/details?id=survival.protocolx.survive" target="_blank">Play Store</a>
+
+<a href="https://play.google.com/store/apps/details?id=survival.protocolx.survive">
+Play Store
+</a>
+
 </div>
 </div>
+
 
 <div class="app-card">
-<img src="images/bugout-planner.jpg">
+<img src="images/survpathx/logo.png">
+
 <div>
-<h2>BugOut Planner</h2>
+<h2>SurvPath X</h2>
+
 <p>
-BugOut Planner is a survival and emergency planning app built for realistic, scenario-based preparedness.
-Instead of fixed checklists, it allows you to create dynamic scenarios tailored to real conditions.
-Scenario-Based Smart Bug Out Bag Creation  
-Build your own scenario step by step.
+Offline decision engine, tactical survival protocols and step-by-step guidance for critical moments.
 </p>
-<a href="https://play.google.com/store/apps/details?id=com.bugout.planner" target="_blank">Play Store</a>
+
+<a href="#">
+Coming Soon
+</a>
+
 </div>
 </div>
+
 </section>
 
-<!-- DOUBLE SLIDER -->
+
 <section class="slider-wrapper">
 
 <div class="slider" id="slider1">
@@ -492,7 +380,7 @@ Build your own scenario step by step.
 </div>
 
 <div class="slider" id="slider2">
-<div class="slider-title">BUGOUT PLANNER</div>
+<div class="slider-title">SURVPATH X</div>
 <div class="slides" id="slides2"></div>
 <div class="dots" id="dots2"></div>
 <div class="progress" id="progress2"></div>
@@ -500,48 +388,80 @@ Build your own scenario step by step.
 
 </section>
 
-<section class="features">
-<div class="feature">
-<h3>Offline Knowledge</h3>
-<p>Access essential survival information without an internet connection.</p>
-</div>
-<div class="feature">
-<h3>Realistic Scenarios</h3>
-<p>Specialized guidance for wilderness, war, disasters, and crisis situations.</p>
-</div>
-<div class="feature">
-<h3>Professional Preparedness</h3>
-<p>Advanced bug out bag and inventory planning system.</p>
-</div>
-</section>
-<!-- ATERSUT SECTION -->
-<section class="atersut-section">
+<section class="section">
 
-<div class="hero" style="max-width:900px;">
-<div class="atersut-title">
-    <img src="images/atersut/logo.png" alt="ATERSUT Logo">
-    <h1><span>ATERSUT</span><br>All Terrain Real Survival Test</h1>
+<div class="hero">
+
+<div class="app-title">
+<img src="images/bugout-planner.jpg">
+<h1><span>BugOut Planner</span><br>Scenario-Based Preparedness</h1>
 </div>
+
 <p>
-Test your survival knowledge before reality tests you.  
-ATERSUT challenges you with 120+ real-world critical questions across wilderness and combat scenarios.  
-From water purification to first aid, from NBC defense to tactical retreat decisions — every answer matters.
+Build realistic bug out scenarios, organize gear and prepare smarter.
+</p>
+
+</div>
+
+<div class="section-box">
+
+<div class="info-box">
+
+<h2>Plan Before Crisis Hits</h2>
+
+<ul>
+<li>Scenario-Based Planning</li>
+<li>Dynamic Bug Out Bag Creation</li>
+<li>Custom Emergency Inventories</li>
+<li>Preparedness Workflow System</li>
+</ul>
+
+<a href="https://play.google.com/store/apps/details?id=com.bugout.planner" class="main-btn">
+Play Store
+</a>
+
+</div>
+
+
+<div class="slider" id="slider4">
+<div class="slider-title">BUGOUT PLANNER</div>
+<div class="slides" id="slides4"></div>
+<div class="dots" id="dots4"></div>
+<div class="progress" id="progress4"></div>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="hero">
+<div class="app-title">
+<img src="images/atersut/logo.png">
+<h1><span>ATERSUT</span><br>All Terrain Real Survival Test</h1>
+</div>
+
+<p>
+Test your survival knowledge before reality tests you.
 </p>
 </div>
 
-<div class="atersut-box">
+<div class="section-box">
 
-<div class="atersut-info">
+<div class="info-box">
+
 <h2>Think. Decide. Survive.</h2>
 
 <ul>
-<li>Two Scenarios: Wilderness & War Conditions</li>
-<li>Difficulty Modes: 15 Questions (Easy) / 30 Questions (Hard)</li>
-<li>Real Survival Knowledge Based Questions</li>
-<li>Global Leaderboard – Compete Worldwide</li>
+<li>Wilderness and War Scenarios</li>
+<li>120+ Critical Survival Questions</li>
+<li>Easy and Hard Modes</li>
+<li>Global Leaderboard</li>
 </ul>
 
-<a href="https://play.google.com/store/apps/details?id=com.apieiron.demolition" class="atersut-btn">Play Store</a>
+<a href="#" class="main-btn">Play Store</a>
+
 </div>
 
 <div class="slider" id="slider3">
@@ -554,113 +474,154 @@ From water purification to first aid, from NBC defense to tactical retreat decis
 </div>
 
 </section>
+
+
+
+
+
+
 <footer>
 <p>© 2025 Survival Protocol X</p>
-
-<div class="footer-links">
-    <a href="index.html">🇬🇧 English</a>
-    <span>•</span>
-    <a href="index-tr.html">🇹🇷 Türkçe</a>
-</div>
-
-<a href="/privacy/survivalprotocolx.html" class="privacy">Privacy Policy</a>
 </footer>
 
-
 </div>
 
+
 <script>
-    
-/* IMAGES */
+
 const survivalImages=[
 "images/en/01.jpeg","images/en/02.jpeg","images/en/03.jpeg","images/en/04.jpeg",
 "images/en/05.jpeg","images/en/06.jpeg","images/en/07.jpeg","images/en/08.jpeg",
 "images/en/09.jpeg","images/en/10.jpeg","images/en/11.jpeg","images/en/12.jpeg"
 ];
 
+const survpathImages=[
+"images/survpathx/en_01.jpeg",
+"images/survpathx/en_02.jpeg",
+"images/survpathx/en_03.jpeg",
+"images/survpathx/en_04.jpeg",
+"images/survpathx/en_05.jpeg",
+"images/survpathx/en_06.jpeg",
+"images/survpathx/en_07.jpeg",
+"images/survpathx/en_08.jpeg"
+];
+
+
 const bugoutImages=[
 "images/bugout-en/b01.jpeg","images/bugout-en/b02.jpeg","images/bugout-en/b03.jpeg","images/bugout-en/b04.jpeg",
 "images/bugout-en/01.jpeg","images/bugout-en/02.jpeg","images/bugout-en/03.jpeg","images/bugout-en/04.jpeg"
 ];
 
-function initSlider(images,slidesId,dotsId,progressId){
-const slides=document.getElementById(slidesId);
-const dots=document.getElementById(dotsId);
-const progress=document.getElementById(progressId);
-
-let index=0;
-const duration=5000;
-let timer;
-
-images.forEach((src,i)=>{
-const slide=document.createElement("div");
-slide.className="slide";
-slide.innerHTML=`<img src="${src}" loading="lazy">`;
-slides.appendChild(slide);
-
-const dot=document.createElement("div");
-dot.className="dot"+(i===0?" active":"");
-dot.onclick=()=>goSlide(i);
-dots.appendChild(dot);
-});
-
-function goSlide(i){
-index=i;
-slides.style.transform=`translateX(-${i*100}%)`;
-dots.querySelectorAll(".dot").forEach((d,di)=>{
-d.classList.toggle("active",di===i);
-});
-resetProgress();
-}
-
-function resetProgress(){
-progress.style.transition="none";
-progress.style.width="0%";
-setTimeout(()=>{
-progress.style.transition=`width ${duration}ms linear`;
-progress.style.width="100%";
-},50);
-}
-
-function auto(){
-timer=setInterval(()=>{
-index=(index+1)%images.length;
-goSlide(index);
-},duration);
-}
-
-resetProgress();
-auto();
-
-/* TOUCH */
-let startX=0;
-slides.parentElement.addEventListener("touchstart",e=>{
-startX=e.touches[0].clientX;
-clearInterval(timer);
-});
-slides.parentElement.addEventListener("touchend",e=>{
-let endX=e.changedTouches[0].clientX;
-let diff=endX-startX;
-if(diff>60) index=(index-1+images.length)%images.length;
-if(diff<-60) index=(index+1)%images.length;
-goSlide(index);
-auto();
-});
-}
-
-initSlider(survivalImages,"slides1","dots1","progress1");
-initSlider(bugoutImages,"slides2","dots2","progress2");
-
 const atersutImages=[
 "images/atersut/01.jpeg",
 "images/atersut/02.jpeg",
-"images/atersut/03.jpeg",
 "images/atersut/04.jpeg",
 "images/atersut/05.jpeg",
 "images/atersut/06.jpeg"
 ];
 
-initSlider(atersutImages,"slides3","dots3","progress3");
+
+
+function initSlider(images,slidesId,dotsId,progressId){
+
+const slides=document.getElementById(slidesId);
+const dots=document.getElementById(dotsId);
+const progress=document.getElementById(progressId);
+
+let index=0;
+let timer;
+const duration=5000;
+
+images.forEach((src,i)=>{
+
+let slide=document.createElement("div");
+slide.className="slide";
+slide.innerHTML=`<img src="${src}">`;
+
+slides.appendChild(slide);
+
+let dot=document.createElement("div");
+dot.className="dot"+(i==0?" active":"");
+
+dot.onclick=()=>go(i);
+
+dots.appendChild(dot);
+
+});
+
+function go(i){
+
+index=i;
+
+slides.style.transform=
+`translateX(-${i*100}%)`;
+
+document
+.querySelectorAll("#"+dotsId+" .dot")
+.forEach((d,n)=>
+d.classList.toggle("active",n==i)
+);
+
+progress.style.transition="none";
+progress.style.width="0%";
+
+setTimeout(()=>{
+progress.style.transition=
+`width ${duration}ms linear`;
+
+progress.style.width="100%";
+
+},50);
+
+}
+
+function auto(){
+
+timer=setInterval(()=>{
+
+index=(index+1)%images.length;
+
+go(index);
+
+},duration);
+
+}
+
+go(0);
+auto();
+
+}
+
+
+initSlider(
+survivalImages,
+"slides1",
+"dots1",
+"progress1"
+);
+
+initSlider(
+survpathImages,
+"slides2",
+"dots2",
+"progress2"
+);
+    
+initSlider(
+bugoutImages,
+"slides4",
+"dots4",
+"progress4"
+);
+
+initSlider(
+atersutImages,
+"slides3",
+"dots3",
+"progress3"
+);
+
+
 
 </script>
 
