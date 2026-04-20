@@ -2,14 +2,14 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Survival Protocol X – İnternet olmadan çalışabilen "Hayatta Kalma Rehberi"</title>
+    <title>Survival Protocol X – Çevrimdışı Hayatta Kalma Rehberi</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <meta name="description" content="Survival Protocol X çevrimdışı hayatta kalma rehberi uygulamasıdır. Doğa, afet ve olağanüstü durumlar için internet olmadan kullanılabilir hayatta kalma kılavuzu.">
-    <meta name="keywords" content="survival protocol x, hayatta kalma, survival app, offline survival, afet hazırlığı, doğada kalma, acil durum rehberi, survival guide">
+    <meta name="description" content="Survival Protocol X; doğa, afetler ve acil durumlar için tasarlanmış çevrimdışı bir hayatta kalma rehberi uygulamasıdır. İnternet olmadan kritik bilgilere erişin.">
+    <meta name="keywords" content="survival protocol x, hayatta kalma, survival uygulaması, çevrimdışı hayatta kalma, afet hazırlığı, doğada hayatta kalma, acil durum rehberi, hayatta kalma rehberi">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta property="og:title" content="Survival Protocol X – Offline Survival Guide">
-    <meta property="og:description" content="Doğa, afet ve olağanüstü durumlar için çevrimdışı hayatta kalma rehberi.">
+    <meta property="og:title" content="Survival Protocol X – Çevrimdışı Hayatta Kalma Rehberi">
+    <meta property="og:description" content="Doğa, afetler ve acil durumlar için çevrimdışı hayatta kalma rehberi.">
     <meta property="og:type" content="website">
 
 <style>
@@ -17,12 +17,17 @@
 --bg:#05080d;
 --primary:#00ffa6;
 --accent:#00b4ff;
---danger:#ff3b3b;
 --text:#e9f1ff;
 --glass:rgba(255,255,255,.06);
 }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Segoe UI,Arial}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,Segoe UI,Arial;
+}
+
 body{
 background:
 radial-gradient(1200px 600px at 10% 10%,rgba(0,180,255,.12),transparent),
@@ -32,8 +37,7 @@ color:var(--text);
 overflow-x:hidden;
 }
 
-/* GRID BACKGROUND */
-body::before{
+body:before{
 content:"";
 position:fixed;
 inset:0;
@@ -44,13 +48,13 @@ background-size:90px 90px;
 z-index:-2;
 }
 
-/* HUD + RADAR */
 .hud{
 position:fixed;
 inset:0;
 pointer-events:none;
 z-index:-1;
 }
+
 .hud-line{
 position:absolute;
 height:1px;
@@ -59,9 +63,10 @@ background:linear-gradient(90deg,transparent,var(--primary),transparent);
 opacity:.6;
 animation:hudMove 12s linear infinite;
 }
-.hud-line:nth-child(1){top:20%;animation-duration:14s}
-.hud-line:nth-child(2){top:50%;animation-duration:18s}
-.hud-line:nth-child(3){top:80%;animation-duration:16s}
+
+.hud-line:nth-child(1){top:20%}
+.hud-line:nth-child(2){top:50%}
+.hud-line:nth-child(3){top:80%}
 
 @keyframes hudMove{
 0%{left:-40%}
@@ -79,61 +84,55 @@ border:1px solid rgba(0,255,166,.3);
 background:radial-gradient(circle,rgba(0,255,166,.12) 0%,transparent 60%);
 overflow:hidden;
 }
-.radar::before{
+
+.radar:before{
 content:"";
 position:absolute;
 inset:0;
 border-radius:50%;
-background:conic-gradient(from 0deg,rgba(0,255,166,.4),transparent 40%);
+background:conic-gradient(from 0deg,rgba(0,255,166,.45),transparent 35%);
 animation:spin 4s linear infinite;
 }
+
 @keyframes spin{
-100%{transform:rotate(360deg)}
+100%{transform:rotate(360deg);}
 }
 
-/* LAYOUT */
 .container{
 max-width:1250px;
 margin:auto;
 padding:70px 20px;
 }
 
-/* HERO */
 .hero{
-max-width:780px;
-margin-bottom:40px;
+max-width:800px;
+margin-bottom:45px;
 }
+
 .hero h1{
-font-size:44px;
+font-size:48px;
 line-height:1.05;
-letter-spacing:-1px;
 }
-.hero h2{
-font-size:38px;
-line-height:1.05;
-letter-spacing:-1px;
-}
+
 .hero span{
 color:var(--primary);
 }
+
 .hero p{
-margin-top:14px;
-font-size:17px;
+margin-top:15px;
 opacity:.85;
-}
-@media(max-width:600px){
-.hero h1{font-size:34px}
+line-height:1.6;
 }
 
-/* APPS */
 .apps{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:28px;
-margin-bottom:50px;
+margin-bottom:60px;
 }
+
 @media(max-width:900px){
-.apps{grid-template-columns:1fr}
+.apps{grid-template-columns:1fr;}
 }
 
 .app-card{
@@ -145,8 +144,9 @@ border-radius:22px;
 background:var(--glass);
 border:1px solid rgba(255,255,255,.12);
 backdrop-filter:blur(10px);
-transition:.25s;
+transition:.3s;
 }
+
 .app-card:hover{
 transform:translateY(-6px);
 border-color:rgba(0,255,166,.4);
@@ -159,96 +159,80 @@ border-radius:18px;
 }
 
 .app-card h2{
-font-size:22px;
 color:var(--primary);
-margin-bottom:6px;
+margin-bottom:8px;
 }
 
 .app-card p{
 font-size:14px;
-opacity:.8;
 line-height:1.5;
+opacity:.8;
 }
 
-.app-card a{
+.app-card a,.main-btn{
 display:inline-block;
-margin-top:10px;
-padding:10px 18px;
-border-radius:10px;
+margin-top:12px;
+padding:11px 20px;
+border-radius:12px;
 background:linear-gradient(135deg,var(--primary),var(--accent));
 color:#000;
 font-weight:700;
 text-decoration:none;
-font-size:14px;
 }
 
-/* SLIDER WRAPPER */
 .slider-wrapper{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:30px;
 margin-top:20px;
 }
+
 @media(max-width:900px){
-.slider-wrapper{grid-template-columns:1fr}
+.slider-wrapper{grid-template-columns:1fr;}
 }
 
-/* PREMIUM SLIDER */
 .slider{
 position:relative;
 border-radius:24px;
 overflow:hidden;
 background:var(--glass);
 border:1px solid rgba(255,255,255,.12);
-box-shadow:0 30px 80px rgba(0,0,0,.6);
-max-height:520px; /* DESKTOP FIX */
+max-height:520px;
+}
+
+.slider-title{
+padding:14px 18px;
+font-weight:700;
+color:var(--primary);
+background:linear-gradient(90deg,rgba(0,255,166,.12),transparent);
 }
 
 .slides{
 display:flex;
-transition:transform .7s cubic-bezier(.4,0,.2,1);
-will-change:transform;
+transition:transform .7s ease;
 }
 
 .slide{
 min-width:100%;
 padding:12px;
-display:flex;
-justify-content:center;
-align-items:center;
 }
 
 .slide img{
 width:100%;
-height:auto;
 max-height:480px;
-object-fit:contain; /* DESKTOP FULL IMAGE */
+object-fit:contain;
 border-radius:18px;
-display:block;
-box-shadow:0 20px 50px rgba(0,0,0,.7);
 }
 
-/* TITLE BAR */
-.slider-title{
-padding:12px 16px;
-font-weight:700;
-letter-spacing:.5px;
-color:var(--primary);
-border-bottom:1px solid rgba(255,255,255,.08);
-background:linear-gradient(90deg,rgba(0,255,166,.12),transparent);
-}
-
-/* PROGRESS */
 .progress{
 position:absolute;
 bottom:0;
 left:0;
 height:3px;
-background:linear-gradient(90deg,var(--primary),var(--accent));
 width:0%;
+background:linear-gradient(90deg,var(--primary),var(--accent));
 }
 
-/* DOTS */
 .dots{
 position:absolute;
 bottom:14px;
@@ -257,99 +241,24 @@ transform:translateX(-50%);
 display:flex;
 gap:8px;
 }
+
 .dot{
 width:10px;
 height:10px;
 border-radius:50%;
-background:rgba(255,255,255,.3);
-cursor:pointer;
-transition:.2s;
+background:rgba(255,255,255,.35);
 }
+
 .dot.active{
 background:var(--primary);
 transform:scale(1.3);
 }
 
-/* FEATURES */
-.features{
-margin-top:80px;
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:22px;
-}
-@media(max-width:900px){
-.features{grid-template-columns:1fr}
+.section{
+margin-top:95px;
 }
 
-.feature{
-padding:22px;
-border-radius:20px;
-background:var(--glass);
-border:1px solid rgba(255,255,255,.1);
-transition:.2s;
-}
-.feature:hover{
-border-color:rgba(0,255,166,.4);
-transform:translateY(-4px);
-}
-.feature h3{
-color:var(--primary);
-margin-bottom:10px;
-}
-.feature p{
-font-size:14px;
-opacity:.8;
-}
-
-/* MOBILE OPTIMIZATION */
-@media(max-width:768px){
-.app-card{backdrop-filter:none}
-body::before{background-size:130px 130px;opacity:.4}
-.radar{display:none}
-.slider{max-height:none}
-.slide img{
-max-height:none;
-object-fit:cover; /* MOBILE DOLU */
-}
-}
-
-/* ATERSUT */
-.atersut-section{
-margin-top:90px;
-}
-.atersut-title{
-display:flex;
-align-items:center;
-gap:18px;
-margin-bottom:10px;
-}
-
-.atersut-title img{
-width:110px;
-height:auto;
-filter:drop-shadow(0 10px 25px rgba(0,0,0,.6));
-}
-.atersut-title img:hover{
-transform:scale(1.08);
-transition:.3s;
-}
-
-.atersut-title h1{
-margin:0;
-}
-
-/* MOBILE */
-@media(max-width:600px){
-.atersut-title{
-flex-direction:column;
-text-align:center;
-}
-
-.atersut-title img{
-width:60px;
-}
-}
-.atersut-box{
+.section-box{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:30px;
@@ -357,88 +266,55 @@ align-items:center;
 }
 
 @media(max-width:900px){
-.atersut-box{grid-template-columns:1fr}
+.section-box{grid-template-columns:1fr;}
 }
 
-.atersut-info{
-padding:22px;
+.info-box{
+padding:24px;
 border-radius:20px;
 background:var(--glass);
 border:1px solid rgba(255,255,255,.1);
 }
 
-.atersut-info h2{
+.info-box h2{
 color:var(--primary);
-margin-bottom:14px;
+margin-bottom:15px;
 }
 
-.atersut-info ul{
+.info-box ul{
 list-style:none;
-font-size:14px;
+line-height:1.7;
 opacity:.85;
-line-height:1.6;
-margin-bottom:18px;
+font-size:14px;
+margin-bottom:20px;
 }
 
-.atersut-info li{
-margin-bottom:6px;
+.app-title{
+display:flex;
+align-items:center;
+gap:18px;
+margin-bottom:12px;
 }
 
-.atersut-btn{
-display:inline-block;
-padding:12px 20px;
-border-radius:12px;
-background:linear-gradient(135deg,var(--primary),var(--accent));
-color:#000;
-font-weight:700;
-text-decoration:none;
+.app-title img{
+width:100px;
 }
-    
+
+@media(max-width:600px){
+.hero h1{font-size:34px;}
+.app-title{flex-direction:column;text-align:center;}
+.app-title img{width:65px;}
+.radar{display:none;}
+}
+
 footer{
-margin-top:100px;
+margin-top:90px;
 text-align:center;
 opacity:.7;
-font-size:14px;
-}
-
-/* dil linkleri */
-.footer-links{
-margin-top:10px;
-}
-
-.footer-links a{
-color:var(--text);
-text-decoration:none;
-margin:0 8px;
-opacity:.7;
-transition:.3s;
-}
-
-.footer-links a:hover{
-opacity:1;
-color:var(--accent);
-}
-
-/* privacy link fix */
-footer .privacy{
-display:inline-block;
-margin-top:12px;
-padding:6px 14px;
-border-radius:8px;
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.12);
-color:var(--text);
-text-decoration:none;
-font-size:13px;
-transition:.3s;
-}
-
-footer .privacy:hover{
-background:linear-gradient(135deg,var(--primary),var(--accent));
-color:#000;
 }
 </style>
 </head>
+
 <body>
 
 <div class="hud">
@@ -451,42 +327,54 @@ color:#000;
 <div class="container">
 
 <div class="hero">
-<h1><span>Survival Ekosistem</span></h1><br>
-<h2>İki Uygulama • Tek Hayatta Kalma Sistemi</h2>
+<h1><span>Hayatta Kalma Ekosistemi</span><br>Dört Uygulama • Tek Sistem</h1>
+
 <p>
-Survival Protocol X ve BugOut Planner, kriz anlarında bilgi ve hazırlığı birleştiren profesyonel hayatta kalma platformudur.
+Survival Protocol X, SurvPath X, Afet Çantası Planlayıcı ve ATERSUT; bilgi, planlama, karar verme ve eğitim için birleşik bir ekosistem oluşturur.
 </p>
 </div>
+
 
 <section class="apps">
+
 <div class="app-card">
 <img src="images/logo.png">
+
 <div>
 <h2>Survival Protocol X</h2>
+
 <p>
-Survival Protocol X, internet bağlantısına ihtiyaç duymadan kullanılabilen, gerçek hayattan ve olası senaryolardan ilham alan kapsamlı bir hayatta kalma rehberidir.
-Doğada, şehirde veya olağanüstü durumlarda doğru kararlar alabilmek için hazırlanmıştır.
+Gerçek acil durumlar, afetler ve kriz senaryoları için tasarlanmış çevrimdışı rehber.
 </p>
-<a href="https://play.google.com/store/apps/details?id=survival.protocolx.survive" target="_blank">Play Store</a>
+
+<a href="https://play.google.com/store/apps/details?id=survival.protocolx.survive">
+Play Store
+</a>
+
 </div>
 </div>
+
 
 <div class="app-card">
-<img src="images/bugout-planner.jpg">
+<img src="images/logos/survpathx.png">
+
 <div>
-<h2>BugOut Planner</h2>
+<h2>SurvPath X</h2>
+
 <p>
-BugOut Planner, gerçekçi ve senaryo bazlı hazırlık yapmak isteyenler için geliştirilmiş bir hayatta kalma ve acil durum planlama uygulamasıdır.
-Sabit kontrol listeleri yerine, gerçek koşullara göre uyarlanan dinamik senaryolar oluşturmanızı sağlar.
-Senaryo Bazlı Akıllı Çanta Oluşturma
-Adım adım kendi senaryonu oluştur.
+Kritik anlar için çevrimdışı karar motoru, taktiksel protokoller ve adım adım rehberlik.
 </p>
-<a href="https://play.google.com/store/apps/details?id=com.bugout.planner" target="_blank">Play Store</a>
+
+<a href="https://play.google.com/store/apps/details?id=com.survpro.pathx">
+Play Store
+</a>
+
 </div>
 </div>
+
 </section>
 
-<!-- DOUBLE SLIDER -->
+
 <section class="slider-wrapper">
 
 <div class="slider" id="slider1">
@@ -497,7 +385,7 @@ Adım adım kendi senaryonu oluştur.
 </div>
 
 <div class="slider" id="slider2">
-<div class="slider-title">BUGOUT PLANNER</div>
+<div class="slider-title">SURVPATH X</div>
 <div class="slides" id="slides2"></div>
 <div class="dots" id="dots2"></div>
 <div class="progress" id="progress2"></div>
@@ -505,54 +393,84 @@ Adım adım kendi senaryonu oluştur.
 
 </section>
 
-<section class="features">
-<div class="feature">
-<h3>Offline Bilgi</h3>
-<p>İnternet olmadan hayatta kalma rehberine erişim.</p>
-</div>
-<div class="feature">
-<h3>Gerçekçi Senaryolar</h3>
-<p>Doğa, savaş, afet ve kriz durumları için özel içerik.</p>
-</div>
-<div class="feature">
-<h3>Profesyonel Hazırlık</h3>
-<p>Bug out çantası ve envanter planlama sistemi.</p>
-</div>
-</section>
-<!-- ATERSUT SECTION -->
-<section class="atersut-section">
+<section class="section">
 
 <div class="hero">
-<div class="atersut-title">
-    <img src="images/atersut/logo.png" alt="ATERSUT Logo">
-    <h1><span>ATERSUT</span><br>Hayatta Kalma Bilgini Test Et</h1>
+
+<div class="app-title">
+<img src="images/bugout-planner.jpg">
+<h1><span>Afet Çantası Planlayıcı</span><br>Senaryo Bazlı Hazırlık</h1>
 </div>
+
 <p>
-Doğa seni zorlamadan önce kendini test et.  
-ATERSUT, vahşi doğa ve savaş senaryolarında 120'den fazla gerçek dünya sorusu ile hayatta kalma bilginizi ölçer.  
-Su arıtmadan ilk yardıma, NBC savunmasından taktiksel geri çekilmeye kadar her karar önemlidir.
+Gerçekçi tahliye senaryoları oluşturun, ekipmanınızı organize edin ve akıllıca hazırlanın.
+</p>
+
+</div>
+
+<div class="section-box">
+
+<div class="info-box">
+
+<h2>Kriz Vurmadan Planlayın</h2>
+
+<ul>
+<li>Senaryo Bazlı Planlama</li>
+<li>Dinamik Tahliye Çantası Oluşturma</li>
+<li>Özel Acil Durum Envanterleri</li>
+<li>Hazırlık İş Akışı Sistemi</li>
+</ul>
+
+<a href="https://play.google.com/store/apps/details?id=com.bugout.planner" class="main-btn">
+Play Store
+</a>
+
+</div>
+
+
+<div class="slider" id="slider4">
+<div class="slider-title">AFET ÇANTASI PLANLAYICI</div>
+<div class="slides" id="slides4"></div>
+<div class="dots" id="dots4"></div>
+<div class="progress" id="progress4"></div>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="hero">
+<div class="app-title">
+<img src="images/atersut/logo.png">
+<h1><span>ATERSUT</span><br>Tüm Arazi Gerçek Survival Testi</h1>
+</div>
+
+<p>
+Gerçeklik sizi test etmeden önce hayatta kalma bilginizi test edin.
 </p>
 </div>
 
-<div class="atersut-box">
+<div class="section-box">
 
-<!-- SOL TARAF -->
-<div class="atersut-info">
+<div class="info-box">
+
 <h2>Düşün. Karar Ver. Hayatta Kal.</h2>
 
 <ul>
-<li>İki Senaryo: Vahşi Doğa & Savaş Şartları</li>
-<li>Zorluk Seviyeleri: 15 Soru (Kolay) / 30 Soru (Zor)</li>
-<li>Gerçekçi Hayatta Kalma Soruları</li>
-<li>Dünya Sıralaması – En hızlı ve en doğru olan kazanır</li>
+<li>Vahşi Doğa ve Savaş Senaryoları</li>
+<li>120+ Kritik Hayatta Kalma Sorusu</li>
+<li>Kolay ve Zor Modlar</li>
+<li>Küresel Liderlik Tablosu</li>
 </ul>
 
-<a href="https://play.google.com/store/apps/details?id=com.apieiron.demolition" class="atersut-btn">Play Store</a>
+<a href="#" class="main-btn">Play Store</a>
+
 </div>
 
-<!-- SAĞ TARAF SLIDER -->
 <div class="slider" id="slider3">
-<div class="slider-title">ATERSUT</div>
+<div class="slider-title">ATERSUT OYANIŞ</div>
 <div class="slides" id="slides3"></div>
 <div class="dots" id="dots3"></div>
 <div class="progress" id="progress3"></div>
@@ -561,64 +479,73 @@ Su arıtmadan ilk yardıma, NBC savunmasından taktiksel geri çekilmeye kadar h
 </div>
 
 </section>
+
 <footer>
 <p>© 2025 Survival Protocol X</p>
-
-<div class="footer-links">
-    <a href="index.html">🇬🇧 English</a>
-    <span>•</span>
-    <a href="index-tr.html">🇹🇷 Türkçe</a>
-</div>
-
-<a href="privacy.html" class="privacy">Gizlilik Politikası</a>
 </footer>
 
 </div>
 
+
 <script>
-/* IMAGES */
+// Resim yollarını (images/en/...) ihtiyaca göre images/tr/... olarak güncelleyebilirsin.
 const survivalImages=[
 "images/tr/01.jpeg","images/tr/02.jpeg","images/tr/03.jpeg","images/tr/04.jpeg",
 "images/tr/05.jpeg","images/tr/06.jpeg","images/tr/07.jpeg","images/tr/08.jpeg",
 "images/tr/09.jpeg","images/tr/10.jpeg","images/tr/11.jpeg","images/tr/12.jpeg"
 ];
 
+const survpathImages=[
+"images/survpath/tr/tr_01.jpeg",
+"images/survpath/tr/tr_02.jpeg",
+"images/survpath/tr/tr_03.jpeg",
+"images/survpath/tr/tr_04.jpeg",
+"images/survpath/tr/tr_05.jpeg",
+"images/survpath/tr/tr_06.jpeg",
+"images/survpath/tr/tr_07.jpeg",
+"images/survpath/tr/tr_08.jpeg"
+];
+
+
 const bugoutImages=[
 "images/bugout-tr/b01.jpeg","images/bugout-tr/b02.jpeg","images/bugout-tr/b03.jpeg","images/bugout-tr/b04.jpeg",
 "images/bugout-tr/01.jpeg","images/bugout-tr/02.jpeg","images/bugout-tr/03.jpeg","images/bugout-tr/04.jpeg"
+];
+
+const atersutImages=[
+"images/atersut/01.jpeg",
+"images/atersut/02.jpeg",
+"images/atersut/04.jpeg",
+"images/atersut/05.jpeg",
+"images/atersut/06.jpeg"
 ];
 
 function initSlider(images,slidesId,dotsId,progressId){
 const slides=document.getElementById(slidesId);
 const dots=document.getElementById(dotsId);
 const progress=document.getElementById(progressId);
-
 let index=0;
-const duration=5000;
 let timer;
+const duration=5000;
 
 images.forEach((src,i)=>{
-const slide=document.createElement("div");
+let slide=document.createElement("div");
 slide.className="slide";
-slide.innerHTML=`<img src="${src}" loading="lazy">`;
+slide.innerHTML=`<img src="${src}">`;
 slides.appendChild(slide);
 
-const dot=document.createElement("div");
-dot.className="dot"+(i===0?" active":"");
-dot.onclick=()=>goSlide(i);
+let dot=document.createElement("div");
+dot.className="dot"+(i==0?" active":"");
+dot.onclick=()=>go(i);
 dots.appendChild(dot);
 });
 
-function goSlide(i){
+function go(i){
 index=i;
 slides.style.transform=`translateX(-${i*100}%)`;
-dots.querySelectorAll(".dot").forEach((d,di)=>{
-d.classList.toggle("active",di===i);
-});
-resetProgress();
-}
-
-function resetProgress(){
+document.querySelectorAll("#"+dotsId+" .dot").forEach((d,n)=>
+d.classList.toggle("active",n==i)
+);
 progress.style.transition="none";
 progress.style.width="0%";
 setTimeout(()=>{
@@ -630,45 +557,17 @@ progress.style.width="100%";
 function auto(){
 timer=setInterval(()=>{
 index=(index+1)%images.length;
-goSlide(index);
+go(index);
 },duration);
 }
-
-resetProgress();
+go(0);
 auto();
-
-/* TOUCH */
-let startX=0;
-slides.parentElement.addEventListener("touchstart",e=>{
-startX=e.touches[0].clientX;
-clearInterval(timer);
-});
-slides.parentElement.addEventListener("touchend",e=>{
-let endX=e.changedTouches[0].clientX;
-let diff=endX-startX;
-if(diff>60) index=(index-1+images.length)%images.length;
-if(diff<-60) index=(index+1)%images.length;
-goSlide(index);
-auto();
-});
 }
 
 initSlider(survivalImages,"slides1","dots1","progress1");
-initSlider(bugoutImages,"slides2","dots2","progress2");
-
-
-const atersutImages=[
-"images/atersut/01.jpeg",
-"images/atersut/02.jpeg",
-"images/atersut/03.jpeg",
-"images/atersut/04.jpeg",
-"images/atersut/05.jpeg",
-"images/atersut/06.jpeg"
-];
-
-initSlider(atersutImages,"slides3","dots3","progress3");    
-    
-    
+initSlider(survpathImages,"slides2","dots2","progress2");
+initSlider(bugoutImages,"slides4","dots4","progress4");
+initSlider(atersutImages,"slides3","dots3","progress3");
 </script>
 
 </body>
