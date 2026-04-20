@@ -81,7 +81,31 @@ width:170px;
 height:170px;
 border-radius:50%;
 border:1px solid rgba(0,255,166,.3);
-background:radial-gradient(circle,rgba(0,255,166,.12),transparent);
+background:radial-gradient(circle,rgba(0,255,166,.12) 0%,transparent 60%);
+overflow:hidden;
+}
+
+/* DÖNEN TARAMA */
+.radar:before{
+content:"";
+position:absolute;
+inset:0;
+border-radius:50%;
+
+background:
+conic-gradient(
+from 0deg,
+rgba(0,255,166,.45),
+transparent 35%
+);
+
+animation:spin 4s linear infinite;
+}
+
+@keyframes spin{
+100%{
+transform:rotate(360deg);
+}
 }
 
 .container{
