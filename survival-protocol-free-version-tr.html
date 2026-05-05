@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Survival Protocol X: Lite – Çevrimdışı Hayatta Kalma Rehberi</title>
+<link rel="icon" href="/images/favicon.ico">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<style>
+:root{
+--bg:#05080d;
+--primary:#00ffa6;
+--accent:#00b4ff;
+--text:#e9f1ff;
+--glass:rgba(255,255,255,.06);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Segoe UI,Arial;}
+
+body{
+background:
+radial-gradient(1200px 600px at 10% 10%,rgba(0,180,255,.12),transparent),
+radial-gradient(900px 500px at 90% 90%,rgba(0,255,166,.12),transparent),
+var(--bg);
+color:var(--text);
+overflow-x:hidden;
+}
+
+body:before{
+content:"";
+position:fixed;
+inset:0;
+background-image:
+linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+background-size:90px 90px;
+z-index:-2;
+}
+
+/* HUD */
+.hud{position:fixed;inset:0;pointer-events:none;z-index:-1;}
+
+.hud-line{
+position:absolute;
+height:1px;
+width:40%;
+background:linear-gradient(90deg,transparent,var(--primary),transparent);
+opacity:.6;
+animation:hudMove 12s linear infinite;
+}
+
+.hud-line:nth-child(1){top:20%}
+.hud-line:nth-child(2){top:50%}
+.hud-line:nth-child(3){top:80%}
+
+@keyframes hudMove{
+0%{left:-40%}
+100%{left:140%}
+}
+
+/* RADAR */
+.radar{
+position:absolute;
+right:40px;
+bottom:40px;
+width:170px;
+height:170px;
+border-radius:50%;
+border:1px solid rgba(0,255,166,.3);
+background:radial-gradient(circle,rgba(0,255,166,.12) 0%,transparent 60%);
+overflow:hidden;
+}
+
+.radar:before{
+content:"";
+position:absolute;
+inset:0;
+border-radius:50%;
+background:conic-gradient(from 0deg,rgba(0,255,166,.45),transparent 35%);
+animation:spin 4s linear infinite;
+}
+
+@keyframes spin{
+100%{transform:rotate(360deg);}
+}
+
+/* LAYOUT */
+.container{max-width:1100px;margin:auto;padding:70px 20px;}
+
+.hero{max-width:700px;margin-bottom:50px;}
+
+.hero h1{font-size:48px;line-height:1.05;}
+.hero span{color:var(--primary);}
+.hero p{margin-top:15px;opacity:.85;}
+
+.app-card{
+display:flex;
+gap:20px;
+align-items:center;
+padding:22px;
+border-radius:22px;
+background:var(--glass);
+border:1px solid rgba(255,255,255,.12);
+margin-bottom:50px;
+}
+
+.app-card img{
+width:90px;
+height:90px;
+border-radius:18px;
+}
+
+.app-card h2{color:var(--primary);}
+.app-card p{font-size:14px;opacity:.8;}
+
+.app-card a{
+display:inline-block;
+margin-top:10px;
+padding:10px 18px;
+border-radius:10px;
+background:linear-gradient(135deg,var(--primary),var(--accent));
+color:#000;
+font-weight:700;
+text-decoration:none;
+}
+
+/* SLIDER */
+.slider{
+border-radius:24px;
+overflow:hidden;
+background:var(--glass);
+border:1px solid rgba(255,255,255,.12);
+}
+
+.slider-title{
+padding:12px 16px;
+font-weight:700;
+color:var(--primary);
+}
+
+.slides{
+display:flex;
+transition:transform .7s ease;
+}
+
+.slide{
+min-width:100%;
+padding:12px;
+}
+
+.slide img{
+width:100%;
+max-height:480px;
+object-fit:contain;
+border-radius:18px;
+}
+
+.progress{
+height:3px;
+width:0%;
+background:linear-gradient(90deg,var(--primary),var(--accent));
+}
+
+.dots{
+display:flex;
+justify-content:center;
+gap:8px;
+margin:10px 0;
+}
+
+.dot{
+width:10px;
+height:10px;
+border-radius:50%;
+background:rgba(255,255,255,.3);
+cursor:pointer;
+}
+
+.dot.active{
+background:var(--primary);
+transform:scale(1.3);
+}
+
+footer{
+margin-top:80px;
+text-align:center;
+opacity:.7;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+.hero h1{font-size:32px;}
+.radar{display:none;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="hud">
+<div class="hud-line"></div>
+<div class="hud-line"></div>
+<div class="hud-line"></div>
+<div class="radar"></div>
+</div>
+
+<div class="container">
+
+<div class="hero">
+<h1><span>Survival Protocol X: Lite</span><br>Çevrimdışı Hayatta Kalma Sistemi</h1>
+<p>
+Gerçek acil durumlar, afetler ve kriz senaryoları için tasarlanmış profesyonel hayatta kalma bilgisi — tamamen çevrimdışı.
+</p>
+</div>
+
+<div class="app-card">
+<img src="images/logo.png">
+<div>
+<h2>Survival Protocol X: Lite</h2>
+<p>
+Hayatta kalma bilgilerine her an erişin. Doğa, afet ve acil durum protokolleri tek bir sistemde. 15 dil desteği bulunmaktadır.
+</p>
+<a href="https://play.google.com/store/apps/details?id=survive.droidmobil.com.survive">
+Play Store
+</a>
+</div>
+</div>
+
+<div class="slider" id="slider1">
+<div class="slider-title">UYGULAMA ÖNİZLEME</div>
+<div class="slides" id="slides1"></div>
+<div class="dots" id="dots1"></div>
+<div class="progress" id="progress1"></div>
+</div>
+
+<footer>
+<p>© 2025 Survival Protocol X</p>
+</footer>
+
+</div>
+
+<script>
+
+const images=[
+"images/en/03.jpeg","images/en/05.jpeg","images/en/06.jpeg",
+"images/en/07.jpeg","images/en/08.jpeg","images/en/09.jpeg"
+];
+
+function initSlider(images){
+
+const slides=document.getElementById("slides1");
+const dots=document.getElementById("dots1");
+const progress=document.getElementById("progress1");
+
+let index=0;
+const duration=5000;
+
+images.forEach((src,i)=>{
+
+let slide=document.createElement("div");
+slide.className="slide";
+slide.innerHTML=`<img src="${src}">`;
+slides.appendChild(slide);
+
+let dot=document.createElement("div");
+dot.className="dot"+(i===0?" active":"");
+dot.onclick=()=>go(i);
+dots.appendChild(dot);
+
+});
+
+function go(i){
+index=i;
+
+slides.style.transform=`translateX(-${i*100}%)`;
+
+document.querySelectorAll(".dot").forEach((d,n)=>{
+d.classList.toggle("active",n===i);
+});
+
+progress.style.transition="none";
+progress.style.width="0%";
+
+setTimeout(()=>{
+progress.style.transition=`width ${duration}ms linear`;
+progress.style.width="100%";
+},50);
+}
+
+setInterval(()=>{
+index=(index+1)%images.length;
+go(index);
+},duration);
+
+go(0);
+
+}
+
+initSlider(images);
+
+</script>
+
+</body>
+</html>
