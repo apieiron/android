@@ -5,7 +5,26 @@
 <title>Survival Protocol X: Lite – Offline Survival Guide</title>
 <link rel="icon" href="/images/favicon.ico">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<script>
+(function(){
 
+// kullanıcının dilini al
+const lang = navigator.language || navigator.userLanguage;
+
+// desteklenen diller
+if(lang.startsWith("tr")){
+    window.location.href = "/survival-protocol-free-version-tr.html";
+}
+else if(lang.startsWith("de")){
+    window.location.href = "/survival-protocol-free-version-de.html";
+}
+else{
+    // default
+    window.location.href = "/survival-protocol-free-version-tr.html";
+}
+
+})();
+</script>
 <style>
 :root{
 --bg:#05080d;
