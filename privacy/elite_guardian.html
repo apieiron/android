@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Guardian - Privacy Policy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(17, 24, 39, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --primary: #6366f1;
+            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --accent: #06b6d4;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.1) 0px, transparent 50%);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 860px;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 0.8s ease-out;
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Language Switcher Button Group */
+        .lang-switch-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .lang-switch {
+            display: inline-flex;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 4px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .lang-btn.active {
+            background: var(--primary-gradient);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 30px;
+        }
+
+        .logo-placeholder {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: var(--primary-gradient);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: #ffffff;
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .last-update {
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+        section {
+            margin-bottom: 35px;
+            transition: opacity 0.4s ease;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 18px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .highlight-box {
+            background: rgba(99, 102, 241, 0.05);
+            border-left: 3px solid var(--primary);
+            padding: 20px;
+            border-radius: 0 16px 16px 0;
+            margin: 20px 0;
+        }
+
+        .highlight-box p {
+            color: var(--text-main);
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+
+        ul {
+            list-style: none;
+            margin: 15px 0 25px 15px;
+        }
+
+        li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            color: var(--text-muted);
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 25px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .contact-info p {
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 30px;
+            background: var(--primary-gradient);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.35);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 20px;
+        }
+
+        /* Language Toggle Classes */
+        .lang-tr {
+            display: none;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+            .container {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .lang-switch-container {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Language Switcher -->
+        <div class="lang-switch-container">
+            <div class="lang-switch">
+                <button id="btn-en" class="lang-btn active" onclick="setLanguage('en')">English</button>
+                <button id="btn-tr" class="lang-btn" onclick="setLanguage('tr')">Türkçe</button>
+            </div>
+        </div>
+
+        <header class="header">
+            <div class="logo-placeholder">EG</div>
+            <h1>ELITE GUARDIAN</h1>
+            <div class="subtitle lang-en">Privacy Policy</div>
+            <div class="subtitle lang-tr">Gizlilik Politikası</div>
+            <div class="last-update lang-en">Last Updated: May 20, 2026</div>
+            <div class="last-update lang-tr">Son Güncelleme: 20 Mayıs 2026</div>
+        </header>
+
+        <main>
+            <!-- ================= ENGLISH SECTION ================= -->
+            <div class="lang-en">
+                <section>
+                    <p>At <strong>Elite Guardian</strong>, we highly prioritize your privacy and data security. This privacy policy is prepared to transparently explain what data is processed when using our mobile application, where it is stored, and your rights as a user.</p>
+                    <div class="highlight-box">
+                        <p><strong>Core Principle:</strong> Elite Guardian is designed under the "Privacy First and Offline Security" (Offline-First) architecture. Your data is never sold, shared, or transferred to remote internet servers or third parties.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>1. Processed Data and Purposes of Use</h2>
+                    <p>To provide robust facility security, personnel coordination, and inventory management, our application processes only the following functionally necessary data:</p>
+                    <ul>
+                        <li><strong>Location Information:</strong> Your location data (including background location access) is processed to enable real-time personnel tracking, allowing your facility administrator to visualize team layout on the dashboard map. This data is only processed locally on the administrator's device and is never uploaded to any remote external servers.</li>
+                        <li><strong>File and Media Access (Camera/Gallery):</strong> Access to your camera and gallery is requested solely for the purpose of creating fault reports with photo attachments. Captured photos are saved locally in the secure SQLite database.</li>
+                        <li><strong>Local Network Access (Wi-Fi/Multicast):</strong> Direct local socket communication (TCP) permissions are used to broadcast offline emergency signals and process local chat messages securely inside the facility Wi-Fi boundaries.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>2. Data Retention and Security</h2>
+                    <p>Your data is protected locally in accordance with security standards:</p>
+                    <ul>
+                        <li><strong>Local Storage:</strong> All chat logs, fault details, and inventory statuses are kept in the device's secure SQLite local database and Shared Preferences.</li>
+                        <li><strong>Encrypted Local Communication:</strong> Real-time message exchanges and emergency signal routing between devices are conducted over direct local socket (TCP) handshakes inside the local network perimeter.</li>
+                        <li><strong>No Third-Party SDKs:</strong> There are no third-party trackers, commercial advertising networks, or analytics services embedded in the application.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>3. Emergency Signals and Smart 1-Hour Expiration Filter</h2>
+                    <p>Emergency sirens and panic alerts are broadcast and saved immediately for critical security coordination. However, to prevent stale alarms from causing unwanted panic when offline devices reconnect to the local network, any emergency sinyals or panic events **older than 1 hour** are automatically filtered out and silently ignored by receiving clients.</p>
+                </section>
+
+                <section>
+                    <h2>4. Required Permissions</h2>
+                    <p>For complete app functionality, the device may prompt for the following permissions:</p>
+                    <ul>
+                        <li><strong>Location Permission (Always / Background):</strong> Necessary to report your live coordinates to the administrator's map.</li>
+                        <li><strong>Camera and Storage Permission:</strong> Required to take photo evidence for fault records.</li>
+                        <li><strong>Notification & Exact Alarm Permission:</strong> Essential for ringing high-priority siren warnings and receiving stock alerts, even on the lock screen.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>5. User Rights and Contact</h2>
+                    <p>You can completely delete all stored chat history and local data at any time by clearing the application data in your system settings or uninstalling the app. To query your facility's internal network data policies, please contact your local facility administrator.</p>
+                </section>
+
+                <div class="contact-info">
+                    <p>For any questions or feedback regarding our privacy policy, you can contact us at:</p>
+                    <a href="mailto:support@eliteguardian.com" class="contact-btn">Send Email</a>
+                </div>
+            </div>
+
+            <!-- ================= TURKISH SECTION ================= -->
+            <div class="lang-tr">
+                <section>
+                    <p><strong>Elite Guardian</strong> olarak, gizliliğinize ve verilerinizin güvenliğine son derece önem veriyoruz. Bu gizlilik politikası, mobil uygulamamızı kullanırken hangi verilerin nasıl işlendiğini, nerede saklandığını ve haklarınızı şeffaf bir şekilde açıklamak amacıyla hazırlanmıştır.</p>
+                    <div class="highlight-box">
+                        <p><strong>Temel İlke:</strong> Elite Guardian, "Önce Gizlilik ve Offline Güvenlik" (Offline-First) ilkesiyle tasarlanmıştır. Verileriniz, internet üzerindeki uzak sunuculara veya üçüncü şahıslara satılmaz veya paylaşılmaz.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>1. Toplanan Veriler ve Kullanım Amaçları</h2>
+                    <p>Uygulamamız, tesis güvenliği, personel koordinasyonu ve envanter yönetimini sağlamak amacıyla yalnızca işlevsel olarak gerekli olan şu verileri işler:</p>
+                    <ul>
+                        <li><strong>Konum Bilgileri:</strong> Personel takibi özelliğinin çalışması ve yöneticinin personelleri haritada anlık görebilmesi amacıyla konum veriniz (arka planda çalışma dahil) alınır. Bu veriler yalnızca tesis içindeki yerel yöneticiniz tarafından harita ekranında görselleştirilir ve dış ağlara aktarılmaz.</li>
+                        <li><strong>Dosya ve Medya (Kamera/Galeri):</strong> Tesis içindeki ekipman arızalarını fotoğraflı olarak bildirebilmeniz amacıyla kameranıza ve galerinize erişim izni istenir. Çekilen arıza fotoğrafları yalnızca yerel veritabanında saklanır.</li>
+                        <li><strong>Yerel Ağ Verileri (Wi-Fi/Multicast):</strong> Tesis içi internetsiz mesajlaşma ve acil durum uyarılarının çalışması amacıyla cihazlar arası doğrudan yerel ağ (TCP/Socket) bağlantı yetkisi kullanılır.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>2. Verilerin Saklanması ve Güvenliği</h2>
+                    <p>Tüm hassas verileriniz güvenlik standartlarına uygun olarak korunur:</p>
+                    <ul>
+                        <li><strong>Yerel Depolama:</strong> Mesaj geçmişiniz, arıza kayıtlarınız ve envanter bilgileriniz cihazınızın kendi güvenli yerel veritabanında (SQLite) saklanır.</li>
+                        <li><strong>Şifreli Yerel İletişim:</strong> Tesis içi cihazlar arasında Wi-Fi üzerinden yapılan mesajlaşma ve acil durum sinyali aktarımları, doğrudan soket bağlantıları (TCP) aracılığıyla yerel ağ sınırlarında gerçekleşir.</li>
+                        <li><strong>Dışarıye Veri Aktarımı Yoktur:</strong> Uygulamamızda üçüncü taraf reklam ağları, harici veri izleyicileri (trackers) veya analitik servisler yer almamaktadır.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>3. Acil Durum Sinyalleri ve Akıllı Zaman Aşımı</h2>
+                    <p>Tesis genelinde tetiklenen acil durum (siren) sinyalleri, can güvenliği ve koordinasyonun kesintisiz olması amacıyla özel olarak saklanır. Ancak, ağ bağlantısı koptuktan sonra tekrar ağa katılan cihazların eski/geçersiz uyarılardan rahatsız olmaması amacıyla **1 saatten eski** acil durum sinyalleri otomatik olarak filtrelenir ve sessizce göz ardı edilir.</p>
+                </section>
+
+                <section>
+                    <h2>4. Gerekli İzinler</h2>
+                    <p>Uygulamanın tam fonksiyonel çalışabilmesi için cihazınızdan şu izinlerin verilmesi istenebilir:</p>
+                    <ul>
+                        <li><strong>Konum İzni (Her Zaman / Arka Planda):</strong> Harita üzerinde anlık konumunuzu yerel yöneticiye bildirmek için gereklidir.</li>
+                        <li><strong>Kamera ve Depolama İzni:</strong> Arızalı cihaz ve alanların fotoğraflarını çekip kayıt oluşturmak için gereklidir.</li>
+                        <li><strong>Bildirim ve Hassas Alarm İzni:</strong> Acil durum sirenlerinin ve kritik stok bildirimlerinin kilit ekranında dahi anında uyarılması için gereklidir.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>5. Kullanıcı Hakları ve İletişim</h2>
+                    <p>Cihazınızda biriken tüm yerel mesaj geçmişini ve arıza kayıtlarını dilediğiniz zaman uygulama ayarlarından veya uygulamayı cihazınızdan kaldırarak tamamen silebilirsiniz. Yerel ağınızın (tesisinizin) veri toplama politikaları hakkında bilgi almak için lütfen bağlı bulunduğunuz kurum yöneticisiyle iletişime geçin.</p>
+                </section>
+
+                <div class="contact-info">
+                    <p>Gizlilik politikamız hakkında sorularınız veya geri bildirimleriniz için:</p>
+                    <a href="mailto:support@eliteguardian.com" class="contact-btn">E-posta Gönder</a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <span class="lang-en">&copy; 2026 Elite Guardian. All Rights Reserved.</span>
+            <span class="lang-tr">&copy; 2026 Elite Guardian. Tüm Hakları Saklıdır.</span>
+        </footer>
+    </div>
+
+    <!-- Language Toggle Script -->
+    <script>
+        function setLanguage(lang) {
+            const enElements = document.querySelectorAll('.lang-en');
+            const trElements = document.querySelectorAll('.lang-tr');
+            const btnEn = document.getElementById('btn-en');
+            const btnTr = document.getElementById('btn-tr');
+
+            if (lang === 'en') {
+                enElements.forEach(el => el.style.display = 'block');
+                trElements.forEach(el => el.style.display = 'none');
+                btnEn.classList.add('active');
+                btnTr.classList.remove('active');
+                document.documentElement.lang = 'en';
+            } else {
+                enElements.forEach(el => el.style.display = 'none');
+                trElements.forEach(el => el.style.display = 'block');
+                btnEn.classList.remove('active');
+                btnTr.classList.add('active');
+                document.documentElement.lang = 'tr';
+            }
+        }
+
+        // Set default browser language if Turkish, otherwise default to English
+        const userLang = navigator.language || navigator.userLanguage;
+        if (userLang.startsWith('tr')) {
+            setLanguage('tr');
+        } else {
+            setLanguage('en');
+        }
+    </script>
+</body>
+</html>
