@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,7 @@
 --accent:#00ffa6;
 --text:#e9f1ff;
 --glass:rgba(255,255,255,.06);
+--glass-hover:rgba(255,255,255,.12);
 }
 
 *{
@@ -38,6 +39,54 @@ padding:40px;
 border-radius:20px;
 border:1px solid rgba(255,255,255,.08);
 backdrop-filter:blur(10px);
+}
+
+/* Dil Seçici (Tabs) */
+.lang-switcher {
+display: flex;
+gap: 10px;
+margin-bottom: 30px;
+border-bottom: 1px solid rgba(255,255,255,.1);
+padding-bottom: 15px;
+}
+
+.lang-btn {
+background: var(--glass);
+border: 1px solid rgba(255,255,255,.1);
+color: var(--text);
+padding: 8px 16px;
+border-radius: 8px;
+cursor: pointer;
+font-weight: 600;
+font-size: 14px;
+transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+background: var(--glass-hover);
+border-color: var(--accent);
+}
+
+.lang-btn.active {
+background: var(--primary);
+color: #fff;
+border-color: var(--primary);
+box-shadow: 0 0 15px rgba(255,90,31,0.4);
+}
+
+/* Dil Blokları Kontrolü */
+.lang-content {
+display: none;
+animation: fadeIn 0.4s ease;
+}
+
+.lang-content.active {
+display: block;
+}
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(5px); }
+to { opacity: 1; transform: translateY(0); }
 }
 
 /* başlıklar */
@@ -79,128 +128,222 @@ opacity:.6;
 .container{
 padding:25px;
 }
+.lang-switcher {
+grid-template-columns: 1fr;
+gap: 8px;
+}
 }
 </style>
 </head>
 <body>
 
-<h1>Privacy Policy</h1>
-<p><strong>Last updated:</strong> 18 December 2025</p>
+<div class="container">
 
-<p>
-Survival Protocol X respects your privacy. This Privacy Policy explains how information is handled when you use our application.
-</p>
+    <!-- Dil Değiştirme Butonları -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="switchLang('en')">English</button>
+        <button class="lang-btn" onclick="switchLang('de')">Deutsch</button>
+        <button class="lang-btn" onclick="switchLang('tr')">Türkçe</button>
+    </div>
 
-<h2>1. Information Collection and Use</h2>
-<p>
-Survival Protocol X <strong>does not collect, store, share, or process any personal or non-personal user data</strong>.
-</p>
+    <!-- ================= ENGLISH CONTENT ================= -->
+    <div id="content-en" class="lang-content active">
+        <h1>Privacy Policy</h1>
+        <p><strong>Last updated:</strong> 18 December 2025</p>
 
-<ul>
-    <li>No personal information is collected</li>
-    <li>No analytics or tracking is used</li>
-    <li>No location data is accessed</li>
-    <li>No device identifiers are collected</li>
-    <li>No accounts or registrations are required</li>
-</ul>
+        <p>
+        Survival Protocol X respects your privacy. This Privacy Policy explains how information is handled when you use our application.
+        </p>
 
-<p>
-The application works fully <strong>offline</strong> and does not communicate with external servers.
-</p>
+        <h2>1. Information Collection and Use</h2>
+        <p>
+        Survival Protocol X <strong>does not collect, store, share, or process any personal or non-personal user data</strong>.
+        </p>
 
-<h2>2. Permissions</h2>
-<p>
-Survival Protocol X does not request sensitive permissions. Any basic permissions required by the Android operating system are used only to ensure proper app functionality and are not used for data collection.
-</p>
+        <ul>
+            <li>No personal information is collected</li>
+            <li>No analytics or tracking is used</li>
+            <li>No location data is accessed</li>
+            <li>No device identifiers are collected</li>
+            <li>No accounts or registrations are required</li>
+        </ul>
 
-<h2>3. Third-Party Services</h2>
-<p>
-The application does not use third-party services such as analytics tools, advertising networks, or crash reporting systems. No data is shared with third parties.
-</p>
+        <p>
+        The application works fully <strong>offline</strong> and does not communicate with external servers.
+        </p>
 
-<h2>4. Children’s Privacy</h2>
-<p>
-Survival Protocol X does not knowingly collect any information from children under the age of 13. Since no data is collected at all, the app is fully compliant with children’s privacy protection regulations.
-</p>
+        <h2>2. Permissions</h2>
+        <p>
+        Survival Protocol X does not request sensitive permissions. Any basic permissions required by the operating system are used only to ensure proper app functionality and are not used for data collection.
+        </p>
 
-<h2>5. Data Security</h2>
-<p>
-Because the application does not collect or transmit any data, there is no risk of data leakage or unauthorized access.
-</p>
+        <h2>3. Third-Party Services</h2>
+        <p>
+        The application does not use third-party services such as analytics tools, advertising networks, or crash reporting systems. No data is shared with third parties.
+        </p>
 
-<h2>6. Changes to This Privacy Policy</h2>
-<p>
-Any changes to this Privacy Policy will be reflected on this page. You are advised to review this page periodically.
-</p>
+        <h2>4. Children’s Privacy</h2>
+        <p>
+        Survival Protocol X does not knowingly collect any information from children under the age of 13. Since no data is collected at all, the app is fully compliant with children’s privacy protection regulations.
+        </p>
 
-<h2>7. Contact</h2>
-<p>
-If you have any questions regarding this Privacy Policy, you may contact us at:
-</p>
+        <h2>5. Data Security</h2>
+        <p>
+        Because the application does not collect or transmit any data, there is no risk of data leakage or unauthorized access.
+        </p>
 
-<p>
-<strong>Email:</strong> apieiron@gmail.com
-</p>
+        <h2>6. Changes to This Privacy Policy</h2>
+        <p>
+        Any changes to this Privacy Policy will be reflected on this page. You are advised to review this page periodically.
+        </p>
 
-<hr>
+        <h2>7. Contact</h2>
+        <p>
+        If you have any questions regarding this Privacy Policy, you may contact us at:
+        </p>
+        <p>
+        <strong>Email:</strong> <a href="mailto:apieiron@gmail.com">apieiron@gmail.com</a>
+        </p>
+    </div>
 
-<h1>Gizlilik Politikası</h1>
-<p><strong>Son güncelleme:</strong> 18 Aralık 2025</p>
+    <!-- ================= DEUTSCH CONTENT ================= -->
+    <div id="content-de" class="lang-content">
+        <h1>Datenschutzerklärung</h1>
+        <p><strong>Zuletzt aktualisiert:</strong> 18. Dezember 2025</p>
 
-<p>
-Survival Protocol X gizliliğinize saygı duyar. Bu Gizlilik Politikası, uygulamayı kullandığınızda bilgilerin nasıl ele alındığını açıklar.
-</p>
+        <p>
+        Survival Protocol X respektiert Ihre Privatsphäre. Diese Datenschutzerklärung erklärt, wie mit Informationen umgegangen wird, wenn Sie unsere Anwendung nutzen.
+        </p>
 
-<h2>1. Bilgi Toplama ve Kullanımı</h2>
-<p>
-Survival Protocol X <strong>hiçbir kişisel veya kişisel olmayan kullanıcı verisini toplamaz, saklamaz, işlemez veya paylaşmaz</strong>.
-</p>
+        <h2>1. Datenerhebung und -verwendung</h2>
+        <p>
+        Survival Protocol X <strong>erhebt, speichert, teilt oder verarbeitet keinerlei personenbezogene oder nicht-personenbezogene Nutzerdaten</strong>.
+        </p>
 
-<ul>
-    <li>Kişisel bilgi toplanmaz</li>
-    <li>Analiz veya takip yapılmaz</li>
-    <li>Konum verisi kullanılmaz</li>
-    <li>Cihaz tanımlayıcıları toplanmaz</li>
-    <li>Kayıt veya hesap oluşturma gerekmez</li>
-</ul>
+        <ul>
+            <li>Es werden keine personenbezogenen Daten erhoben</li>
+            <li>Es wird kein Tracking oder Analysen verwendet</li>
+            <li>Es wird nicht auf Standortdaten zugegriffen</li>
+            <li>Es werden keine Geräte-Identifikatoren erhoben</li>
+            <li>Es sind keine Konten oder Registrierungen erforderlich</li>
+        </ul>
 
-<p>
-Uygulama tamamen <strong>offline</strong> çalışır ve herhangi bir harici sunucu ile iletişim kurmaz.
-</p>
+        <p>
+        Die Anwendung funktioniert vollständig <strong>offline</strong> und kommuniziert nicht mit externen Servern.
+        </p>
 
-<h2>2. İzinler</h2>
-<p>
-Survival Protocol X hassas izinler talep etmez. Android işletim sistemi tarafından gerekli görülen temel izinler yalnızca uygulamanın düzgün çalışması için kullanılır ve veri toplama amacı taşımaz.
-</p>
+        <h2>2. Berechtigungen</h2>
+        <p>
+        Survival Protocol X fordert keine sensiblen Berechtigungen an. Alle vom Betriebssystem geforderten Basisberechtigungen dienen ausschließlich der ordnungsgemäßen Funktion der App und werden nicht zur Datenerhebung verwendet.
+        </p>
 
-<h2>3. Üçüncü Taraf Hizmetler</h2>
-<p>
-Uygulama; reklam, analiz, çökme raporlama gibi herhangi bir üçüncü taraf hizmeti kullanmaz. Hiçbir veri üçüncü taraflarla paylaşılmaz.
-</p>
+        <h2>3. Drittanbieter-Dienste</h2>
+        <p>
+        Die Anwendung nutzt keine Dienste von Drittanbietern wie Analysetools, Werbenetzwerke oder Crash-Reporting-Systeme. Es werden keine Daten an Dritte weitergegeben.
+        </p>
 
-<h2>4. Çocukların Gizliliği</h2>
-<p>
-Survival Protocol X, 13 yaşın altındaki çocuklardan bilerek herhangi bir veri toplamaz. Zaten hiçbir veri toplanmadığı için çocukların gizliliğiyle ilgili tüm yasal düzenlemelere uygundur.
-</p>
+        <h2>4. Privatsphäre von Kindern</h2>
+        <p>
+        Survival Protocol X erhebt wissentlich keine Daten von Kindern unter 13 Jahren. Da überhaupt keine Daten erhoben werden, entspricht die App vollständig den gesetzlichen Bestimmungen zum Schutz der Privatsphäre von Kindern.
+        </p>
 
-<h2>5. Veri Güvenliği</h2>
-<p>
-Uygulama herhangi bir veri toplamadığı veya aktarmadığı için veri sızıntısı ya da yetkisiz erişim riski bulunmamaktadır.
-</p>
+        <h2>5. Datensicherheit</h2>
+        <p>
+        Da die Anwendung keine Daten erhebt oder überträgt, besteht kein Risiko von Datenlecks oder unbefugtem Zugriff.
+        </p>
 
-<h2>6. Gizlilik Politikasındaki Değişiklikler</h2>
-<p>
-Bu Gizlilik Politikası’nda yapılacak değişiklikler bu sayfa üzerinden yayınlanacaktır. Kullanıcıların periyodik olarak bu sayfayı incelemesi önerilir.
-</p>
+        <h2>6. Änderungen dieser Datenschutzerklärung</h2>
+        <p>
+        Alle Änderungen an dieser Datenschutzerklärung werden auf dieser Seite veröffentlicht. Es wird empfohlen, diese Seite regelmäßig zu überprüfen.
+        </p>
 
-<h2>7. İletişim</h2>
-<p>
-Bu Gizlilik Politikası ile ilgili sorularınız için bizimle iletişime geçebilirsiniz:
-</p>
+        <h2>7. Kontakt</h2>
+        <p>
+        Wenn Sie Fragen zu dieser Datenschutzerklärung haben, können Sie uns kontaktieren unter:
+        </p>
+        <p>
+        <strong>E-Mail:</strong> <a href="mailto:apieiron@gmail.com">apieiron@gmail.com</a>
+        </p>
+    </div>
 
-<p>
-<strong>E-posta:</strong> apieiron@gmail.com
-</p>
+    <!-- ================= TÜRKÇE CONTENT ================= -->
+    <div id="content-tr" class="lang-content">
+        <h1>Gizlilik Politikası</h1>
+        <p><strong>Son güncelleme:</strong> 18 Aralık 2025</p>
+
+        <p>
+        Survival Protocol X gizliliğinize saygı duyar. Bu Gizlilik Politikası, uygulamayı kullandığınızda bilgilerin nasıl ele alındığını açıklar.
+        </p>
+
+        <h2>1. Bilgi Toplama ve Kullanımı</h2>
+        <p>
+        Survival Protocol X <strong>hiçbir kişisel veya kişisel olmayan kullanıcı verisini toplamaz, saklamaz, işlemez veya paylaşmaz</strong>.
+        </p>
+
+        <ul>
+            <li>Kişisel bilgi toplanmaz</li>
+            <li>Analiz veya takip yapılmaz</li>
+            <li>Konum verisi kullanılmaz</li>
+            <li>Cihaz tanımlayıcıları toplanmaz</li>
+            <li>Kayıt veya hesap oluşturma gerekmez</li>
+        </ul>
+
+        <p>
+        Uygulama tamamen <strong>offline</strong> çalışır ve herhangi bir harici sunucu ile iletişim kurmaz.
+        </p>
+
+        <h2>2. İzinler</h2>
+        <p>
+        Survival Protocol X hassas izinler talep etmez. İşletim sistemi tarafından gerekli görülen temel izinler yalnızca uygulamanın düzgün çalışması için kullanılır ve veri toplama amacı taşımaz.
+        </p>
+
+        <h2>3. Üçüncü Taraf Hizmetler</h2>
+        <p>
+        Uygulama; reklam, analiz, çökme raporlama gibi herhangi bir üçüncü taraf hizmeti kullanmaz. Hiçbir veri üçüncü taraflarla paylaşılmaz.
+        </p>
+
+        <h2>4. Çocukların Gizliliği</h2>
+        <p>
+        Survival Protocol X, 13 yaşın altındaki çocuklardan bilerek herhangi bir veri toplamaz. Zaten hiçbir veri toplanmadığı için çocukların gizliliğiyle ilgili tüm yasal düzenlemelere uygundur.
+        </p>
+
+        <h2>5. Veri Güvenliği</h2>
+        <p>
+        Uygulama herhangi bir veri toplamadığı veya aktarmadığı için veri sızıntısı ya da yetkisiz erişim riski bulunmamaktadır.
+        </p>
+
+        <h2>6. Gizlilik Politikasındaki Değişiklikler</h2>
+        <p>
+        Bu Gizlilik Politikası’nda yapılacak değişiklikler bu sayfa üzerinden yayınlanacaktır. Kullanıcıların periyodik olarak bu sayfayı incelemesi önerilir.
+        </p>
+
+        <h2>7. İletişim</h2>
+        <p>
+        Bu Gizlilik Politikası ile ilgili sorularınız için bizimle iletişime geçebilirsiniz:
+        </p>
+        <p>
+        <strong>E-posta:</strong> <a href="mailto:apieiron@gmail.com">apieiron@gmail.com</a>
+        </p>
+    </div>
+
+</div>
+
+<!-- Sekme Geçiş Scripti -->
+<script>
+function switchLang(lang) {
+    // Tüm içerikleri gizle
+    const contents = document.querySelectorAll('.lang-content');
+    contents.forEach(content => content.classList.remove('active'));
+    
+    // Tüm butonların aktifliğini kaldır
+    const buttons = document.querySelectorAll('.lang-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    
+    // Seçilen içeriği ve butonu aktif et
+    document.getElementById('content-' + lang).classList.add('active');
+    event.currentTarget.classList.add('active');
+}
+</script>
 
 </body>
 </html>
