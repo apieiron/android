@@ -119,6 +119,67 @@ max-width:800px;
 margin-bottom:45px;
 }
 
+.section .hero{
+width:100%;
+max-width:100%;
+}
+
+.section .hero p{
+max-width:900px;
+}
+
+.main-hero {
+text-align: center;
+max-width: 900px;
+margin: 0 auto 80px auto;
+padding: 45px 30px;
+border-radius: 30px;
+background: radial-gradient(circle at top, rgba(0, 255, 166, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%), rgba(255, 255, 255, 0.02);
+border: 1px solid rgba(0, 255, 166, 0.12);
+box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+backdrop-filter: blur(12px);
+}
+
+.main-hero-badge {
+display: inline-block;
+font-size: 11px;
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 3px;
+color: var(--primary);
+margin-bottom: 22px;
+padding: 6px 16px;
+border-radius: 20px;
+background: rgba(0, 255, 166, 0.08);
+border: 1px solid rgba(0, 255, 166, 0.15);
+text-shadow: 0 0 10px rgba(0, 255, 166, 0.3);
+}
+
+.main-hero h1 {
+font-size: 54px;
+line-height: 1.1;
+font-weight: 900;
+letter-spacing: -1px;
+margin-bottom: 20px;
+color: #fff;
+}
+
+.main-hero h1 span {
+background: linear-gradient(135deg, var(--primary), var(--accent));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: inline-block;
+}
+
+.main-hero p {
+font-size: 16px;
+line-height: 1.7;
+opacity: 0.85;
+color: var(--text);
+max-width: 780px;
+margin: 0 auto;
+}
+
 .hero h1{
 font-size:48px;
 line-height:1.05;
@@ -305,6 +366,11 @@ display:flex;
 align-items:center;
 gap:18px;
 margin-bottom:12px;
+width:100%;
+}
+
+.app-title h1{
+flex-shrink:0;
 }
 
 .app-title img{
@@ -374,59 +440,46 @@ color:#000;
 
 <div class="container">
 
+<div class="main-hero">
+<div class="main-hero-badge">Überlebens-Ökosystem</div>
+<h1><span>Überlebens-Ökosystem</span><br>Fünf Apps • Ein einheitliches System</h1>
+
+<p>
+Survival Protocol X, SurvPath X, Elite Guardian, Fluchtrucksack-Planer und ATERSUT bilden ein vereintes Ökosystem für Wissen, Planung, sichere lokale Befehlsgewalt, Entscheidungsfindung und Survival-Training.
+</p>
+</div>
+
+
+<section class="section">
+
 <div class="hero">
-<h1><span>Survival-Ökosystem</span><br>Vier Apps • Ein System</h1>
-
-<p>
-Survival Protocol X, SurvPath X, Fluchtrucksack-Planer und ATERSUT bilden ein vereintes Ökosystem für Information, Planung, Entscheidungsfindung und Training.
-</p>
-</div>
-
-
-<section class="apps">
-
-<div class="app-card">
+<div class="app-title">
 <img src="images/logo.png">
-
-<div>
-<h2>Survival Protocol X</h2>
+<h1><span>Survival Protocol X</span><br>Offline-Überlebenshandbuch</h1>
+</div>
 
 <p>
-Offline-Handbuch für echte Notfälle, Katastrophen und Krisenszenarien.
+Ein umfassendes Offline-Überlebenshandbuch, das für Outdoor-Abenteuer, Naturkatastrophen und extreme Notfälle entwickelt wurde. Es bietet strukturierte Checklisten, detaillierte Erste-Hilfe-Anleitungen, Wildnis-Überlebensprotokolle und Offline-Navigationswerkzeuge, die völlig ohne Mobilfunknetz oder Internetverbindung funktionieren.
 </p>
-
-<a href="https://play.google.com/store/apps/details?id=survival.protocolx.survive">
-Google Play Store
-</a>
-<a href="https://apps.apple.com/us/app/survival-protocol-x/id6778728706">
-App Store (Apple)
-</a>
-
-</div>
 </div>
 
+<div class="section-box">
 
-<div class="app-card">
-<img src="images/logos/survpathx.png">
+<div class="info-box">
 
-<div>
-<h2>SurvPath X</h2>
+<h2>Wissen ist Überleben</h2>
 
-<p>
-Offline-Entscheidungs-Engine, taktische Protokolle und Schritt-für-Schritt-Anleitungen für kritische Momente.
-</p>
+<ul>
+<li><strong>Offline-Zugriff:</strong> Vollständiges Handbuch, ohne Mobilfunknetz oder Internet lesbar.</li>
+<li><strong>Wesentliche Checklisten:</strong> Schritt-für-Schritt-Checklisten für die Notfallvorsorge.</li>
+<li><strong>Überlebensprotokolle:</strong> Taktische Richtlinien für Wildnis-, Stadt- und medizinische Krisen.</li>
+<li><strong>Interaktive Tools:</strong> Integrierte Überlebenswerkzeuge und Szenario-Leitfäden.</li>
+</ul>
 
-<a href="https://play.google.com/store/apps/details?id=com.survpro.pathx">
-Play Store
-</a>
+<a href="https://play.google.com/store/apps/details?id=survival.protocolx.survive" class="main-btn">Google Play</a>
+<a href="https://apps.apple.com/us/app/survival-protocol-x/id6778728706" class="main-btn">App Store</a>
 
 </div>
-</div>
-
-</section>
-
-
-<section class="slider-wrapper">
 
 <div class="slider" id="slider1">
 <div class="slider-title">SURVIVAL PROTOCOL X</div>
@@ -435,11 +488,89 @@ Play Store
 <div class="progress" id="progress1"></div>
 </div>
 
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="hero">
+<div class="app-title">
+<img src="images/logos/survpathx.png">
+<h1><span>Survival Path X</span><br>Offline-Entscheidungs-Engine</h1>
+</div>
+
+<p>
+Ein interaktives Offline-Entscheidungsunterstützungssystem, das auf einer verzweigten Pfadlogik basiert. Es führt Sie Schritt für Schritt durch Hochdrucksituationen (wie Begegnungen mit wilden Tieren, extremes Wetter oder plötzliche Verletzungen) und hilft Ihnen, Bedrohungen einzuschätzen und unter Stress lebensrettende Entscheidungen zu treffen.
+</p>
+</div>
+
+<div class="section-box">
+
+<div class="info-box">
+
+<h2>Denken. Entscheiden. Überleben.</h2>
+
+<ul>
+<li><strong>Dynamischer Entscheidungsbaum:</strong> Interaktive, pfadbasierte Abfragen für Echtzeitführung.</li>
+<li><strong>Bedrohungsanalyse:</strong> Situationsbedingte Risikofaktoren dynamisch bewerten.</li>
+<li><strong>Taktische Protokolle:</strong> Präzise Betriebsverfahren für Szenarien mit hoher Bedrohung.</li>
+<li><strong>Leichtgewichtige Engine:</strong> Optimiertes Design mit geringem Stromverbrauch für extreme Bedingungen.</li>
+</ul>
+
+<a href="https://play.google.com/store/apps/details?id=com.survpro.pathx" class="main-btn">Play Store</a>
+
+</div>
+
 <div class="slider" id="slider2">
-<div class="slider-title">SURVPATH X</div>
+<div class="slider-title">SURVIVAL PATH X</div>
 <div class="slides" id="slides2"></div>
 <div class="dots" id="dots2"></div>
 <div class="progress" id="progress2"></div>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="hero">
+<div class="app-title">
+<img src="images/elite-guardian/logo.png">
+<h1><span>Elite Guardian</span><br>Taktische Befehlsgewalt & Offline-Kommunikation</h1>
+</div>
+
+<p>
+Ein autonomes lokales Befehls- und Kommunikationszentrum, das für Sicherheitsnetzwerke, Rettungsteams und Familien entwickelt wurde. Es richtet ein sicheres, verschlüsseltes WebSocket-Netzwerk über lokales WLAN ein und ermöglicht dezentrale Nachrichtenübermittlung, Offline-Kartennavigation, sichere QR-basierte Gerätepaarung und Echtzeit-Tracking kritischer Infrastrukturen, ohne auf externes Internet oder globale Server angewiesen zu sein.
+</p>
+</div>
+
+<div class="section-box">
+
+<div class="info-box">
+
+<h2>Sicher. Lokal. Autonom.</h2>
+
+<ul>
+<li><strong>Dezentrale Kommunikation:</strong> Verschlüsselte WebSocket-Nachrichten über lokales WLAN.</li>
+<li><strong>Offline-Karten-Caching:</strong> Kartenregionen für Navigation und Standortverfolgung herunterladen.</li>
+<li><strong>Gerätepaarung:</strong> Fügen Sie Personal über QR-Codes und Einmal-PINs sicher hinzu.</li>
+<li><strong>Infrastruktursteuerung:</strong> Generatoren, Solarenergie und kritische Systeme überwachen.</li>
+<li><strong>Notfallverfahren:</strong> Protokolle verwalten und sofortige Panikalarme senden.</li>
+</ul>
+
+<a href="https://play.google.com/store/apps/details?id=com.eliteguardian.elite_guardian" class="main-btn">Play Store</a>
+
+</div>
+
+<div class="slider" id="slider5">
+<div class="slider-title">ELITE GUARDIAN COMMAND</div>
+<div class="slides" id="slides5"></div>
+<div class="dots" id="dots5"></div>
+<div class="progress" id="progress5"></div>
+</div>
+
 </div>
 
 </section>
@@ -454,7 +585,7 @@ Play Store
 </div>
 
 <p>
-Erstellen Sie realistische Evakuierungsszenarien, organisieren Sie Ihre Ausrüstung und bereiten Sie sich klug vor.
+Ein strukturierter, szenariobasierter Taschenplaner und Vorsorgemanager. Erstellen Sie maßgeschneiderte Notfallszenarien (Erdbeben, Stromausfälle, Evakuierungen), entwerfen Sie spezialisierte Fluchttaschen mit kategoriespezifischen Gegenständen, verfolgen Sie die Gewichtsverteilung und überwachen Sie die Haltbarkeit von Lebensmitteln oder Batterien, damit Sie nie unvorbereitet getroffen werden.
 </p>
 
 </div>
@@ -499,7 +630,7 @@ Play Store
 </div>
 
 <p>
-Testen Sie Ihr Überlebenswissen, bevor die Realität Sie testet.
+Ein interaktiver, spielerischer Survival-Wissenssimulator. Testen Sie Ihre Entscheidungsfähigkeit in über 120 intensiven Wildnis- und Stadtkriegsszenarien. Bewerten Sie kritische Situationen unter Druck, analysieren Sie detaillierte Antworterklärungen, sammeln Sie Erfolge und vergleichen Sie Ihre Punktzahl auf der globalen Bestenliste.
 </p>
 </div>
 
@@ -531,6 +662,7 @@ Testen Sie Ihr Überlebenswissen, bevor die Realität Sie testet.
 
 </section>
 
+
 <footer>
 <p>© 2025 Survival Protocol X</p>
 
@@ -548,7 +680,6 @@ Testen Sie Ihr Überlebenswissen, bevor die Realität Sie testet.
 </div>
 
 <script>
-// Resim yolları aynı kalmıştır.
 const survivalImages=[
 "images/de/01.jpeg","images/de/02.jpeg","images/de/03.jpeg","images/de/04.jpeg",
 "images/de/05.jpeg","images/de/06.jpeg","images/de/07.jpeg","images/de/08.jpeg"
@@ -565,7 +696,6 @@ const survpathImages=[
 "images/survpath/tr_08.jpeg"
 ];
 
-
 const bugoutImages=[
 "images/bugout-tr/b01.jpeg","images/bugout-tr/b02.jpeg","images/bugout-tr/b03.jpeg","images/bugout-tr/b04.jpeg",
 "images/bugout-tr/01.jpeg","images/bugout-tr/02.jpeg","images/bugout-tr/03.jpeg","images/bugout-tr/04.jpeg"
@@ -577,6 +707,17 @@ const atersutImages=[
 "images/atersut/04.jpeg",
 "images/atersut/05.jpeg",
 "images/atersut/06.jpeg"
+];
+
+const eliteGuardianImages=[
+"images/elite-guardian/en/001.jpeg",
+"images/elite-guardian/en/002.jpeg",
+"images/elite-guardian/en/003.jpeg",
+"images/elite-guardian/en/004.jpeg",
+"images/elite-guardian/en/005.jpeg",
+"images/elite-guardian/en/006.jpeg",
+"images/elite-guardian/en/007.jpeg",
+"images/elite-guardian/en/008.jpeg"
 ];
 
 function initSlider(images,slidesId,dotsId,progressId){
@@ -625,6 +766,7 @@ auto();
 
 initSlider(survivalImages,"slides1","dots1","progress1");
 initSlider(survpathImages,"slides2","dots2","progress2");
+initSlider(eliteGuardianImages,"slides5","dots5","progress5");
 initSlider(bugoutImages,"slides4","dots4","progress4");
 initSlider(atersutImages,"slides3","dots3","progress3");
 </script>
