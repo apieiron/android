@@ -1,5 +1,5 @@
 {
-  "version": 1.1,
+  "version": 1.2,
   "default_language": "en",
   "tools": [
     {
@@ -41,7 +41,7 @@
         "ru": { "name": "Bug Out Bag Planner", "description": "Динамическая система планирования снаряжения и управления тревожными сумками." },
         "ar": { "name": "Bug Out Bag Planner", "description": "نظام ديناميكي لتخطيط المعدات وإدارة حقائب الطوارئ على أساس السيناريو." },
         "hi": { "name": "Bug Out Bag Planner", "description": "परिदृश्य-आधारित गतिशील गियर योजना और आपातकालीन बैग प्रबंधन प्रणाली।" },
-        "bn": { "name": "Bug Out Bag Planner", "description": "দৃশ্যপট-ভিত্তিক গতিশীল গিয়ার পরিকল্পনা এবং জরুরি ব্যাগ ব্যবস্থাপনা সিস্টেম।" },
+        "bn": { "name": "Bug Out Bag Planner", "description": "दृश्यপট-ভিত্তিক গতিশীল গিয়ার পরিকল্পনা এবং জরুরি ব্যাগ ব্যবস্থাপনা সিস্টেম।" },
         "id": { "name": "Bug Out Bag Planner", "description": "Sistem manajemen tas darurat dan perencanaan peralatan berbasis skenario dinamis." },
         "ms": { "name": "Bug Out Bag Planner", "description": "Sistem pengurusan beg kecemasan dan perancangan peralatan berasaskan senario." },
         "ja": { "name": "Bug Out Bag Planner", "description": "シナリオベースの動的な装備計画および緊急用バッグ管理システム。" },
@@ -63,7 +63,7 @@
         "pt": { "name": "Survival Protocol X", "description": "Procedimentos passo a passo e listas de verificação essenciais." },
         "ru": { "name": "Survival Protocol X", "description": "Пошаговые процедуры и основные контрольные списки для выживания." },
         "ar": { "name": "Survival Protocol X", "description": "إجراءات البقاء خطوة بخطوة وقوائم المراجعة الأساسية." },
-        "hi": { "name": "Survival Protocol X", "description": "चरण-दर-चरण उत्तरजीविता प्रक्रियाएं और आवश्यक चेकलिस्ट।" },
+        "hi": { "name": "Survival Protocol X", "description": "चरण-در-चरण उत्तरजीविता प्रक्रियाएं और आवश्यक चेकलिस्ट।" },
         "bn": { "name": "Survival Protocol X", "description": "ধাপে ধাপে বেঁচে থাকার পদ্ধতি এবং প্রয়োজনীয় চেকলিস্ট।" },
         "id": { "name": "Survival Protocol X", "description": "Prosedur kelangsungan hidup langkah demi langkah dan daftar periksa penting." },
         "ms": { "name": "Survival Protocol X", "description": "Prosedur kelangsungan hidup langkah demi langkah dan senarai semak penting." },
@@ -83,15 +83,38 @@
         "es": { "name": "ATERSUT", "description": "Motor de próxima generación para probar conocimientos de supervivencia." },
         "fr": { "name": "ATERSUT", "description": "Moteur de nouvelle génération pour tester les connaissances de survie." },
         "it": { "name": "ATERSUT", "description": "Motore di nuova generazione per testare le conoscenze di sopravvivenza." },
-        "pt": { "name": "ATERSUT", "description": "Motor de próxima geração para testar conhecimentos de sobrevivência." },
+        "pt": { "name": "ATERSUT", "description": "Motor de próxima geração para testar conhecimentos de supervivencia." },
         "ru": { "name": "ATERSUT", "description": "Механизм нового поколения для проверки знаний о выживании." },
         "ar": { "name": "ATERSUT", "description": "محرك الجيل القادم لاختبار وتحسين معرفة البقاء على قيد الحياة." },
-        "hi": { "name": "ATERSUT", "description": "उत्तरजीविता ज्ञान के परीक्षण और सुधार के लिए अगली पीढ़ी का इंजन।" },
+        "hi": { "name": "ATERSUT", "description": "उत्तरजीविता ज्ञान के परीक्षण and सुधार के लिए अगली पीढ़ी का इंजन।" },
         "bn": { "name": "ATERSUT", "description": "বেঁচে থাকার জ্ঞান পরীক্ষা এবং উন্নত করার জন্য পরবর্তী প্রজন্মের ইঞ্জিন।" },
         "id": { "name": "ATERSUT", "description": "Mesin generasi berikutnya untuk menguji pengetahuan bertahan hidup." },
         "ms": { "name": "ATERSUT", "description": "Enjin generasi akan datang untuk menguji pengetahuan kelangsungan hidup." },
         "ja": { "name": "ATERSUT", "description": "サバイバル知識をテストし向上させるための次世代エンジン。" },
         "zh": { "name": "ATERSUT", "description": "用于测试和提高生存知识 floor 次世代引擎。" }
+      }
+    },
+    {
+      "id": "elite_guardian",
+      "package_name": "com.eliteguardian.elite_guardian",
+      "icon_url": "https://survivalpro.tr/images/logos/eliteguardian.png",
+      "play_store_url": "https://play.google.com/store/apps/details?id=com.eliteguardian.elite_guardian",
+      "localization": {
+        "en": { "name": "Elite Guardian", "description": "Advanced security tracking and real-time threat alert system." },
+        "tr": { "name": "Elite Guardian", "description": "Gelişmiş güvenlik takibi ve gerçek zamanlı tehdit uyarı sistemi." },
+        "de": { "name": "Elite Guardian", "description": "Fortschrittliches Sicherheits-Tracking und Echtzeit-Bedrohungswarnsystem." },
+        "es": { "name": "Elite Guardian", "description": "Sistema avanzado de seguimiento de seguridad y alerta de amenazas en tiempo real." },
+        "fr": { "name": "Elite Guardian", "description": "Système avancé de suivi de la sécurité et d'alerte des menaces en temps réel." },
+        "it": { "name": "Elite Guardian", "description": "Sistema avanzato di tracciamento della sicurezza e allerta minacce in tempo real." },
+        "pt": { "name": "Elite Guardian", "description": "Sistema avançado de monitorização de segurança e alerta de ameaças em tempo real." },
+        "ru": { "name": "Elite Guardian", "description": "Усовершенствованная система отслеживания безопасности и оповещения об угрозах в реальном времени." },
+        "ar": { "name": "Elite Guardian", "description": "نظام متطور لتتبع الأمن والتنبيه بالتهديدات في الوقت الفعلي." },
+        "hi": { "name": "Elite Guardian", "description": "उन्नत सुरक्षा ट्रैकिंग और वास्तविक समय ख़तरा चेतावनी प्रणाली।" },
+        "bn": { "name": "Elite Guardian", "description": "উন্নত নিরাপত্তা ট্র্যাকিং এবং রিয়েল-টাইম হুমকি সতর্কতা সিস্টেম।" },
+        "id": { "name": "Elite Guardian", "description": "Sistem pelacakan keamanan canggih dan peringatan ancaman waktu nyata." },
+        "ms": { "name": "Elite Guardian", "description": "Sistem penjejakan keselamatan lanjutan dan amaran ancaman masa nyata." },
+        "ja": { "name": "Elite Guardian", "description": "高度なセキュリティ追跡およびリアルタイム脅威アラートシステム。" },
+        "zh": { "name": "Elite Guardian", "description": "高级安全追踪和实时 threat 警报系统。" }
       }
     }
   ]
